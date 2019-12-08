@@ -1273,157 +1273,6 @@
 		<property name="statement" value="statement 5" />
 		<property name="userAccount" ref="auditor5UserAccount" />
 	</bean>
-	
-<!-- Audits -->
-
-	<bean name="audit1" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 1" />
-		<property name="finalMode" value="true" />
-		<property name="moment" value="2018/12/21 01:00" />
-		<property name="body" value="Auditory 1" />
-		<property name="auditor" ref="auditor1Auditor" />
-		<property name="job" ref="job1" />
-	</bean>
-
-	<bean name="audit2" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 2" />
-		<property name="finalMode" value="true" />
-		<property name="moment" value="2014/02/08 12:10" />
-		<property name="body" value="Auditory 2" />
-		<property name="auditor" ref="auditor1Auditor" />
-		<property name="job" ref="job2" />
-
-	</bean>
-
-	<bean name="audit3" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 3" />
-		<property name="finalMode" value="false" />
-		<property name="moment" value="2006/11/06 04:11" />
-		<property name="body" value="Auditory 3" />
-		<property name="auditor" ref="auditor5Auditor" />
-		<property name="job" ref="job3" />
-
-	</bean>
-
-	<bean name="audit4" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 4" />
-		<property name="finalMode" value="false" />
-		<property name="moment" value="2015/05/01 16:05" />
-		<property name="body" value="Auditory 4" />
-		<property name="auditor" ref="auditor2Auditor" />
-		<property name="job" ref="job4" />
-	</bean>
-
-	<bean name="audit5" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 5" />
-		<property name="finalMode" value="true" />
-		<property name="moment" value="2009/02/04 15:02" />
-		<property name="body" value="Auditory 5" />
-		<property name="auditor" ref="auditor3Auditor" />
-		<property name="job" ref="job5" />
-	</bean>
-
-	<bean name="audit6" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 6" />
-		<property name="finalMode" value="true" />
-		<property name="moment" value="2015/10/06 11:10" />
-		<property name="body" value="Auditory 6" />
-		<property name="auditor" ref="auditor4Auditor" />
-		<property name="job" ref="job1" />
-	</bean>
-
-	<bean name="audit7" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 7" />
-		<property name="finalMode" value="true" />
-		<property name="moment" value="2016/04/25 04:15" />
-		<property name="body" value="Auditory 7" />
-		<property name="auditor" ref="auditor5Auditor" />
-		<property name="job" ref="job6" />
-	</bean>
-
-	<bean name="audit8" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 8" />
-		<property name="finalMode" value="false" />
-		<property name="moment" value="2014/02/08 12:10" />
-		<property name="body" value="Auditory 8" />
-		<property name="auditor" ref="auditor1Auditor" />
-		<property name="job" ref="job7" />
-
-	</bean>
-
-	<bean name="audit9" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 9" />
-		<property name="finalMode" value="true" />
-		<property name="moment" value="2006/11/06 04:11" />
-		<property name="body" value="Auditory 9" />
-		<property name="auditor" ref="auditor2Auditor" />
-		<property name="job" ref="job8" />
-
-	</bean>
-
-	<bean name="audit10" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 10" />
-		<property name="finalMode" value="true" />
-		<property name="moment" value="2015/05/01 16:05" />
-		<property name="body" value="Auditory 10" />
-		<property name="auditor" ref="auditor3Auditor" />
-		<property name="job" ref="job7" />
-	</bean>
-
-	<bean name="audit11" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 11" />
-		<property name="finalMode" value="true" />
-		<property name="moment" value="2008/02/07 17:02" />
-		<property name="body" value="Auditory 11" />
-		<property name="auditor" ref="auditor4Auditor" />
-		<property name="job" ref="job6" />
-	</bean>
-
-	<bean name="audit12" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 12" />
-		<property name="finalMode" value="false" />
-		<property name="moment" value="2012/10/06 11:10" />
-		<property name="body" value="Auditory 12" />
-		<property name="auditor" ref="auditor5Auditor" />
-		<property name="job" ref="job5" />
-	</bean>
-
-	<bean name="audit13" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 13" />
-		<property name="finalMode" value="true" />
-		<property name="moment" value="2016/11/06 04:11" />
-		<property name="body" value="Auditory 13" />
-		<property name="auditor" ref="auditor2Auditor" />
-		<property name="job" ref="job4" />
-
-	</bean>
-
-	<bean name="audit14" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 14" />
-		<property name="finalMode" value="false" />
-		<property name="moment" value="2008/05/01 12:05" />
-		<property name="body" value="Auditory 14" />
-		<property name="auditor" ref="auditor3Auditor" />
-		<property name="job" ref="job3" />
-	</bean>
-
-	<bean name="audit15" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 15" />
-		<property name="finalMode" value="true" />
-		<property name="moment" value="2007/02/07 17:02" />
-		<property name="body" value="Auditory 15" />
-		<property name="auditor" ref="auditor4Auditor" />
-		<property name="job" ref="job2" />
-	</bean>
-
-	<bean name="audit16" class="acme.entities.audits.Audit">
-		<property name="title" value="Title for an audit 16" />
-		<property name="finalMode" value="true" />
-		<property name="moment" value="2001/12/06 06:14" />
-		<property name="body" value="Auditory 16" />
-		<property name="auditor" ref="auditor5Auditor" />
-		<property name="job" ref="job1" />
-	</bean>
 
 		<!-- Duties -->
 
@@ -1610,12 +1459,13 @@
 		<property name="finalMode" value="false" />
 		<property name="employer" ref="employer1Employer" />
 		<property name="descriptor" ref="descriptor1Descriptor" />
-		<property name="audits">
+<!-- 		<property name="audits">
 			<list>
 				<ref bean="audit1" />
 				<ref bean="audit16" />
 			</list>
 		</property>
+-->
 	</bean>
 
 	<bean name="job2" class="acme.entities.jobs.Job">
@@ -1627,12 +1477,13 @@
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer2Employer" />
 		<property name="descriptor" ref="descriptor2Descriptor" />
-		<property name="audits">
+<!--		<property name="audits">
 			<list>
 				<ref bean="audit2" />
 				<ref bean="audit15" />
 			</list>
 		</property>
+-->
 	</bean>
 
 	<bean name="job3" class="acme.entities.jobs.Job">
@@ -1644,12 +1495,12 @@
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer2Employer" />
 		<property name="descriptor" ref="descriptor3Descriptor" />
-		<property name="audits">
+<!--		<property name="audits">
 			<list>
 				<ref bean="audit3" />
 				<ref bean="audit14" />
 			</list>
-		</property>
+		</property> -->
 	</bean>
 
 	<bean name="job4" class="acme.entities.jobs.Job">
@@ -1661,13 +1512,13 @@
 		<property name="finalMode" value="false" />
 		<property name="employer" ref="employer1Employer" />
 		<property name="descriptor" ref="descriptor4Descriptor" />
-		<property name="audits">
+<!--		<property name="audits">
 			<list>
 				<ref bean="audit4" />
 				<ref bean="audit13" />
 			</list>
 		</property>
-	</bean>
+-->	</bean>
 
 	<bean name="job5" class="acme.entities.jobs.Job">
 		<property name="referenceNumber" value="EEEE-JJJE" />
@@ -1678,13 +1529,13 @@
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer1Employer" />
 		<property name="descriptor" ref="descriptor5Descriptor" />
-		<property name="audits">
+<!--		<property name="audits">
 			<list>
 				<ref bean="audit5" />
 				<ref bean="audit12" />
 			</list>
 		</property>
-	</bean>
+-->	</bean>
 
 	<bean name="job6" class="acme.entities.jobs.Job">
 		<property name="referenceNumber" value="EEEF-JJJF" />
@@ -1695,13 +1546,13 @@
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer4Employer" />
 		<property name="descriptor" ref="descriptor6Descriptor" />
-		<property name="audits">
+<!--		<property name="audits">
 			<list>
 				<ref bean="audit7" />
 				<ref bean="audit11" />
 			</list>
 		</property>
-	</bean>
+-->	</bean>
 	
 	<bean name="job7" class="acme.entities.jobs.Job">
 		<property name="referenceNumber" value="EEEG-JJJG" />
@@ -1712,13 +1563,13 @@
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer2Employer" />
 		<property name="descriptor" ref="descriptor7Descriptor" />
-		<property name="audits">
+<!--		<property name="audits">
 			<list>
 				<ref bean="audit8" />
 				<ref bean="audit10" />
 			</list>
 		</property>
-	</bean>
+-->	</bean>
 	
 	<bean name="job8" class="acme.entities.jobs.Job">
 		<property name="referenceNumber" value="EEEH-JJJH" />
@@ -1729,14 +1580,163 @@
 		<property name="finalMode" value="false" />
 		<property name="employer" ref="employer1Employer" />
 		<property name="descriptor" ref="descriptor8Descriptor" />
-		<property name="audits">
+<!--		<property name="audits">
 			<list>
 				<ref bean="audit9" />
 			</list>
 		</property>
+-->	</bean>
+
+<!-- Audits -->
+
+	<bean name="audit1" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 1" />
+		<property name="finalMode" value="true" />
+		<property name="moment" value="2018/12/21 01:00" />
+		<property name="body" value="Auditory 1" />
+		<property name="auditor" ref="auditor1Auditor" />
+		<property name="job" ref="job1" />
 	</bean>
 
+	<bean name="audit2" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 2" />
+		<property name="finalMode" value="true" />
+		<property name="moment" value="2014/02/08 12:10" />
+		<property name="body" value="Auditory 2" />
+		<property name="auditor" ref="auditor1Auditor" />
+		<property name="job" ref="job2" />
 
+	</bean>
+
+	<bean name="audit3" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 3" />
+		<property name="finalMode" value="false" />
+		<property name="moment" value="2006/11/06 04:11" />
+		<property name="body" value="Auditory 3" />
+		<property name="auditor" ref="auditor5Auditor" />
+		<property name="job" ref="job3" />
+
+	</bean>
+
+	<bean name="audit4" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 4" />
+		<property name="finalMode" value="false" />
+		<property name="moment" value="2015/05/01 16:05" />
+		<property name="body" value="Auditory 4" />
+		<property name="auditor" ref="auditor2Auditor" />
+		<property name="job" ref="job4" />
+	</bean>
+
+	<bean name="audit5" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 5" />
+		<property name="finalMode" value="true" />
+		<property name="moment" value="2009/02/04 15:02" />
+		<property name="body" value="Auditory 5" />
+		<property name="auditor" ref="auditor3Auditor" />
+		<property name="job" ref="job5" />
+	</bean>
+
+	<bean name="audit6" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 6" />
+		<property name="finalMode" value="true" />
+		<property name="moment" value="2015/10/06 11:10" />
+		<property name="body" value="Auditory 6" />
+		<property name="auditor" ref="auditor4Auditor" />
+		<property name="job" ref="job1" />
+	</bean>
+
+	<bean name="audit7" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 7" />
+		<property name="finalMode" value="true" />
+		<property name="moment" value="2016/04/25 04:15" />
+		<property name="body" value="Auditory 7" />
+		<property name="auditor" ref="auditor5Auditor" />
+		<property name="job" ref="job6" />
+	</bean>
+
+	<bean name="audit8" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 8" />
+		<property name="finalMode" value="false" />
+		<property name="moment" value="2014/02/08 12:10" />
+		<property name="body" value="Auditory 8" />
+		<property name="auditor" ref="auditor1Auditor" />
+		<property name="job" ref="job7" />
+
+	</bean>
+
+	<bean name="audit9" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 9" />
+		<property name="finalMode" value="true" />
+		<property name="moment" value="2006/11/06 04:11" />
+		<property name="body" value="Auditory 9" />
+		<property name="auditor" ref="auditor2Auditor" />
+		<property name="job" ref="job8" />
+
+	</bean>
+
+	<bean name="audit10" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 10" />
+		<property name="finalMode" value="true" />
+		<property name="moment" value="2015/05/01 16:05" />
+		<property name="body" value="Auditory 10" />
+		<property name="auditor" ref="auditor3Auditor" />
+		<property name="job" ref="job7" />
+	</bean>
+
+	<bean name="audit11" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 11" />
+		<property name="finalMode" value="true" />
+		<property name="moment" value="2008/02/07 17:02" />
+		<property name="body" value="Auditory 11" />
+		<property name="auditor" ref="auditor4Auditor" />
+		<property name="job" ref="job6" />
+	</bean>
+
+	<bean name="audit12" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 12" />
+		<property name="finalMode" value="false" />
+		<property name="moment" value="2012/10/06 11:10" />
+		<property name="body" value="Auditory 12" />
+		<property name="auditor" ref="auditor5Auditor" />
+		<property name="job" ref="job5" />
+	</bean>
+
+	<bean name="audit13" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 13" />
+		<property name="finalMode" value="true" />
+		<property name="moment" value="2016/11/06 04:11" />
+		<property name="body" value="Auditory 13" />
+		<property name="auditor" ref="auditor2Auditor" />
+		<property name="job" ref="job4" />
+
+	</bean>
+
+	<bean name="audit14" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 14" />
+		<property name="finalMode" value="false" />
+		<property name="moment" value="2008/05/01 12:05" />
+		<property name="body" value="Auditory 14" />
+		<property name="auditor" ref="auditor3Auditor" />
+		<property name="job" ref="job3" />
+	</bean>
+
+	<bean name="audit15" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 15" />
+		<property name="finalMode" value="true" />
+		<property name="moment" value="2007/02/07 17:02" />
+		<property name="body" value="Auditory 15" />
+		<property name="auditor" ref="auditor4Auditor" />
+		<property name="job" ref="job2" />
+	</bean>
+
+	<bean name="audit16" class="acme.entities.audits.Audit">
+		<property name="title" value="Title for an audit 16" />
+		<property name="finalMode" value="true" />
+		<property name="moment" value="2001/12/06 06:14" />
+		<property name="body" value="Auditory 16" />
+		<property name="auditor" ref="auditor5Auditor" />
+		<property name="job" ref="job1" />
+	</bean>
 
 	<!-- Application's bean -->
 

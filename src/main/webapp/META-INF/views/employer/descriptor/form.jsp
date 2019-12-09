@@ -19,5 +19,13 @@
 	<acme:form-textbox code="employer.descriptor.form.label.description" path="description" />
 	
 	<acme:form-return code="employer.descriptor.form.button.duties" action="${direccion}"/>
+	
+	<acme:form-submit test="${command== 'show'}" code="employer.descriptor.form.button.update"
+		action="/employer/descriptor/update" />
+	
+	<acme:form-submit test="${command== 'update'}" code="employer.descriptor.form.button.update"
+		action="/employer/descriptor/update" />
+		
+		
 	<acme:form-return code="employer.descriptor.form.button.return" />
 </acme:form>

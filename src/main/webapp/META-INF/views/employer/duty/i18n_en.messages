@@ -14,6 +14,10 @@ employer.duty.form.label.timeAmount = Time amount:
 
 employer.duty.list.label.title = Title
 employer.duty.list.label.timeAmount = Time Amount
+employer.duty.list.button.return = Return
 
+employer.duty.form.button.update = Update
+employer.duty.form.button.delete = Delete
 employer.duty.form.button.return = Return
 
+employer.duty.cannotDeleteAll = Cannot delete all duties of the descriptor

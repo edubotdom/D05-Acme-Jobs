@@ -24,8 +24,14 @@ employer.job.form.label.dutyTimeAmount = Porcentaje de tiempo invertido en la la
 employer.job.form.button.auditList = Lista de audiciones
 employer.job.form.button.descriptorShow = Mostrar descriptor
 
+employer.job.form.button.update = Update
 employer.job.form.button.return = Volver
 
 employer.job.list.label.referenceNumber = Referencia
 employer.job.list.label.title = Título
 employer.job.list.label.deadline = Fecha límite
+
+employer.job.isAlreadyPublished = El job ya está publicado, y por lo tanto, no puede ser modificado
+employer.job.aWorkerHasAppliedForIt = Un trabajador ha aplicado por este trabajo, por lo tanto no puede ser eliminado
+employer.job.dutiesNotSumUp = Las labores no suman el 100%, por lo tanto el trabajo no puede ser publicado
+employer.job.statusNotCorrect = El estado sólo puede ser "Published" o "Draft"

@@ -1354,6 +1354,23 @@
 			</list>
 		</property>
  -->	</bean>
+ 
+	 <bean name="descriptor9Descriptor" class="acme.entities.descriptors.Descriptor">
+			<property name="description" value="Description sample of a Descriptor9" />
+	<!-- 		<property name="duties">
+				<list>
+					<ref bean="duty2Duty" />
+				</list>
+			</property>
+	 -->	</bean>
+	 <bean name="descriptor10Descriptor" class="acme.entities.descriptors.Descriptor">
+			<property name="description" value="Description sample of a Descriptor10" />
+	<!-- 		<property name="duties">
+				<list>
+					<ref bean="duty2Duty" />
+				</list>
+			</property>
+	 -->	</bean>
 
 
 		<!-- Duties -->
@@ -1463,6 +1480,20 @@
 		<property name="descriptor" ref="descriptor8Descriptor" />
 	</bean>
 
+	<bean name="duty16Duty" class="acme.entities.duties.Duty">
+		<property name="title" value="Duty title sample16" />
+		<property name="description" value="Description of a duty16" />
+		<property name="timeAmount" value="78.43" />
+		<property name="descriptor" ref="descriptor9Descriptor" />
+	</bean>
+	
+	<bean name="duty17Duty" class="acme.entities.duties.Duty">
+		<property name="title" value="Duty title sample17" />
+		<property name="description" value="Description of a duty17" />
+		<property name="timeAmount" value="100.00" />
+		<property name="descriptor" ref="descriptor10Descriptor" />
+	</bean>
+	
 	<!-- Jobs -->
 
 	<bean name="job1" class="acme.entities.jobs.Job">
@@ -1551,6 +1582,28 @@
 		<property name="finalMode" value="false" />
 		<property name="employer" ref="employer1Employer" />
 		<property name="descriptor" ref="descriptor8Descriptor" />
+	</bean>
+	
+	<bean name="job9" class="acme.entities.jobs.Job">
+		<property name="referenceNumber" value="ENAP-JJJP" />
+		<property name="title" value="Title 9" />
+		<property name="deadline" value="1999/04/25 06:57" />
+		<property name="salary" value="€ 11,000.00" />
+		<property name="moreInfo" value="http://www.moreinfo.com/" />
+		<property name="finalMode" value="false" />
+		<property name="employer" ref="employer1Employer" />
+		<property name="descriptor" ref="descriptor9Descriptor" />
+	</bean>
+	
+	<bean name="job10" class="acme.entities.jobs.Job">
+		<property name="referenceNumber" value="EMOP-HHJP" />
+		<property name="title" value="Title 10" />
+		<property name="deadline" value="1999/04/25 06:57" />
+		<property name="salary" value="€ 11,000.00" />
+		<property name="moreInfo" value="http://www.moreinfo.com/" />
+		<property name="finalMode" value="false" />
+		<property name="employer" ref="employer1Employer" />
+		<property name="descriptor" ref="descriptor10Descriptor" />
 	</bean>
 
 <!-- Audits -->

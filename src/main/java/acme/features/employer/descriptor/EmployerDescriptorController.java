@@ -19,7 +19,10 @@ public class EmployerDescriptorController extends AbstractController<Employer, D
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private EmployerDescriptorShowService showService;
+	private EmployerDescriptorShowService	showService;
+
+	@Autowired
+	private EmployerDescriptorUpdateService	updateService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -27,6 +30,7 @@ public class EmployerDescriptorController extends AbstractController<Employer, D
 	@PostConstruct
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 	}
 
 }

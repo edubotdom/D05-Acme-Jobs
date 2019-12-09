@@ -23,9 +23,20 @@
 	<acme:form-textbox code="employer.job.form.label.moreInfo" path="moreInfo" />
 	<acme:form-textbox code="employer.job.form.label.status" path="status" />
 
-	
+	<acme:form-submit test="${command== 'show'}" code="employer.job.form.button.update"
+		action="/employer/job/update" />
+		
+	<acme:form-submit test="${command== 'show'}" code="employer.job.form.button.delete"
+		action="/employer/job/delete" />
+		
+	<acme:form-submit test="${command== 'update'}" code="employer.job.form.button.update"
+		action="/employer/job/update" />
+		
+	<acme:form-submit test="${command== 'delete'}" code="employer.job.form.button.delete"
+		action="/employer/job/delete" />
+		
 	<acme:form-return code="employer.job.form.button.auditList" action="${auditList}"/>
 	<acme:form-return code="employer.job.form.button.descriptorShow" action="${descriptorShow}"/>
-	
+		
 	<acme:form-return code="employer.job.form.button.return" />
 </acme:form>

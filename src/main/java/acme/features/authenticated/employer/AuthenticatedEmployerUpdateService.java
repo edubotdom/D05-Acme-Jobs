@@ -1,5 +1,5 @@
 /*
- * AuthenticatedWorkerUpdateService.java
+ * AuthenticatedEmployerUpdateService.java
  *
  * Copyright (c) 2019 Rafael Corchuelo.
  *
@@ -10,12 +10,12 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.worker;
+package acme.features.authenticated.employer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.roles.Worker;
+import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
@@ -27,32 +27,32 @@ import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class AuthenticatedWorkerUpdateService implements AbstractUpdateService<Authenticated, Worker> {
+public class AuthenticatedEmployerUpdateService implements AbstractUpdateService<Authenticated, Employer> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedWorkerRepository repository;
+	private AuthenticatedEmployerRepository repository;
 
 
-	// AbstractUpdateService<Authenticated, Worker> interface -----------------
+	// AbstractUpdateService<Authenticated, Employer> interface -----------------
 
 	@Override
-	public boolean authorise(final Request<Worker> request) {
+	public boolean authorise(final Request<Employer> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public void validate(final Request<Worker> request, final Worker entity, final Errors errors) {
+	public void validate(final Request<Employer> request, final Employer entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 	}
 
 	@Override
-	public void bind(final Request<Worker> request, final Worker entity, final Errors errors) {
+	public void bind(final Request<Employer> request, final Employer entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -61,32 +61,32 @@ public class AuthenticatedWorkerUpdateService implements AbstractUpdateService<A
 	}
 
 	@Override
-	public void unbind(final Request<Worker> request, final Worker entity, final Model model) {
+	public void unbind(final Request<Employer> request, final Employer entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "qualifications", "skills");
+		request.unbind(entity, model, "company", "sector");
 	}
 
 	@Override
-	public Worker findOne(final Request<Worker> request) {
+	public Employer findOne(final Request<Employer> request) {
 		assert request != null;
 
-		Worker result;
+		Employer result;
 		Principal principal;
 		int userAccountId;
 
 		principal = request.getPrincipal();
 		userAccountId = principal.getAccountId();
 
-		result = this.repository.findOneWorkerByUserAccountId(userAccountId);
+		result = this.repository.findOneEmployerByUserAccountId(userAccountId);
 
 		return result;
 	}
 
 	@Override
-	public void update(final Request<Worker> request, final Worker entity) {
+	public void update(final Request<Employer> request, final Employer entity) {
 		assert request != null;
 		assert entity != null;
 
@@ -94,7 +94,7 @@ public class AuthenticatedWorkerUpdateService implements AbstractUpdateService<A
 	}
 
 	@Override
-	public void onSuccess(final Request<Worker> request, final Response<Worker> response) {
+	public void onSuccess(final Request<Employer> request, final Response<Employer> response) {
 		assert request != null;
 		assert response != null;
 

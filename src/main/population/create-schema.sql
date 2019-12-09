@@ -143,17 +143,13 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `descriptor_duty` (
-       `descriptor_id` integer not null,
-        `duties_id` integer not null
-    ) engine=InnoDB;
-
     create table `duty` (
        `id` integer not null,
         `version` integer not null,
         `description` varchar(255),
         `time_amount` double precision,
         `title` varchar(255),
+        `descriptor_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -198,6 +194,7 @@
         `moment` datetime(6),
         `tags` varchar(255),
         `title` varchar(255),
+        `thread_id` integer not null,
         `user_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
@@ -276,9 +273,9 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `thread_message` (
+    create table `thread_authenticated` (
        `thread_id` integer not null,
-        `messages_id` integer not null
+        `users_id` integer not null
     ) engine=InnoDB;
 
     create table `user_account` (
@@ -319,9 +316,6 @@ create index IDXoqmmqbafwj4m9wgwqexcmckjs on `audit` (`final_mode`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
 create index IDX3vwg77973akwy9ilnfq707yt1 on `company` (`stars`);
 create index IDXbm7mwffwxwiukjmbmt9t1qnnu on `company` (`sector`);
-
-    alter table `descriptor_duty` 
-       add constraint UK_kvr5rclgwa51d625rmx13ke96 unique (`duties_id`);
 create index IDXq1q335kxox0leg1u9hhndvue1 on `investor` (`stars`);
 create index IDX1slmmcr1g0wv9jbgun6rny0oy on `investor` (`sector`);
 create index IDXfdmpnr8o4phmk81sqsano16r on `job` (`deadline`);
@@ -344,9 +338,6 @@ create index IDX2qy5jkiqwk6f13kkfq8pu61le on `solicitud` (`ticker`);
 
     alter table `solicitud` 
        add constraint UK_rea5aivw0b4fiu93s509u9lky unique (`ticker`);
-
-    alter table `thread_message` 
-       add constraint UK_3jtjeexb82n6qyr77gcoqr4ck unique (`messages_id`);
 
     alter table `user_account` 
        add constraint UK_castjbvpeeus0r8lbpehiu0e4 unique (`username`);
@@ -406,13 +397,8 @@ create index IDX2qy5jkiqwk6f13kkfq8pu61le on `solicitud` (`ticker`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
-    alter table `descriptor_duty` 
-       add constraint `FK57eqqlhihwvd53ykpmsiqlx2p` 
-       foreign key (`duties_id`) 
-       references `duty` (`id`);
-
-    alter table `descriptor_duty` 
-       add constraint `FKqitedkrksd2w8qyp1fp5eao9f` 
+    alter table `duty` 
+       add constraint `FK3cc3garl37bl7gswreqwr7pj4` 
        foreign key (`descriptor_id`) 
        references `descriptor` (`id`);
 
@@ -430,6 +416,11 @@ create index IDX2qy5jkiqwk6f13kkfq8pu61le on `solicitud` (`ticker`);
        add constraint `FK3rxjf8uh6fh2u990pe8i2at0e` 
        foreign key (`employer_id`) 
        references `employer` (`id`);
+
+    alter table `message` 
+       add constraint `FK28hjkn063wrsjuiyyf8sm3s2v` 
+       foreign key (`thread_id`) 
+       references `thread` (`id`);
 
     alter table `message` 
        add constraint `FKik4epe9dp5q6uenarfyia7xin` 
@@ -451,13 +442,13 @@ create index IDX2qy5jkiqwk6f13kkfq8pu61le on `solicitud` (`ticker`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
-    alter table `thread_message` 
-       add constraint `FKrjegm8cujrxgbce9n1b78xuyo` 
-       foreign key (`messages_id`) 
-       references `message` (`id`);
+    alter table `thread_authenticated` 
+       add constraint `FKkuamwlt147dsxim98bfhh4dsr` 
+       foreign key (`users_id`) 
+       references `authenticated` (`id`);
 
-    alter table `thread_message` 
-       add constraint `FKgjodhp3io8v829t92y1tdtb7u` 
+    alter table `thread_authenticated` 
+       add constraint `FKjsja3s5mr66x5nxm9dd8kut3r` 
        foreign key (`thread_id`) 
        references `thread` (`id`);
 

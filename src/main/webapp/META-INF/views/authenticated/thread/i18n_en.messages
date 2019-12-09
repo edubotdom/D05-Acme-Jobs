@@ -18,6 +18,7 @@ authenticated.thread.form.label.messages.body = Message body:
 authenticated.thread.form.label.messages.moment = Message's moment of publication:
 
 authenticated.thread.form.button.return = Return
+authenticated.thread.form.button.messageList = List messages
 
 authenticated.thread.list.label.title = Title
 authenticated.thread.list.label.creationDate = Creation date

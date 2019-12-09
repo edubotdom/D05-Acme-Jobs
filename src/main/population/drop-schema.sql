@@ -43,13 +43,9 @@
        drop 
        foreign key FK_6cyha9f1wpj0dpbxrrjddrqed;
 
-    alter table `descriptor_duty` 
+    alter table `duty` 
        drop 
-       foreign key `FK57eqqlhihwvd53ykpmsiqlx2p`;
-
-    alter table `descriptor_duty` 
-       drop 
-       foreign key `FKqitedkrksd2w8qyp1fp5eao9f`;
+       foreign key `FK3cc3garl37bl7gswreqwr7pj4`;
 
     alter table `employer` 
        drop 
@@ -62,6 +58,10 @@
     alter table `job` 
        drop 
        foreign key `FK3rxjf8uh6fh2u990pe8i2at0e`;
+
+    alter table `message` 
+       drop 
+       foreign key `FK28hjkn063wrsjuiyyf8sm3s2v`;
 
     alter table `message` 
        drop 
@@ -79,13 +79,13 @@
        drop 
        foreign key FK_20xk0ev32hlg96kqynl6laie2;
 
-    alter table `thread_message` 
+    alter table `thread_authenticated` 
        drop 
-       foreign key `FKrjegm8cujrxgbce9n1b78xuyo`;
+       foreign key `FKkuamwlt147dsxim98bfhh4dsr`;
 
-    alter table `thread_message` 
+    alter table `thread_authenticated` 
        drop 
-       foreign key `FKgjodhp3io8v829t92y1tdtb7u`;
+       foreign key `FKjsja3s5mr66x5nxm9dd8kut3r`;
 
     alter table `worker` 
        drop 
@@ -119,8 +119,6 @@
 
     drop table if exists `descriptor`;
 
-    drop table if exists `descriptor_duty`;
-
     drop table if exists `duty`;
 
     drop table if exists `employer`;
@@ -145,7 +143,7 @@
 
     drop table if exists `thread`;
 
-    drop table if exists `thread_message`;
+    drop table if exists `thread_authenticated`;
 
     drop table if exists `user_account`;
 

@@ -165,6 +165,9 @@
 			<acme:menu-suboption code="master.menu.user-account.become-worker" action="/authenticated/worker/create"
 				access="!hasRole('Worker')" />
 			<acme:menu-suboption code="master.menu.user-account.worker" action="/authenticated/worker/update" access="hasRole('Worker')" />
+			<acme:menu-suboption code="master.menu.user-account.become-sponsor" action="/authenticated/sponsor/create"
+				access="!hasRole('Sponsor')" />
+			<acme:menu-suboption code="master.menu.user-account.sponsor" action="/authenticated/sponsor/update" access="hasRole('Sponsor')" />
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()" />

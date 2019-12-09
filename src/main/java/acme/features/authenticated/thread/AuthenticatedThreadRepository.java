@@ -30,6 +30,6 @@ public interface AuthenticatedThreadRepository extends AbstractRepository {
 	 * @Query("select t from Thread t where t.deadline >= current_date()")
 	 * Collection<Thread> findManyAll();
 	 */
-	@Query("select t from Thread t join t.messages m where m.user.id=?1 group by t")
+	@Query("select t from Thread t join t.users u where u.id = ?1")
 	Collection<Thread> findManyByUserId(int id);
 }

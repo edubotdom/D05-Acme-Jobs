@@ -8,12 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.duty.form.label.title = Title:
-authenticated.duty.form.label.description = Description:
-authenticated.duty.form.label.timeAmount = Time amount:
+worker.descriptor.form.label.description = Description:
 
-authenticated.duty.list.label.title = Title
-authenticated.duty.list.label.timeAmount = Time amount
-
-authenticated.duty.form.button.return = Return
+worker.descriptor.form.button.duties = Duties
+worker.descriptor.form.button.return = Return
 

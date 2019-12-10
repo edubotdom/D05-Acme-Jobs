@@ -128,7 +128,8 @@
 
 		<!--Worker's Selector-->
 		<acme:menu-option code="master.menu.selector.worker" access="hasRole('Worker')">
-			<acme:menu-suboption code="master.menu.employer.application.list_mine" action="/worker/application/list_mine" />
+			<acme:menu-suboption code="master.menu.worker.application.list_mine" action="/worker/application/list_mine" />
+			<acme:menu-suboption code="master.menu.worker.job.list" action="/worker/job/list" />
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.selector.sponsor" access="hasRole('Sponsor')">

@@ -48,7 +48,7 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		String direccion = "../audit/list?id=" + entity.getId();
 		model.setAttribute("auditList", direccion);
 
-		String direccion2 = "../duty/list?id=" + entity.getId();
+		String direccion2 = "../duty/list_by_job?id=" + entity.getId();
 		model.setAttribute("duties", direccion2);
 
 		if (entity.isFinalMode()) {
@@ -58,7 +58,7 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		}
 
 		request.unbind(entity, model, "referenceNumber", "title", "deadline");
-		request.unbind(entity, model, "salary", "moreInfo");
+		request.unbind(entity, model, "salary", "moreInfo", "description");
 	}
 
 	@Override

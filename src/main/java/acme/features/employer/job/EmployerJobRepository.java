@@ -35,5 +35,5 @@ public interface EmployerJobRepository extends AbstractRepository {
 	Collection<Application> findApplicationsByJob(int jobId);
 
 	@Query("select d from Duty d where d.job.id= ?1")
-	Collection<Duty> findDutyByJob(int descriptorId);
+	Collection<Duty> findDutyByJob(int jobId);
 }

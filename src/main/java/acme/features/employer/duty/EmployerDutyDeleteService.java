@@ -1,8 +1,6 @@
 
 package acme.features.employer.duty;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,19 +60,13 @@ public class EmployerDutyDeleteService implements AbstractDeleteService<Employer
 		assert entity != null;
 		assert errors != null;
 
-		Collection<Duty> d = this.repository.findManyAllByJob(entity.getJob().getId());
-
-		errors.state(request, d.stream().count() > 1, "timeAmount", "employer.duty.cannotDeleteAll");
 	}
 
 	@Override
 	public void delete(final Request<Duty> request, final Duty entity) {
 		assert request != null;
 		assert entity != null;
-		Collection<Duty> d = this.repository.findManyAllByJob(entity.getJob().getId());
-		if (d.stream().count() > 1) {
-			this.repository.delete(entity);
-		}
+		this.repository.delete(entity);
 
 	}
 

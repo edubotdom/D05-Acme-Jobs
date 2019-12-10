@@ -24,7 +24,7 @@
 	<acme:form-textbox code="auditor.job.form.label.status" path="status" />
 	<acme:form-textbox code="auditor.job.form.label.description" path="description" />
 	
-	<acme:form-return code="auditor.job.form.button.duties" action="${direccion}"/>
+	<acme:form-return code="auditor.job.form.button.duties" action="${duties}"/>
 	<acme:form-return code="auditor.job.form.button.auditList" action="${auditList}"/>
 	
 	<acme:form-return code="auditor.job.form.button.return" />

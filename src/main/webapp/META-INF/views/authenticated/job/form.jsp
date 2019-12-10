@@ -26,7 +26,7 @@
 	
 	
 	<acme:form-return code="authenticated.job.form.button.auditList" action="${auditList}"/>
-	<acme:form-return code="authenticated.job.form.button.duties" action="${direccion}"/>
+	<acme:form-return code="authenticated.job.form.button.duties" action="${duties}"/>
 	
 	<acme:form-return code="authenticated.job.form.button.return" />
 </acme:form>

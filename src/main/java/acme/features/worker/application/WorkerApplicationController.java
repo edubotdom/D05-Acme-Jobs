@@ -14,7 +14,7 @@ import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-@RequestMapping("/worker/application")
+@RequestMapping("/worker/application/")
 public class WorkerApplicationController extends AbstractController<Worker, Application> {
 
 	@Autowired

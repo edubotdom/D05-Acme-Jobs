@@ -27,7 +27,7 @@
 	<acme:form-return code="worker.job.form.button.auditList" action="${auditList}" />
 	<acme:form-return code="worker.job.form.button.descriptorShow" action="${descriptorShow}" />
 
-	<acme:form-return code="worker.job.form.button.create_application" action="${jobCreateApplicationF}" />
+	<acme:form-return code="worker.job.form.button.application.create" action="${jobCreateApplication}" />
 
 	<acme:form-return code="worker.job.form.button.return" />
 </acme:form>

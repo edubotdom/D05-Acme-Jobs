@@ -18,13 +18,16 @@
 <acme:form readonly="false">
 	<acme:form-textbox code="worker.application.form.label.reference" path="reference" placeholder="EEEE-JJJJ:WWWW" />
 
-	<jstl:if test="${command != 'create' }">
+	<jstl:if test="${command != 'create' }">--%>
 		<acme:form-textbox code="worker.application.form.label.referenceJob" path="referenceJob" readonly="true" />
 		<acme:form-textbox code="worker.application.form.label.JobEmployer" path="JobEmployer" readonly="true" />
 		<acme:form-moment code="worker.application.form.label.moment" path="moment" readonly="true" />
 	</jstl:if>
 
 	<acme:form-hidden path="status" />
+	<acme:form-hidden path="moment" />
+	<%--<acme:form-hidden path="job" />
+	<acme:form-hidden path="worker" />--%>
 
 	<acme:form-textarea code="worker.application.form.label.statement" path="statement" />
 	<acme:form-textarea code="worker.application.form.label.skills" path="skills" />

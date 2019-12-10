@@ -34,7 +34,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors/* , *"moment", "status", "worker", "job" */);
+		request.bind(entity, errors /* "moment", "worker", "job" */);
 	}
 
 	@Override
@@ -43,18 +43,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert model != null;
 
-		Principal principal = request.getPrincipal();
-		int workerId = principal.getAccountId();
-		Worker worker = this.repository.findWorkerById(workerId);
-		model.setAttribute("worker", worker);
-
-		int idJob = request.getModel().getInteger("id");
-		Job job = this.repository.findJobById(idJob);
-		model.setAttribute("job", job);
-
-		model.setAttribute("status", "pending");
-
-		request.unbind(entity, model, "reference");
+		request.unbind(entity, model, "reference", "status", "moment", "job", "worker");
 		request.unbind(entity, model, "statement", "skills", "qualifications");
 	}
 
@@ -63,7 +52,24 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert request != null;
 
 		Application result;
+
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
+
+		String status = "pending";
+
+		Principal principal = request.getPrincipal();
+		int workerId = principal.getAccountId();
+		Worker worker = this.repository.findOneWorkerByUserAccountId(workerId);
+
+		int idJob = request.getModel().getInteger("id");
+		Job job = this.repository.findJobById(idJob);
+
 		result = new Application();
+		result.setMoment(moment);
+		result.setStatus(status);
+		result.setWorker(worker);
+		result.setJob(job);
 
 		return result;
 	}
@@ -81,20 +87,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert request != null;
 		assert entity != null;
 
-		Date moment;
-		moment = new Date(System.currentTimeMillis() - 1);
-		entity.setMoment(moment);
-
-		Principal principal = request.getPrincipal();
-		int workerId = principal.getAccountId();
-		Worker worker = this.repository.findWorkerById(workerId);
-		entity.setWorker(worker);
-
-		int idJob = request.getModel().getInteger("id");
-		Job job = this.repository.findJobById(idJob);
-		entity.setJob(job);
-
-		entity.setStatus("pending");
+		//	entity.setStatus("pending");
 
 		this.repository.save(entity);
 	}

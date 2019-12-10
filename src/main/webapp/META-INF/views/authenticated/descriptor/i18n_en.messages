@@ -10,5 +10,6 @@
 
 authenticated.descriptor.form.label.description = Description:
 
+authenticated.descriptor.form.button.duties = Duties
 authenticated.descriptor.form.button.return = Return
 

@@ -101,7 +101,8 @@ master.menu.employer.job.list_mine = List my jobs
 master.menu.employer.application.list_mine = List applications
 
 # master.menu.worker ##########################################################
-master.menu.employer.application.list_mine = List my applications
+master.menu.worker.application.list_mine = List my applications
+master.menu.worker.job.list = List jobs
 
 # master.menu.sponsor #########################################################
 master.menu.sponsor.comercial_banner.list_mine = List my Commercial Banners

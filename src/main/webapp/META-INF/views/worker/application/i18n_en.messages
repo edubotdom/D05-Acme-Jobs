@@ -25,3 +25,6 @@ worker.application.form.label.skills = Skills
 worker.application.form.label.qualifications = Qualifications
 worker.application.form.button.return = Return
 worker.job.form.button.application.create = Create Application
+worker.application.form.button.create = Create Application
+worker.application.tryingToApplyPastJob = You cannot create an application for a job unavailable.
+worker.application.tryingToApplyNotPublished = You cannot create an application for a job unavailable.

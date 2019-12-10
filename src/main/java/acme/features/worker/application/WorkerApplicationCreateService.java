@@ -2,6 +2,7 @@
 package acme.features.worker.application;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors /* "moment", "worker", "job" */);
+		request.bind(entity, errors /* "moment", "worker" , "job" */);
 	}
 
 	@Override
@@ -42,6 +43,10 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+
+		int idJob = request.getModel().getInteger("id");
+		String direccionJob = "../application/create?id=" + idJob;
+		model.setAttribute("direccionJob", direccionJob);
 
 		request.unbind(entity, model, "reference", "status", "moment", "job", "worker");
 		request.unbind(entity, model, "statement", "skills", "qualifications");
@@ -79,6 +84,11 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
+		GregorianCalendar calendar = new GregorianCalendar();
+		Date minimumDeadline = calendar.getTime();
+		errors.state(request, entity.getJob().getDeadline().after(minimumDeadline), "referenceJob", "worker.application.tryingToApplyPastJob");
+
+		errors.state(request, entity.getJob().isFinalMode(), "referenceJob", "worker.application.tryingToApplyNotPublished");
 	}
 
 	@Override

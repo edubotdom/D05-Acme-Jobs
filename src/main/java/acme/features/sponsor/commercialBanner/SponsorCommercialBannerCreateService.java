@@ -30,6 +30,7 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		request.bind(entity, errors);
 
 	}
 
@@ -38,7 +39,7 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "picture", "slogan", "url");
+		request.unbind(entity, model, "picture", "slogan", "url", "creditCard");
 
 	}
 
@@ -50,7 +51,7 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		Sponsor sponsor;
 		Principal principal;
 		int userAccountId;
-		String creditCard;
+		//String creditCard;
 
 		// primero vamos a encontrar el Sponsor y vamos  agregarlo a dicho CommercialBanner
 		principal = request.getPrincipal();
@@ -58,12 +59,12 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		sponsor = this.repository.findOneSponsorByUserAccountId(userAccountId);
 
 		// ahora vamos a extraer su tarjeta de crédito e insertarla en la nueva propiedad
-		creditCard = sponsor.getCreditCard();
+		//creditCard = sponsor.getCreditCard();
 
 		// ahora inicializamos sus propiedades
 		result = new CommercialBanner();
 		result.setSponsor(sponsor);
-		result.setCreditCard(creditCard);
+		//result.setCreditCard(creditCard);
 
 		return result;
 	}

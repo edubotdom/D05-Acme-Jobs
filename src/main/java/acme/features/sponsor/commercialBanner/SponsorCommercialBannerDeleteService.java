@@ -52,7 +52,7 @@ public class SponsorCommercialBannerDeleteService implements AbstractDeleteServi
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "picture", "slogan", "url");
+		request.unbind(entity, model, "picture", "slogan", "url", "creditCard");
 	}
 
 	@Override

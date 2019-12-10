@@ -53,7 +53,7 @@ public class SponsorCommercialBannerUpdateService implements AbstractUpdateServi
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "picture", "slogan", "url");
+		request.unbind(entity, model, "picture", "slogan", "url", "creditCard");
 	}
 
 	@Override
@@ -85,7 +85,7 @@ public class SponsorCommercialBannerUpdateService implements AbstractUpdateServi
 		Sponsor sponsor;
 		Principal principal;
 		int userAccountId;
-		String creditCard;
+		//String creditCard;
 
 		// primero vamos a encontrar el Sponsor
 		principal = request.getPrincipal();
@@ -93,11 +93,11 @@ public class SponsorCommercialBannerUpdateService implements AbstractUpdateServi
 		sponsor = this.repository.findOneSponsorByUserAccountId(userAccountId);
 
 		// ahora vamos a extraer su tarjeta de crédito e insertarla en la nueva propiedad
-		creditCard = sponsor.getCreditCard();
+		//creditCard = sponsor.getCreditCard();
 
 		// ahora inicializamos sus propiedades
 		entity.setSponsor(sponsor);
-		entity.setCreditCard(creditCard);
+		//entity.setCreditCard(creditCard);
 
 		this.repository.save(entity);
 

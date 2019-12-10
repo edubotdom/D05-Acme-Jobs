@@ -14,7 +14,7 @@ import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-@RequestMapping("/sponsor/commercial-banner")
+@RequestMapping("/sponsor/commercial-banner/")
 public class SponsorCommercialBannerController extends AbstractController<Sponsor, CommercialBanner> {
 
 	@Autowired

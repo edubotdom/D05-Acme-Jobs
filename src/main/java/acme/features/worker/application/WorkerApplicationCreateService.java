@@ -55,7 +55,6 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 
 		Date moment;
 		moment = new Date(System.currentTimeMillis() - 1);
-
 		String status = "pending";
 
 		Principal principal = request.getPrincipal();
@@ -86,8 +85,6 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 	public void create(final Request<Application> request, final Application entity) {
 		assert request != null;
 		assert entity != null;
-
-		//	entity.setStatus("pending");
 
 		this.repository.save(entity);
 	}

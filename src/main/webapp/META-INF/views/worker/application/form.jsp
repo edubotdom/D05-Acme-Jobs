@@ -24,9 +24,9 @@
 		<acme:form-moment code="worker.application.form.label.moment" path="moment" readonly="true" />
 	</jstl:if>
 
-	<acme:form-hidden path="status" />
+	<%--<acme:form-hidden path="status" />
 	<acme:form-hidden path="moment" />
-	<%--<acme:form-hidden path="job" />
+	<acme:form-hidden path="job" />
 	<acme:form-hidden path="worker" />--%>
 
 	<acme:form-textarea code="worker.application.form.label.statement" path="statement" />

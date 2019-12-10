@@ -49,8 +49,8 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 		String direccion = "../audit/list?id=" + entity.getId();
 		model.setAttribute("auditList", direccion);
 
-		String direccion2 = "../descriptor/show?id=" + entity.getDescriptor().getId();
-		model.setAttribute("descriptorShow", direccion2);
+		String direccion2 = "../duty/list?id=" + entity.getId();
+		model.setAttribute("dutyList", direccion2);
 
 		if (entity.isFinalMode()) {
 			model.setAttribute("status", "Published");

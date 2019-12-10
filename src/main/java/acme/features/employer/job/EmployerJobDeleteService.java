@@ -75,8 +75,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert request != null;
 		assert entity != null;
 		this.repository.delete(entity);
-		this.repository.delete(entity.getDescriptor());
-		Collection<Duty> d = this.repository.findDutyByDescriptor(entity.getDescriptor().getId());
+		Collection<Duty> d = this.repository.findDutyByJob(entity.getId());
 		d.stream().forEach(x -> this.repository.delete(x));
 	}
 

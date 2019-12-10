@@ -67,7 +67,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		errors.state(request, !entity.isFinalMode(), "status", "employer.job.isAlreadyPublished");
 
 		//Comprueba que los duties sumen un 100%
-		Collection<Duty> d = this.repository.findDutyByDescriptor(entity.getDescriptor().getId());
+		Collection<Duty> d = this.repository.findDutyByJob(entity.getId());
 		Double suma = d.stream().mapToDouble(x -> x.getTimeAmount()).sum();
 		Boolean sumUp = true;
 		if (request.getModel().getAttribute("status").equals("Published")) {

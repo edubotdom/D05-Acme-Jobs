@@ -61,22 +61,29 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		errors.state(request, isAccepted, "accept", "authenticated.message.must-accept");
 
 		String title = entity.getTitle();
+		String[] titleArray = title.split(" ");
 		String tags = entity.getTags();
+		String[] tagsArray = tags.split(" ");
 		String body = entity.getBody();
+		String[] bodyArray = body.split(" ");
 
 		Customization customisation = this.repository.findCustomization();
 
 		String spamWords = customisation.getSpam();
+		String[] spamArray = spamWords.split(",");
 		Double threshold = customisation.getThreshold();
 
-		String[] spamArray = spamWords.split(",");
 		List<String> spamList = IntStream.range(0, spamArray.length).boxed().map(x -> spamArray[x].trim()).collect(Collectors.toList());
 
-		String[] titleArray = title.split(" ");
 		Integer numSpamTitle = (int) IntStream.range(0, titleArray.length).boxed().map(x -> titleArray[x].trim()).filter(i -> spamList.contains(i)).count();
+		Integer numSpamTags = (int) IntStream.range(0, tagsArray.length).boxed().map(x -> tagsArray[x].trim()).filter(i -> spamList.contains(i)).count();
+		Integer numSpamBody = (int) IntStream.range(0, bodyArray.length).boxed().map(x -> bodyArray[x].trim()).filter(i -> spamList.contains(i)).count();
 		boolean isFreeOfSpamTitle = 100 * numSpamTitle / titleArray.length < threshold;
-		System.out.println(isFreeOfSpamTitle);
-		errors.state(request, isFreeOfSpamTitle, "title", "authenticated.message.title-spam");
+		boolean isFreeOfSpamTags = 100 * numSpamTags / tagsArray.length < threshold;
+		boolean isFreeOfSpamBody = 100 * numSpamBody / bodyArray.length < threshold;
+		errors.state(request, isFreeOfSpamTitle, "title", "authenticated.message.spamWords");
+		errors.state(request, isFreeOfSpamTags, "tags", "authenticated.message.spamWords");
+		errors.state(request, isFreeOfSpamBody, "body", "authenticated.message.spamWords");
 	}
 
 	@Override

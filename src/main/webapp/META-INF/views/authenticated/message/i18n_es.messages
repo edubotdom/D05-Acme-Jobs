@@ -19,7 +19,7 @@ authenticated.message.form.button.create = Crear mensaje
 authenticated.message.form.button.return = Volver
 
 authenticated.message.must-accept = Debe de completarse
-authenticated.message.title-spam = No puede introducir palabras inapropiadas
+authenticated.message.spamWords = No puede introducir palabras inapropiadas
 
 authenticated.message.list.label.title = Título
 authenticated.message.list.label.moment = Momento de publicación

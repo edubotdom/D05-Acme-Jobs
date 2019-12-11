@@ -21,4 +21,6 @@
 	<acme:list-column code="employer.duty.list.label.timeAmount" path="timeAmount" width="10%" />
 </acme:list>
 
-
+<acme:form>
+	<acme:form-return code="employer.duty.list.button.return" />
+</acme:form>

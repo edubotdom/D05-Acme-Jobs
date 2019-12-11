@@ -15,17 +15,26 @@ employer.job.form.label.deadline = Deadline:
 employer.job.form.label.description = Description:
 employer.job.form.label.salary = Salary:
 employer.job.form.label.moreInfo = More information:
-employer.job.form.label.descriptor = Descriptor:
-employer.job.form.label.descriptionDescriptor = Description:
-employer.job.form.label.duties = Duties:
-employer.job.form.label.dutyTitle = Duty's title:
-employer.job.form.label.dutyDescription = Duty's description:
-employer.job.form.label.dutyTimeAmount = Percentage of amount of time that this duty is going to take every week:
-employer.job.form.button.auditList = Audit list
-employer.job.form.button.descriptorShow = Show Descriptor
+employer.job.form.label.description = Description:
 
+employer.job.form.button.auditList = Audit list
+employer.job.form.button.duties = Duties
+employer.job.form.button.createDuties = Create duties
+
+employer.job.form.button.create = Create
+employer.job.form.button.update = Update
+employer.job.form.button.delete = Delete
 employer.job.form.button.return = Return
 
 employer.job.list.label.referenceNumber = Reference
 employer.job.list.label.title = Title
 employer.job.list.label.deadline = Deadline
+
+employer.job.tryingToCreatePastJob = The job is in past
+employer.job.isAlreadyPublished = The job is already published, it cannot be modified
+employer.job.aWorkerHasAppliedForIt = A worker has applied for this job; that means it cannot be deleted by the way
+employer.job.dutiesNotSumUp = Duties do not sum up 100%, that is why this job cannot be published
+employer.job.statusNotCorrect = Status can only be "Published" or "Draft"
+employer.job.descriptorIsEmpty = The descriptor may not be empty if u want to publish this job
+employer.job.statusMustBeDraft = The status has to be draft once a job is created
+

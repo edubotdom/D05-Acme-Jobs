@@ -20,10 +20,19 @@ public class EmployerJobController extends AbstractController<Employer, Job> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private EmployerJobListService	listMineService;
+	private EmployerJobListService		listMineService;
 
 	@Autowired
-	private EmployerJobShowService	showService;
+	private EmployerJobShowService		showService;
+
+	@Autowired
+	private EmployerJobUpdateService	updateService;
+
+	@Autowired
+	private EmployerJobDeleteService	deleteService;
+
+	@Autowired
+	private EmployerJobCreateService	createService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -32,5 +41,9 @@ public class EmployerJobController extends AbstractController<Employer, Job> {
 	private void initialise() {
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+
 	}
 }

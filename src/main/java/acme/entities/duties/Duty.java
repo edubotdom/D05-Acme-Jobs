@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
 
-import acme.entities.descriptors.Descriptor;
+import acme.entities.jobs.Job;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -41,6 +41,6 @@ public class Duty extends DomainEntity {
 	@NotNull
 	@Valid
 	@ManyToOne
-	private Descriptor			descriptor;
+	private Job					job;
 
 }

@@ -10,5 +10,6 @@
 
 employer.descriptor.form.label.description = Descripción:
 
+employer.descriptor.form.button.update = Actulizar
 employer.descriptor.form.button.return = Volver
 employer.descriptor.form.button.duties = Tareas

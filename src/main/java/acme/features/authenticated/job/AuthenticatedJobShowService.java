@@ -49,8 +49,8 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 		String direccion = "../audit/list?id=" + entity.getId();
 		model.setAttribute("auditList", direccion);
 
-		String direccion2 = "../descriptor/show?id=" + entity.getDescriptor().getId();
-		model.setAttribute("descriptorShow", direccion2);
+		String direccion2 = "../duty/list_by_job?id=" + entity.getId();
+		model.setAttribute("duties", direccion2);
 
 		if (entity.isFinalMode()) {
 			model.setAttribute("status", "Published");
@@ -58,17 +58,8 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 			model.setAttribute("status", "Draft");
 		}
 
-		//		Job result;
-		//		int id;
-		//		id = request.getModel().getInteger("id");
-		//		result = this.repository.findOneJobById(id);
-		//		result.getDescriptor().getDuties().size();
-
-		//		Collection<Duty> dutiesCollection = result.getDescriptor().getDuties();
-		//	model.setAttribute("dutiesCollection", dutiesCollection);
-
 		request.unbind(entity, model, "referenceNumber", "title", "deadline");
-		request.unbind(entity, model, "salary", "moreInfo");
+		request.unbind(entity, model, "salary", "moreInfo", "description");
 	}
 
 	@Override
@@ -80,8 +71,6 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneJobById(id);
-
-		//		result.getDescriptor().getDuties().size();
 
 		return result;
 	}

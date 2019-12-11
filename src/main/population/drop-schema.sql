@@ -45,15 +45,11 @@
 
     alter table `duty` 
        drop 
-       foreign key `FK3cc3garl37bl7gswreqwr7pj4`;
+       foreign key `FKs2uoxh4i5ya8ptyefae60iao1`;
 
     alter table `employer` 
        drop 
        foreign key FK_na4dfobmeuxkwf6p75abmb2tr;
-
-    alter table `job` 
-       drop 
-       foreign key `FKfqwyynnbcsq0htxho3vchpd2u`;
 
     alter table `job` 
        drop 
@@ -116,8 +112,6 @@
     drop table if exists `consumer`;
 
     drop table if exists `customization`;
-
-    drop table if exists `descriptor`;
 
     drop table if exists `duty`;
 

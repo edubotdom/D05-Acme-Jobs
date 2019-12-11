@@ -16,13 +16,10 @@ auditor.job.form.label.description = Descripción:
 auditor.job.form.label.salary = Salario:
 auditor.job.form.label.moreInfo = Más información:
 auditor.job.form.label.descriptor = Descriptor:
-auditor.job.form.label.descriptionDescriptor = Descripción:
-auditor.job.form.label.duties = Labores:
-auditor.job.form.label.dutyTitle = Título de la labor:
-auditor.job.form.label.dutyDescription = Descripción de la labor:
-auditor.job.form.label.dutyTimeAmount = Porcentaje de tiempo invertido en la labor por semana:
+auditor.job.form.label.description = Descripción:
+
+auditor.job.form.button.duties = Labores:
 auditor.job.form.button.auditList = Lista de audiciones
-auditor.job.form.button.descriptorShow = Vista de la descripción
 
 auditor.job.form.button.return = Volver
 

@@ -17,7 +17,10 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.customization.Customization;
 import acme.entities.messages.Message;
+import acme.entities.threads.Thread;
+import acme.framework.entities.Authenticated;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -34,4 +37,13 @@ public interface AuthenticatedMessageRepository extends AbstractRepository {
 	 */
 	@Query("select m from Message m where m.thread.id = ?1 ")
 	Collection<Message> findManyByThreadId(int id);
+
+	@Query("select a from Authenticated a where a.userAccount.id = ?1")
+	Authenticated findOneAuthenticatedByUserAccountId(int id);
+
+	@Query("select t from Thread t where t.id = ?1")
+	Thread findThreadById(int id);
+
+	@Query("select c from Customization c")
+	Customization findCustomization();
 }

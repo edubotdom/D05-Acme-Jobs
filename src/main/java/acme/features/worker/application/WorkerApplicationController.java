@@ -14,11 +14,14 @@ import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-@RequestMapping("/worker/application")
+@RequestMapping("/worker/application/")
 public class WorkerApplicationController extends AbstractController<Worker, Application> {
 
 	@Autowired
 	private WorkerApplicationListMineService	listMineService;
+
+	@Autowired
+	private WorkerApplicationCreateService		createService;
 
 	@Autowired
 	private WorkerApplicationShowService		showService;
@@ -27,6 +30,7 @@ public class WorkerApplicationController extends AbstractController<Worker, Appl
 	@PostConstruct
 	private void initialise() {
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 }

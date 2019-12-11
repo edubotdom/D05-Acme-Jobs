@@ -102,10 +102,13 @@ master.menu.employer.application.list_mine = List applications
 master.menu.employer.job.create_job = Create jobs
 
 # master.menu.worker ##########################################################
-master.menu.employer.application.list_mine = List my applications
+master.menu.worker.application.list_mine = List my applications
+master.menu.worker.job.list = List jobs
 
 # master.menu.sponsor #########################################################
+master.menu.sponsor.comercial_banner.create = Create Commercial Banner
 master.menu.sponsor.comercial_banner.list_mine = List my Commercial Banners
+master.menu.sponsor.non_comercial_banner.create = Create Non Commercial Banner
 master.menu.sponsor.non_comercial_banner.list_mine = List my Non Commercial Baners
 
 # master.menu.user-account ####################################################
@@ -115,6 +118,12 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.employer = Employer Data
+master.menu.user-account.become-employer = Become an employer
+master.menu.user-account.worker = Worker Data
+master.menu.user-account.become-worker = Become a worker
+master.menu.user-account.become-sponsor = Become a sponsor
+master.menu.user-account.sponsor = Sponsor Data
 
 # master.footer ###############################################################
 master.footer.title.about = About us

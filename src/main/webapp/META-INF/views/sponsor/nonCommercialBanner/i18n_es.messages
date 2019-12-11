@@ -13,6 +13,9 @@ sponsor.nonCommercialBanner.form.label.slogan = Eslogan:
 sponsor.nonCommercialBanner.form.label.url = URL:
 sponsor.nonCommercialBanner.form.label.jingle = Jingle:
 sponsor.nonCommercialBanner.form.button.return = Volver
+sponsor.nonCommercialBanner.form.button.create = Crear
+sponsor.nonCommercialBanner.form.button.update = Actualizar
+sponsor.nonCommercialBanner.form.button.delete = Eliminar
 
 sponsor.nonCommercialBanner.list.label.slogan = Eslogan:
 sponsor.nonCommercialBanner.list.label.url = Dirección:

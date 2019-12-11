@@ -13,6 +13,9 @@ sponsor.nonCommercialBanner.form.label.slogan = Slogan:
 sponsor.nonCommercialBanner.form.label.url = URL:
 sponsor.nonCommercialBanner.form.label.jingle = Jingle:
 sponsor.nonCommercialBanner.form.button.return = Return
+sponsor.nonCommercialBanner.form.button.create = Create
+sponsor.nonCommercialBanner.form.button.update = Update
+sponsor.nonCommercialBanner.form.button.delete = Delete
 
 sponsor.nonCommercialBanner.list.label.slogan = Slogan:
 sponsor.nonCommercialBanner.list.label.url = URL:

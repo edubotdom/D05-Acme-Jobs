@@ -66,7 +66,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 
 		Collection<Application> a = this.repository.findApplicationsByJob(entity.getId());
 
-		errors.state(request, a.size() != 0, "referenceNumber", "employer.job.aWorkerHasAppliedForIt");
+		errors.state(request, a.size() == 0, "referenceNumber", "employer.job.aWorkerHasAppliedForIt");
 
 	}
 

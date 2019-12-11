@@ -1,9 +1,16 @@
 
 package acme.features.employer.job;
 
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.customization.Customization;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -40,10 +47,8 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert model != null;
 
-		model.setAttribute("status", "Draft");
-
-		request.unbind(entity, model, "referenceNumber", "title", "deadline");
-		request.unbind(entity, model, "salary", "moreInfo", "description"); //Hay que poner status??
+		request.unbind(entity, model, "referenceNumber", "title", "deadline", "finalMode");
+		request.unbind(entity, model, "salary", "moreInfo", "description", "employer");
 	}
 
 	@Override
@@ -69,10 +74,37 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		//Comprueba que status es "Published" o "Draft" ????
-		Boolean statusCorrect = request.getModel().getAttribute("status").equals("Draft");
-		errors.state(request, statusCorrect, "status", "employer.job.statusMustBeDraft");
+		GregorianCalendar calendar = new GregorianCalendar();
+		Date minimumDeadline = calendar.getTime();
+		errors.state(request, entity.getDeadline().after(minimumDeadline), "deadline", "employer.job.tryingToCreatePastJob");
+
 		//Comprueba el spam
+		String referenceNumber = entity.getReferenceNumber();
+		String[] referenceNumberArray = referenceNumber.split(" ");
+		String title = entity.getTitle();
+		String[] titleArray = title.split(" ");
+		String description = entity.getDescription();
+		String[] descriptionArray = description.split(" ");
+
+		Customization customisation = this.repository.findCustomization();
+
+		String spamWords = customisation.getSpam();
+		String[] spamArray = spamWords.split(",");
+		Double threshold = customisation.getThreshold();
+
+		List<String> spamList = IntStream.range(0, spamArray.length).boxed().map(x -> spamArray[x].trim()).collect(Collectors.toList());
+
+		Integer numSpamReferenceNumber = (int) IntStream.range(0, referenceNumberArray.length).boxed().map(x -> referenceNumberArray[x].trim()).filter(i -> spamList.contains(i)).count();
+		Integer numSpamTitle = (int) IntStream.range(0, titleArray.length).boxed().map(x -> titleArray[x].trim()).filter(i -> spamList.contains(i)).count();
+		/*
+		 * Integer numSpamBody = (int) IntStream.range(0, bodyArray.length).boxed().map(x -> bodyArray[x].trim()).filter(i -> spamList.contains(i)).count();
+		 * boolean isFreeOfSpamReferenceNumber = 100 * numSpamReferenceNumber / referenceNumberArray.length < threshold;
+		 * boolean isFreeOfSpamTitle = 100 * numSpamTitle / titleArray.length < threshold;
+		 * boolean isFreeOfSpamBody = 100 * numSpamBody / bodyArray.length < threshold;
+		 * errors.state(request, isFreeOfSpamReferenceNumber, "title", "authenticated.message.spamWords");
+		 * errors.state(request, isFreeOfSpamTags, "tags", "authenticated.message.spamWords");
+		 * errors.state(request, isFreeOfSpamBody, "body", "authenticated.message.spamWords");
+		 */
 	}
 
 	@Override

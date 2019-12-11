@@ -29,6 +29,7 @@ employer.job.list.label.referenceNumber = Referencia
 employer.job.list.label.title = Título
 employer.job.list.label.deadline = Fecha límite
 
+employer.job.tryingToCreatePastJob = No se puede crear un trabajo pasado
 employer.job.isAlreadyPublished = El job ya está publicado, y por lo tanto, no puede ser modificado
 employer.job.aWorkerHasAppliedForIt = Un trabajador ha aplicado por este trabajo, por lo tanto no puede ser eliminado
 employer.job.dutiesNotSumUp = Las labores no suman el 100%, por lo tanto el trabajo no puede ser publicado

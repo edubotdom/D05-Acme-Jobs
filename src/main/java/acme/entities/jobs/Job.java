@@ -59,6 +59,7 @@ public class Job extends DomainEntity {
 
 	private String				description;
 
+	@NotNull
 	private boolean				finalMode;
 
 	//Derived attributes

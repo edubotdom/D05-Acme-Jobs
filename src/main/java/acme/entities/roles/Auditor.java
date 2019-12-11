@@ -25,6 +25,11 @@ public class Auditor extends UserRole {
 	@NotBlank
 	private String				statement;
 
+	private boolean				request;
+
+	@NotBlank
+	private String				body;
+
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------

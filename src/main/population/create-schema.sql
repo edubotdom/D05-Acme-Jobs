@@ -53,7 +53,9 @@
        `id` integer not null,
         `version` integer not null,
         `user_account_id` integer,
+        `body` varchar(255),
         `firm` varchar(255),
+        `request` bit not null,
         `statement` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;

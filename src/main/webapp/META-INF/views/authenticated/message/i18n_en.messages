@@ -13,7 +13,13 @@ authenticated.message.form.label.title = Title:
 authenticated.message.form.label.moment = Creation date:
 authenticated.message.form.label.tags = Message tags:
 authenticated.message.form.label.body = Message body:
+authenticated.message.form.label.accept = Confirm
 
-
+authenticated.message.form.button.create = Create message
 authenticated.message.form.button.return = Return
 
+authenticated.message.must-accept = Must be confirmed
+authenticated.message.spamWords = Do not write spam words
+
+authenticated.message.list.label.title = Title
+authenticated.message.list.label.moment =  Creation date

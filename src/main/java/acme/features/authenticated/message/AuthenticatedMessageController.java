@@ -20,10 +20,13 @@ public class AuthenticatedMessageController extends AbstractController<Authentic
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedMessageListService	listService;
+	private AuthenticatedMessageListService		listService;
 
 	@Autowired
-	private AuthenticatedMessageShowService	showService;
+	private AuthenticatedMessageCreateService	createService;
+
+	@Autowired
+	private AuthenticatedMessageShowService		showService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -31,6 +34,7 @@ public class AuthenticatedMessageController extends AbstractController<Authentic
 	@PostConstruct
 	private void initialise() {
 		super.addCustomCommand(CustomCommand.LIST_BY_THREAD, BasicCommand.LIST, this.listService);
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 }

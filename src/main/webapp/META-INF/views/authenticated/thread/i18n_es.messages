@@ -19,6 +19,7 @@ authenticated.thread.form.label.messages.moment = Instante de publicación del m
 
 authenticated.thread.form.button.return = Volver
 authenticated.thread.form.button.messageList = Listar mensajes
+authenticated.thread.form.button.message.create = Crear mensaje
 
 authenticated.thread.list.label.title = Título
 authenticated.thread.list.label.creationDate = Creation date

@@ -45,6 +45,8 @@ public class AuthenticatedThreadShowService implements AbstractShowService<Authe
 		model.setAttribute("direccion", direccion);
 		request.unbind(entity, model, "title", "creationDate");
 		//		model.setAttribute("messagesCollection", messagesCollection);
+		String direccion2 = "../message/create?id=" + entity.getId();
+		model.setAttribute("threadCreateMessage", direccion2);
 	}
 
 	@Override

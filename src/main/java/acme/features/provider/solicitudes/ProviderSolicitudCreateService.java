@@ -69,7 +69,7 @@ public class ProviderSolicitudCreateService implements AbstractCreateService<Pro
 		assert entity != null;
 		assert errors != null;
 
-		boolean isDuplicated, isAcepted, isCurrencyEuro/* , isRewardNegative */;
+		boolean isDuplicated, isAccepted, isCurrencyEuro/* , isRewardNegative */;
 
 		// BUSCA DUPLICADOS
 		// isDuplicated == true -> salta un error
@@ -77,8 +77,8 @@ public class ProviderSolicitudCreateService implements AbstractCreateService<Pro
 		errors.state(request, !isDuplicated, "ticker", "provider.solicitud.must-be-different-ticker");
 
 		// BUSCA QUE EL CHECKBOX SE HAYA SELECCIONADO
-		isAcepted = request.getModel().getBoolean("accept");
-		errors.state(request, isAcepted, "accept", "provider.solicitud.must-accept");
+		isAccepted = request.getModel().getBoolean("accept");
+		errors.state(request, isAccepted, "accept", "provider.solicitud.must-accept");
 
 		// BUSCA QUE LA FECHA SEA FUTURA
 		Calendar calendar;

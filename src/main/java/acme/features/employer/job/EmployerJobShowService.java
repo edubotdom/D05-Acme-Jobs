@@ -51,6 +51,9 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		String direccion2 = "../duty/list_by_job?id=" + entity.getId();
 		model.setAttribute("duties", direccion2);
 
+		String direccion3 = "../duty/create?id=" + entity.getId();
+		model.setAttribute("jobCreateDuty", direccion3);
+
 		if (entity.isFinalMode()) {
 			model.setAttribute("status", "Published");
 		} else {

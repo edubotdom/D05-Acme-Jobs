@@ -20,6 +20,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.applications.Application;
 import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
+import acme.entities.roles.Employer;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -36,4 +37,7 @@ public interface EmployerJobRepository extends AbstractRepository {
 
 	@Query("select d from Duty d where d.job.id= ?1")
 	Collection<Duty> findDutyByJob(int jobId);
+
+	@Query("select e from Employer e where e.id= ?1")
+	Employer findOneEmployerByUserAccountId(int employerId);
 }

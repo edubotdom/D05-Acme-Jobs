@@ -19,7 +19,9 @@ employer.job.form.label.description = Description:
 
 employer.job.form.button.auditList = Audit list
 employer.job.form.button.duties = Duties
+employer.job.form.button.createDuties = Create duties
 
+employer.job.form.button.create = Create
 employer.job.form.button.update = Update
 employer.job.form.button.delete = Delete
 employer.job.form.button.return = Return
@@ -32,3 +34,6 @@ employer.job.isAlreadyPublished = The job is already published, it cannot be mod
 employer.job.aWorkerHasAppliedForIt = A worker has applied for this job; that means it cannot be deleted by the way
 employer.job.dutiesNotSumUp = Duties do not sum up 100%, that is why this job cannot be published
 employer.job.statusNotCorrect = Status can only be "Published" or "Draft"
+employer.job.descriptorIsEmpty = The descriptor may not be empty if u want to publish this job
+employer.job.statusMustBeDraft = The status has to be draft once a job is created
+

@@ -66,18 +66,25 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		//Comprueba si el job está ya publicado
 		errors.state(request, !entity.isFinalMode(), "status", "employer.job.isAlreadyPublished");
 
-		//Comprueba que los duties sumen un 100%
+		//Comprueba que los duties sumen un 100% y que el descriptor no esté vacío si se quiere publicar el job
 		Collection<Duty> d = this.repository.findDutyByJob(entity.getId());
 		Double suma = d.stream().mapToDouble(x -> x.getTimeAmount()).sum();
 		Boolean sumUp = true;
+		String description = request.getModel().getAttribute("description").toString();
 		if (request.getModel().getAttribute("status").equals("Published")) {
 			sumUp = suma == 100;
 		}
+		//Error de la suma de los duties
 		errors.state(request, sumUp, "status", "employer.job.dutiesNotSumUp");
+		//Error del descriptor
+		errors.state(request, !description.isEmpty(), "description", "employer.job.descriptorIsEmpty");
 
 		//Comprueba que status es "Published" o "Draft"
 		Boolean statusCorrect = request.getModel().getAttribute("status").equals("Published") || request.getModel().getAttribute("status").equals("Draft");
 		errors.state(request, statusCorrect, "status", "employer.job.statusNotCorrect");
+
+		//Comprueba el spam
+
 	}
 
 	@Override

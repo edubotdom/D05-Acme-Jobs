@@ -18,8 +18,11 @@ employer.job.form.label.moreInfo = Más información:
 employer.job.form.label.description = Descripción:
 employer.job.form.button.auditList = Lista de audiciones
 employer.job.form.button.duties = Labores
+employer.job.form.button.createDuties = Crear labores
 
-employer.job.form.button.update = Update
+employer.job.form.button.create = Crear
+employer.job.form.button.delete = Eliminar
+employer.job.form.button.update = Actualizar
 employer.job.form.button.return = Volver
 
 employer.job.list.label.referenceNumber = Referencia
@@ -30,3 +33,5 @@ employer.job.isAlreadyPublished = El job ya está publicado, y por lo tanto, no 
 employer.job.aWorkerHasAppliedForIt = Un trabajador ha aplicado por este trabajo, por lo tanto no puede ser eliminado
 employer.job.dutiesNotSumUp = Las labores no suman el 100%, por lo tanto el trabajo no puede ser publicado
 employer.job.statusNotCorrect = El estado sólo puede ser "Published" o "Draft"
+employer.job.descriptorIsEmpty = El descriptor no puede ser vacío si se quiere publicar el trabajo
+employer.job.statusMustBeDraft = El job no puede ser publicado directamente cuando se crea

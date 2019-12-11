@@ -31,6 +31,9 @@ public class EmployerJobController extends AbstractController<Employer, Job> {
 	@Autowired
 	private EmployerJobDeleteService	deleteService;
 
+	@Autowired
+	private EmployerJobCreateService	createService;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -40,5 +43,7 @@ public class EmployerJobController extends AbstractController<Employer, Job> {
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+
 	}
 }

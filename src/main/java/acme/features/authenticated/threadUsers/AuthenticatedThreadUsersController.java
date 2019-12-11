@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.thread;
+package acme.features.authenticated.threadUsers;
 
 import javax.annotation.PostConstruct;
 
@@ -14,31 +14,31 @@ import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Authenticated;
 
 @Controller
-@RequestMapping("/authenticated/thread/")
-public class AuthenticatedThreadController extends AbstractController<Authenticated, Thread> {
+@RequestMapping("/authenticated/threadUsers/")
+public class AuthenticatedThreadUsersController extends AbstractController<Authenticated, Thread> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedThreadCreateService	createService;
+	private AuthenticatedThreadUsersListService			listService;
 
 	@Autowired
-	private AuthenticatedThreadListService		listService;
+	private AuthenticatedThreadUsersShowService			showService;
 
 	@Autowired
-	private AuthenticatedThreadShowService		showService;
+	private AuthenticatedThreadUsersAddUserService		addUserService;
 
 	@Autowired
-	private AuthenticatedThreadUpdateService	updateService;
+	private AuthenticatedThreadUsersDeleteUserService	deleteUserService;
 
 
 	// Constructors -----------------------------------------------------------
 
 	@PostConstruct
 	private void initialise() {
-		super.addBasicCommand(BasicCommand.CREATE, this.createService);
-		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listService);
+		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
-		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		super.addCustomCommand(CustomCommand.ADD_USER, BasicCommand.UPDATE, this.addUserService);
+		super.addCustomCommand(CustomCommand.DELETE_USER, BasicCommand.UPDATE, this.deleteUserService);
 	}
 }

@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.thread;
+package acme.features.authenticated.threadUsers;
 
 import java.util.Collection;
 
@@ -22,7 +22,7 @@ import acme.framework.entities.Authenticated;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedThreadRepository extends AbstractRepository {
+public interface AuthenticatedThreadUsersRepository extends AbstractRepository {
 
 	@Query("select t from Thread t where t.id = ?1")
 	Thread findOneThreadById(int id);
@@ -36,6 +36,7 @@ public interface AuthenticatedThreadRepository extends AbstractRepository {
 
 	@Query("select a from Authenticated a where a.userAccount.id = ?1")
 	Authenticated findOneAuthenticatedByUserAccountId(int id);
-
 	
+	@Query("select a from Authenticated a")
+	Authenticated findManyAuthenticated(int id);
 }

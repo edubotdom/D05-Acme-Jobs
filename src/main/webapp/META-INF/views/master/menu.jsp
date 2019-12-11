@@ -58,7 +58,8 @@
 			<!-- Jobs -->
 			<acme:menu-suboption code="master.menu.authenticated.jobs" action="/authenticated/job/list" access="isAuthenticated()" />
 			<!--Threads-->
-			<acme:menu-suboption code="master.menu.authenticated.threads" action="/authenticated/thread/list_mine" access="isAuthenticated()" />
+			<acme:menu-suboption code="master.menu.authenticated.list_mine_threads" action="/authenticated/thread/list_mine" access="isAuthenticated()" />
+			<acme:menu-suboption code="master.menu.authenticated.create_threads" action="/authenticated/thread/create" access="isAuthenticated()" />
 
 		</acme:menu-option>
 

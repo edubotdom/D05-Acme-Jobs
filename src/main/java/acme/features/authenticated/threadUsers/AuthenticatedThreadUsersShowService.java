@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.thread;
+package acme.features.authenticated.threadUsers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,12 +11,12 @@ import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AuthenticatedThreadShowService implements AbstractShowService<Authenticated, Thread> {
+public class AuthenticatedThreadUsersShowService implements AbstractShowService<Authenticated, Thread> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedThreadRepository repository;
+	private AuthenticatedThreadUsersRepository repository;
 
 
 	@Override

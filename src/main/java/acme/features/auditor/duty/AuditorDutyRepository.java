@@ -26,7 +26,7 @@ public interface AuditorDutyRepository extends AbstractRepository {
 	@Query("select d from Duty d where d.id = ?1")
 	Duty findOneById(int id);
 
-	@Query("select d from Duty d where d.descriptor.id = ?1")
-	Collection<Duty> findManyAllByDescriptor(int id);
+	@Query("select d from Duty d where d.job.id = ?1")
+	Collection<Duty> findManyAllByJob(int id);
 
 }

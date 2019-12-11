@@ -16,9 +16,29 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
+<jstl:if test="${command != 'create' }">
 	<acme:form-textbox code="employer.duty.form.label.title" path="title" />
 	<acme:form-textarea code="employer.duty.form.label.description" path="description" />
 	<acme:form-moment code="employer.duty.form.label.timeAmount" path="timeAmount" />
 
+	<acme:form-submit test="${command== 'show'}" code="employer.duty.form.button.update"
+		action="/employer/duty/update" />
+		
+	<acme:form-submit test="${command== 'show'}" code="employer.duty.form.button.delete"
+		action="/employer/duty/delete" />
+		
+	<acme:form-submit test="${command== 'update'}" code="employer.duty.form.button.update"
+		action="/employer/duty/update" />
+		
+	<acme:form-submit test="${command== 'delete'}" code="employer.duty.form.button.delete"
+		action="/employer/duty/delete" />
+</jstl:if>
+
+<acme:form-hidden path="direccionDuty"/>
+	<acme:form-textarea code="employer.duty.form.label.title" path="title" />
+	<acme:form-textarea code="employer.duty.form.label.description" path="description" />
+	<acme:form-textbox code="employer.duty.form.label.timeAmount" path="timeAmount" />
+
+	<acme:form-submit test="${command=='create'}" code="employer.duty.form.button.create" action="${direccionDuty}" />
 	<acme:form-return code="employer.duty.form.button.return" />
 </acme:form>

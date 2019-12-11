@@ -15,14 +15,10 @@ auditor.job.form.label.deadline = Deadline:
 auditor.job.form.label.description = Description:
 auditor.job.form.label.salary = Salary:
 auditor.job.form.label.moreInfo = More information:
-auditor.job.form.label.descriptor = Descriptor:
-auditor.job.form.label.descriptionDescriptor = Description:
-auditor.job.form.label.duties = Duties:
-auditor.job.form.label.dutyTitle = Duty's title:
-auditor.job.form.label.dutyDescription = Duty's description:
-auditor.job.form.label.dutyTimeAmount = Percentage of amount of time that this duty is going to take every week:
+auditor.job.form.label.description = Description:
+
+auditor.job.form.button.duties = Duties
 auditor.job.form.button.auditList = Audit list
-auditor.job.form.button.descriptorShow = Show Descriptor
 
 
 auditor.job.form.button.return = Return

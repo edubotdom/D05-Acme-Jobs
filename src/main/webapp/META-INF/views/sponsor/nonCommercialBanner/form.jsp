@@ -21,5 +21,12 @@
 	<acme:form-url code="sponsor.nonCommercialBanner.form.label.url" path="url"/>
 	<acme:form-textbox code="sponsor.nonCommercialBanner.form.label.jingle" path="jingle"/>
 	
+	<acme:form-submit test="${command == 'create'}" code="sponsor.nonCommercialBanner.form.button.create"
+		action="/sponsor/non-commercial-banner/create"/>
+	<acme:form-submit test="${command == 'show' || 'update'}" code="sponsor.nonCommercialBanner.form.button.update"
+		action="/sponsor/non-commercial-banner/update"/>
+	<acme:form-submit test="${command == 'show' || 'delete'}" code="sponsor.nonCommercialBanner.form.button.delete"
+		action="/sponsor/non-commercial-banner/delete"/>
+	
   	<acme:form-return code="sponsor.nonCommercialBanner.form.button.return"/>
 </acme:form>

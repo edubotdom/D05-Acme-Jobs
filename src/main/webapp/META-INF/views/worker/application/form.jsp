@@ -22,6 +22,8 @@
 		<acme:form-textbox code="worker.application.form.label.referenceJob" path="referenceJob" readonly="true" />
 		<acme:form-textbox code="worker.application.form.label.JobEmployer" path="JobEmployer" readonly="true" />
 		<acme:form-moment code="worker.application.form.label.moment" path="moment" readonly="true" />
+		<acme:form-moment code="worker.application.form.label.status" path="status" readonly="true" />
+		<acme:form-textbox code="worker.application.form.label.justification" path="justification" readonly="true" />
 	</jstl:if>
 
 	<acme:form-hidden path="direccionJob"/>

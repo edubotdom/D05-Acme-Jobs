@@ -40,7 +40,7 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		assert entity != null;
 		assert model != null;
 
-		String direccionDuty = "../duty/create?id=" + entity.getId();
+		String direccionDuty = "../duty/create?id=" + request.getModel().getInteger("id");
 		model.setAttribute("direccionDuty", direccionDuty);
 
 		request.unbind(entity, model, "title", "description", "timeAmount");
@@ -52,7 +52,7 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 
 		Duty result;
 
-		Integer jobId = request.getModel().getInteger("Id");
+		Integer jobId = request.getModel().getInteger("id");
 		Job job = this.repository.findOneJobById(jobId);
 
 		result = new Duty();

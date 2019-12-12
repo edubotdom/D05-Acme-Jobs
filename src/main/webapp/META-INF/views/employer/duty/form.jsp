@@ -34,7 +34,7 @@
 		action="/employer/duty/delete" />
 </jstl:if>
 
-<acme:form-hidden path="direccionDuty"/>
+	<acme:form-hidden path="direccionDuty"/>
 	<acme:form-textarea code="employer.duty.form.label.title" path="title" />
 	<acme:form-textarea code="employer.duty.form.label.description" path="description" />
 	<acme:form-textbox code="employer.duty.form.label.timeAmount" path="timeAmount" />

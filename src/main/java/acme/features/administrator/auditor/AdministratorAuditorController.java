@@ -36,9 +36,6 @@ public class AdministratorAuditorController extends AbstractController<Administr
 	private AdministratorAuditorShowService		showService;
 
 	@Autowired
-	private AdministratorAuditorCreateService	createService;
-
-	@Autowired
 	private AdministratorAuditorUpdateService	updateService;
 
 
@@ -48,7 +45,6 @@ public class AdministratorAuditorController extends AbstractController<Administr
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
-		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 
 	}

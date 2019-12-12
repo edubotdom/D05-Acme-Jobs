@@ -22,7 +22,6 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.components.Response;
 import acme.framework.entities.Administrator;
-import acme.framework.entities.Principal;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractUpdateService;
 
@@ -49,6 +48,10 @@ public class AdministratorAuditorUpdateService implements AbstractUpdateService<
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		//Comprueba que status es "Accepted" o "Pending"
+		Boolean statusCorrect = request.getModel().getAttribute("status").equals("Accepted") || request.getModel().getAttribute("status").equals("Pending");
+		errors.state(request, statusCorrect, "status", "administrator.auditor.statusNotCorrect");
 	}
 
 	@Override
@@ -66,13 +69,7 @@ public class AdministratorAuditorUpdateService implements AbstractUpdateService<
 		assert entity != null;
 		assert model != null;
 
-		if (entity.isRequest()) {
-			model.setAttribute("status", "Accepted");
-		} else {
-			model.setAttribute("status", "Pending");
-		}
-
-		request.unbind(entity, model, "firm", "statement", "body");
+		request.unbind(entity, model, "firm", "statement", "status", "body");
 	}
 
 	@Override
@@ -80,13 +77,10 @@ public class AdministratorAuditorUpdateService implements AbstractUpdateService<
 		assert request != null;
 
 		Auditor result;
-		Principal principal;
-		int userAccountId;
+		int auditorId;
 
-		principal = request.getPrincipal();
-		userAccountId = principal.getAccountId();
-
-		result = this.repository.findOneAuditorByUserAccountId(userAccountId);
+		auditorId = request.getModel().getInteger("id");
+		result = this.repository.findOneAuditorById(auditorId);
 
 		return result;
 	}
@@ -95,6 +89,12 @@ public class AdministratorAuditorUpdateService implements AbstractUpdateService<
 	public void update(final Request<Auditor> request, final Auditor entity) {
 		assert request != null;
 		assert entity != null;
+
+		if (request.getModel().getAttribute("status").equals("Accepted")) {
+			entity.setRequest(true);
+		} else {
+			entity.setRequest(false);
+		}
 
 		this.repository.save(entity);
 	}

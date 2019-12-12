@@ -30,7 +30,7 @@ public class WorkerDutyController extends AbstractController<Worker, Duty> {
 
 	@PostConstruct
 	private void initialise() {
-		super.addCustomCommand(CustomCommand.LIST_BY_DESCRIPTOR, BasicCommand.LIST, this.listService);
+		super.addCustomCommand(CustomCommand.LIST_BY_JOB, BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 

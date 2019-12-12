@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.threadUsers;
+package acme.features.authenticated.participant;
 
 import java.util.Collection;
 
@@ -19,24 +19,28 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.threads.Thread;
 import acme.framework.entities.Authenticated;
+import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedThreadUsersRepository extends AbstractRepository {
+public interface AuthenticatedParticipantRepository extends AbstractRepository {
 
 	@Query("select t from Thread t where t.id = ?1")
 	Thread findOneThreadById(int id);
 
-	/*
-	 * @Query("select t from Thread t where t.deadline >= current_date()")
-	 * Collection<Thread> findManyAll();
-	 */
+	@Query("select t.users from Thread t where t.id = ?1")
+	Collection<Authenticated> findUsersByThread(int id);
+
+	@Query("select ua from UserAccount ua")
+	Collection<UserAccount> findManyUsers();
+
+	@Query("select ua from UserAccount ua where ua.id = ?1")
+	UserAccount findUserById(int id);
+
 	@Query("select t from Thread t join t.users u where u.id = ?1")
 	Collection<Thread> findManyByUserId(int id);
 
 	@Query("select a from Authenticated a where a.userAccount.id = ?1")
 	Authenticated findOneAuthenticatedByUserAccountId(int id);
-	
-	@Query("select a from Authenticated a")
-	Authenticated findManyAuthenticated(int id);
+
 }

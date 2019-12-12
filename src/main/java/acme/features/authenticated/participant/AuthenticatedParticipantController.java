@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.threadUsers;
+package acme.features.authenticated.participant;
 
 import javax.annotation.PostConstruct;
 
@@ -7,38 +7,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.components.CustomCommand;
-import acme.entities.threads.Thread;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Authenticated;
+import acme.framework.entities.UserAccount;
 
 @Controller
-@RequestMapping("/authenticated/threadUsers/")
-public class AuthenticatedThreadUsersController extends AbstractController<Authenticated, Thread> {
+@RequestMapping("/authenticated/participant/")
+public class AuthenticatedParticipantController extends AbstractController<Authenticated, UserAccount> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedThreadUsersListService			listService;
+	private AuthenticatedParticipantListService	listService;
 
 	@Autowired
-	private AuthenticatedThreadUsersShowService			showService;
-
-	@Autowired
-	private AuthenticatedThreadUsersAddUserService		addUserService;
-
-	@Autowired
-	private AuthenticatedThreadUsersDeleteUserService	deleteUserService;
+	private AuthenticatedParticipantShowService	showService;
 
 
 	// Constructors -----------------------------------------------------------
 
 	@PostConstruct
 	private void initialise() {
+		//super.addCustomCommand(CustomCommand.LIST_NEW_USER, BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
-		super.addCustomCommand(CustomCommand.ADD_USER, BasicCommand.UPDATE, this.addUserService);
-		super.addCustomCommand(CustomCommand.DELETE_USER, BasicCommand.UPDATE, this.deleteUserService);
 	}
 }

@@ -17,12 +17,12 @@
 	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-	<definition name="authenticated/thread/list" extends="master">
-		<put-attribute name="body" type="template" value="../authenticated/thread/list.jsp" />
+	<definition name="authenticated/participant/list" extends="master">
+		<put-attribute name="body" type="template" value="../authenticated/participant/list.jsp" />
 	</definition>
 	
-	<definition name="authenticated/thread/form" extends="master">
-		<put-attribute name="body" type="template" value="../authenticated/thread/form.jsp" />
+	<definition name="authenticated/participant/form" extends="master">
+		<put-attribute name="body" type="template" value="../authenticated/participant/form.jsp" />
 	</definition>
 
 </tiles-definitions>

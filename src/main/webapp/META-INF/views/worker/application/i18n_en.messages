@@ -17,6 +17,7 @@ worker.application.form.label.referenceJob = Job reference
 worker.application.form.label.reference = Reference Number
 worker.application.form.label.moment = Moment
 worker.application.form.label.status = Status
+worker.application.form.label.justification = Justification
 worker.application.form.label.status.pending = Pending
 worker.application.form.label.status.rejected = Rejected
 worker.application.form.label.status.accepted = Accepted

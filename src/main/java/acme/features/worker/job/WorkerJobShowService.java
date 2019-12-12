@@ -46,11 +46,8 @@ public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
 		assert entity != null;
 		assert model != null;
 
-		String direccion = "../audit/list?id=" + entity.getId();
+		String direccion = "../audit/list_by_job?id=" + entity.getId();
 		model.setAttribute("auditList", direccion);
-
-		String direccion2 = "../descriptor/show?id=" + entity.getDescriptor().getId();
-		model.setAttribute("descriptorShow", direccion2);
 
 		String direccion3 = "../application/create?id=" + entity.getId();
 		model.setAttribute("jobCreateApplication", direccion3);
@@ -71,7 +68,7 @@ public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
 		//	model.setAttribute("dutiesCollection", dutiesCollection);
 
 		request.unbind(entity, model, "referenceNumber", "title", "deadline");
-		request.unbind(entity, model, "salary", "moreInfo");
+		request.unbind(entity, model, "salary", "moreInfo", "description");
 	}
 
 	@Override

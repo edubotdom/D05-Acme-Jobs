@@ -8,6 +8,7 @@ import acme.entities.duties.Duty;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -23,7 +24,14 @@ public class AuditorDutyShowService implements AbstractShowService<Auditor, Duty
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
 
-		return true;
+		Principal principal = request.getPrincipal();
+		int auditorId = principal.getAccountId();
+
+		Auditor auditor = this.repository.findOneAuditorByUserAccountId(auditorId);
+
+		boolean autorize = auditor.isRequest();
+
+		return autorize;
 	}
 
 	@Override

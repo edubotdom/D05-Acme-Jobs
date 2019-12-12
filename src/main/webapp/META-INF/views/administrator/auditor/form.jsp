@@ -19,10 +19,16 @@
 
 <acme:form>
 	
-	<acme:form-textbox code="administrator.auditor.form.label.firm" path="firm" />
-	<acme:form-textarea code="administrator.auditor.form.label.statement" path="statement" />
+	<acme:form-textbox code="administrator.auditor.form.label.firm" path="firm" readonly="true"/>
+	<acme:form-textarea code="administrator.auditor.form.label.statement" path="statement" readonly="true" />
 	<acme:form-textbox code="administrator.auditor.form.label.status" path="status" />
-	<acme:form-textarea code="administrator.auditor.form.label.body" path="body" />
-
+	<acme:form-textarea code="administrator.auditor.form.label.body" path="body" readonly="true" />
+	
+	<acme:form-submit test="${command== 'show'}" code="administrator.auditor.form.button.update"
+		action="/administrator/auditor/update" />
+		
+	<acme:form-submit test="${command == 'update'}" code="administrator.auditor.form.button.update"
+		action="/administrator/auditor/update"/>
+		
 	<acme:form-return code="administrator.auditor.form.button.return" />
 </acme:form>

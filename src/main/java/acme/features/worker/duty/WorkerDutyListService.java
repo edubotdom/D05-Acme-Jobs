@@ -44,7 +44,7 @@ public class WorkerDutyListService implements AbstractListService<Worker, Duty> 
 		Collection<Duty> result;
 
 		Integer id = request.getModel().getInteger("id");
-		result = this.repository.findManyAllByDescriptor(id);
+		result = this.repository.findManyAllByJob(id);
 		return result;
 	}
 }

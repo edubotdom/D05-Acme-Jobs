@@ -13,7 +13,10 @@ administrator.auditor.form.label.status = Estado de la petición
 administrator.auditor.form.label.statement = Declaración
 administrator.auditor.form.label.firm = Firma
 
-administrator.auditor.list.label.request = Estado de la petición
+administrator.auditor.list.label.status = Estado de la petición
 administrator.auditor.list.label.body = Cuerpo
 
+administrator.auditor.form.button.update = Actualizar
 administrator.auditor.form.button.return = Volver
+
+administrator.auditor.statusNotCorrect = El estado de la solicitud debe ser "Pending" o "Accepted"

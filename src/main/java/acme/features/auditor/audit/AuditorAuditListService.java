@@ -10,6 +10,7 @@ import acme.entities.audits.Audit;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -25,7 +26,14 @@ public class AuditorAuditListService implements AbstractListService<Auditor, Aud
 	public boolean authorise(final Request<Audit> request) {
 		assert request != null;
 
-		return true;
+		Principal principal = request.getPrincipal();
+		int auditorId = principal.getAccountId();
+
+		Auditor auditor = this.repository.findOneAuditorByUserAccountId(auditorId);
+
+		boolean autorize = auditor.isRequest();
+
+		return autorize;
 	}
 
 	@Override

@@ -27,7 +27,15 @@ public class AuditorJobListNotMineService implements AbstractListService<Auditor
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
 
-		return true;
+		Principal principal = request.getPrincipal();
+
+		int auditorId = principal.getAccountId();
+
+		Auditor auditor = this.repository.findOneAuditorByUserAccountId(auditorId);
+
+		boolean autorize = auditor.isRequest();
+
+		return autorize;
 	}
 
 	@Override

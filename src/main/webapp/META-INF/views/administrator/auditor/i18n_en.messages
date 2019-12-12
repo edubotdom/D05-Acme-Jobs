@@ -13,7 +13,10 @@ administrator.auditor.form.label.status = Request's status
 administrator.auditor.form.label.statement = Statement
 administrator.auditor.form.label.firm = Firm
 
-administrator.auditor.list.label.request = Request's status
+administrator.auditor.list.label.status = Request's status
 administrator.auditor.list.label.body = Body
 
+administrator.auditor.form.button.update = Update
 administrator.auditor.form.button.return = Return
+
+administrator.auditor.statusNotCorrect = The status of the request must be "Pending" or "Accepted"

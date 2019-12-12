@@ -18,6 +18,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.audits.Audit;
+import acme.entities.roles.Auditor;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -35,4 +36,6 @@ public interface AuditorAuditRepository extends AbstractRepository {
 	@Query("select a from Audit a where a.job.id = ?1")
 	Collection<Audit> findManyAuditsReferedToJob(int jobId);
 
+	@Query("select u from Auditor u where u.userAccount.id= ?1")
+	Auditor findOneAuditorByUserAccountId(int auditorId);
 }

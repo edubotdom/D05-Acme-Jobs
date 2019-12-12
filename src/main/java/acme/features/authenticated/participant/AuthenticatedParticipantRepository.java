@@ -19,7 +19,6 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.threads.Thread;
 import acme.framework.entities.Authenticated;
-import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -31,11 +30,11 @@ public interface AuthenticatedParticipantRepository extends AbstractRepository {
 	@Query("select t.users from Thread t where t.id = ?1")
 	Collection<Authenticated> findUsersByThread(int id);
 
-	@Query("select ua from UserAccount ua")
-	Collection<UserAccount> findManyUsers();
+	@Query("select ua from Authenticated ua")
+	Collection<Authenticated> findManyUsers();
 
-	@Query("select ua from UserAccount ua where ua.id = ?1")
-	UserAccount findUserById(int id);
+	@Query("select ua from Authenticated ua where ua.id = ?1")
+	Authenticated findUserById(int id);
 
 	@Query("select t from Thread t join t.users u where u.id = ?1")
 	Collection<Thread> findManyByUserId(int id);

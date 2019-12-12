@@ -51,6 +51,10 @@ public class AuthenticatedThreadShowService implements AbstractShowService<Authe
 		int idThread = request.getModel().getInteger("id");
 		String direccionThreadUpdate = "../thread/update?id=" + idThread;
 		model.setAttribute("direccionThreadUpdate", direccionThreadUpdate);
+
+		int idThread2 = entity.getId();
+		String direccionAnadirUsuario = "../authenticated/list?id=" + idThread2;
+		model.setAttribute("direccionAnadirUsuario", direccionAnadirUsuario);
 	}
 
 	@Override

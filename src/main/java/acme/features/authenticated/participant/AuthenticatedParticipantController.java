@@ -10,11 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Authenticated;
-import acme.framework.entities.UserAccount;
 
 @Controller
-@RequestMapping("/authenticated/participant/")
-public class AuthenticatedParticipantController extends AbstractController<Authenticated, UserAccount> {
+@RequestMapping("/authenticated/authenticated/")
+public class AuthenticatedParticipantController extends AbstractController<Authenticated, Authenticated> {
 
 	// Internal state ---------------------------------------------------------
 

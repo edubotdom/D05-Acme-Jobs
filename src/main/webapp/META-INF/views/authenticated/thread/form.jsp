@@ -26,9 +26,10 @@
 		<acme:form-moment code="authenticated.thread.form.label.creationDate" path="creationDate" />
 		<acme:form-return code="authenticated.thread.form.button.messageList" action="${direccion}" />
 		<acme:form-return code="authenticated.thread.form.button.message.create" action="${threadCreateMessage}" />
+		<acme:form-return code="authenticated.thread.form.button.message.addUser" action="${direccionAnadirUsuario}" />
 		<%--<acme:form-hidden path="direccionThreadUpdate"/>--%>
 		<%--<acme:form-return code="authenticated.thread.form.button.update" action="${direccionThreadUpdate}" />--%>
-		<acme:form-return code="authenticated.thread.form.button.update" action="/authenticated/threadUsers/list" />
+		<acme:form-return code="authenticated.thread.form.button.update" action="/authenticated/authenticated/list" />
 	</jstl:if>
 
 

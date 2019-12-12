@@ -1,6 +1,8 @@
 
 package acme.features.authenticated.thread;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -65,6 +67,9 @@ public class AuthenticatedThreadUpdateService implements AbstractUpdateService<A
 		assert request != null;
 		assert entity != null;
 
+		int id = request.getModel().getInteger("id");
+		Collection<Authenticated> usersMod = this.repository.findOneThreadById(id).getUsers();
+		//entity.setUsers(usersMod.add(usuario));
 		this.repository.save(entity);
 	}
 

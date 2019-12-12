@@ -2,10 +2,14 @@
 package acme.features.employer.job;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.customization.Customization;
 import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
@@ -84,6 +88,31 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		errors.state(request, statusCorrect, "status", "employer.job.statusNotCorrect");
 
 		//Comprueba el spam
+		String referenceNumber = entity.getReferenceNumber();
+		String[] referenceNumberArray = referenceNumber.split(" ");
+		String title = entity.getTitle();
+		String[] titleArray = title.split(" ");
+		String descriptionSpam = entity.getDescription();
+		String[] descriptionArray = descriptionSpam.split(" ");
+
+		Customization customisation = this.repository.findCustomization();
+
+		String spamWords = customisation.getSpam();
+		String[] spamArray = spamWords.split(",");
+		Double threshold = customisation.getThreshold();
+
+		List<String> spamList = IntStream.range(0, spamArray.length).boxed().map(x -> spamArray[x].trim()).collect(Collectors.toList());
+
+		Integer numSpamReferenceNumber = (int) IntStream.range(0, referenceNumberArray.length).boxed().map(x -> referenceNumberArray[x].trim()).filter(i -> spamList.contains(i)).count();
+		Integer numSpamTitle = (int) IntStream.range(0, titleArray.length).boxed().map(x -> titleArray[x].trim()).filter(i -> spamList.contains(i)).count();
+		Integer numSpamDescription = (int) IntStream.range(0, descriptionArray.length).boxed().map(x -> descriptionArray[x].trim()).filter(i -> spamList.contains(i)).count();
+
+		boolean isFreeOfSpamReferenceNumber = 100 * numSpamReferenceNumber / referenceNumberArray.length < threshold;
+		boolean isFreeOfSpamTitle = 100 * numSpamTitle / titleArray.length < threshold;
+		boolean isFreeOfSpamDescription = 100 * numSpamDescription / descriptionArray.length < threshold;
+		errors.state(request, isFreeOfSpamReferenceNumber, "referenceNumber", "employer.job.spamWords");
+		errors.state(request, isFreeOfSpamTitle, "title", "employer.job.spamWords");
+		errors.state(request, isFreeOfSpamDescription, "description", "employer.job.spamWords");
 
 	}
 

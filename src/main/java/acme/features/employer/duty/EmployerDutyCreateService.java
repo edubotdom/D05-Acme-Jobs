@@ -1,9 +1,14 @@
 
 package acme.features.employer.duty;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.customization.Customization;
 import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
@@ -67,6 +72,26 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		assert errors != null;
 
 		//Comprueba el spam
+		String title = entity.getTitle();
+		String[] titleArray = title.split(" ");
+		String description = entity.getDescription();
+		String[] descriptionArray = description.split(" ");
+
+		Customization customisation = this.repository.findCustomization();
+
+		String spamWords = customisation.getSpam();
+		String[] spamArray = spamWords.split(",");
+		Double threshold = customisation.getThreshold();
+
+		List<String> spamList = IntStream.range(0, spamArray.length).boxed().map(x -> spamArray[x].trim()).collect(Collectors.toList());
+
+		Integer numSpamTitle = (int) IntStream.range(0, titleArray.length).boxed().map(x -> titleArray[x].trim()).filter(i -> spamList.contains(i)).count();
+		Integer numSpamDescription = (int) IntStream.range(0, descriptionArray.length).boxed().map(x -> descriptionArray[x].trim()).filter(i -> spamList.contains(i)).count();
+
+		boolean isFreeOfSpamTitle = 100 * numSpamTitle / titleArray.length < threshold;
+		boolean isFreeOfSpamDescription = 100 * numSpamDescription / descriptionArray.length < threshold;
+		errors.state(request, isFreeOfSpamTitle, "title", "employer.duty.spamWords");
+		errors.state(request, isFreeOfSpamDescription, "description", "employer.duty.spamWords");
 	}
 
 	@Override

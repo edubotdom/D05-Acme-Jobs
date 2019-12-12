@@ -30,6 +30,7 @@ employer.job.list.label.referenceNumber = Reference
 employer.job.list.label.title = Title
 employer.job.list.label.deadline = Deadline
 
+employer.job.spamWords = Do not write spam words
 employer.job.tryingToCreatePastJob = The job is in past
 employer.job.isAlreadyPublished = The job is already published, it cannot be modified
 employer.job.aWorkerHasAppliedForIt = A worker has applied for this job; that means it cannot be deleted by the way

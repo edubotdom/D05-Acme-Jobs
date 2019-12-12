@@ -96,15 +96,14 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 
 		Integer numSpamReferenceNumber = (int) IntStream.range(0, referenceNumberArray.length).boxed().map(x -> referenceNumberArray[x].trim()).filter(i -> spamList.contains(i)).count();
 		Integer numSpamTitle = (int) IntStream.range(0, titleArray.length).boxed().map(x -> titleArray[x].trim()).filter(i -> spamList.contains(i)).count();
-		/*
-		 * Integer numSpamBody = (int) IntStream.range(0, bodyArray.length).boxed().map(x -> bodyArray[x].trim()).filter(i -> spamList.contains(i)).count();
-		 * boolean isFreeOfSpamReferenceNumber = 100 * numSpamReferenceNumber / referenceNumberArray.length < threshold;
-		 * boolean isFreeOfSpamTitle = 100 * numSpamTitle / titleArray.length < threshold;
-		 * boolean isFreeOfSpamBody = 100 * numSpamBody / bodyArray.length < threshold;
-		 * errors.state(request, isFreeOfSpamReferenceNumber, "title", "authenticated.message.spamWords");
-		 * errors.state(request, isFreeOfSpamTags, "tags", "authenticated.message.spamWords");
-		 * errors.state(request, isFreeOfSpamBody, "body", "authenticated.message.spamWords");
-		 */
+		Integer numSpamDescription = (int) IntStream.range(0, descriptionArray.length).boxed().map(x -> descriptionArray[x].trim()).filter(i -> spamList.contains(i)).count();
+
+		boolean isFreeOfSpamReferenceNumber = 100 * numSpamReferenceNumber / referenceNumberArray.length < threshold;
+		boolean isFreeOfSpamTitle = 100 * numSpamTitle / titleArray.length < threshold;
+		boolean isFreeOfSpamDescription = 100 * numSpamDescription / descriptionArray.length < threshold;
+		errors.state(request, isFreeOfSpamReferenceNumber, "referenceNumber", "employer.job.spamWords");
+		errors.state(request, isFreeOfSpamTitle, "title", "employer.job.spamWords");
+		errors.state(request, isFreeOfSpamDescription, "description", "employer.job.spamWords");
 	}
 
 	@Override

@@ -99,6 +99,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setRatioPublishedJobs(this.repository.ratioPublishedJobs());
 		result.setRatioDraftJobs(this.repository.ratioDraftJobs());
 
+		result.setTimeSeriesPendingApplication(this.repository.getTimeSeriesPendingApplication());
+
 		return result;
 	}
 

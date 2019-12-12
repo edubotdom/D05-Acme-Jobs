@@ -2,7 +2,9 @@
 package acme.forms;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -55,6 +57,8 @@ public class Dashboard implements Serializable {
 	// Ratio of jobs grouped by status
 	Double						ratioPublishedJobs;
 	Double						ratioDraftJobs;
+
+	Map<Integer, Date>			timeSeriesPendingApplication;
 
 	// Derived attributes -------------------------------------------------
 

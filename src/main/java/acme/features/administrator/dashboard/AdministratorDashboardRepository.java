@@ -13,6 +13,8 @@
 package acme.features.administrator.dashboard;
 
 import java.util.Collection;
+import java.util.Date;
+import java.util.Map;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -92,5 +94,8 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 
 	@Query("select 1.0 * count(a) / (select count(b) from Job b) from Job a where a.finalMode = 0")
 	Double ratioDraftJobs();
+
+	@Query("select count(a),a.moment as day from Application a where a.status = 'pending' group by day(a.moment) having a.moment <= current_date() - 28")
+	Map<Integer, Date> getTimeSeriesPendingApplication();
 
 }

@@ -1284,6 +1284,120 @@
 		<property name="userAccount" ref="auditor5UserAccount" />
 	</bean>
 
+	
+	<!-- Jobs -->
+
+	<bean name="job1" class="acme.entities.jobs.Job">
+		<property name="referenceNumber" value="EEEA-JJJA" />
+		<property name="title" value="Title 1" />
+		<property name="deadline" value="2030/12/11 23:59" />
+		<property name="salary" value="€ 15,000.98" />
+		<property name="moreInfo" value="http://www.moreinfo.com/" />
+		<property name="finalMode" value="false" />
+		<property name="employer" ref="employer1Employer" />
+		<property name="description" value="Description sample of a Descriptor" />
+	</bean>
+
+	<bean name="job2" class="acme.entities.jobs.Job">
+		<property name="referenceNumber" value="EEEB-JJJB" />
+		<property name="title" value="Title 2" />
+		<property name="deadline" value="2030/12/11 23:59" />
+		<property name="salary" value="€ 20,000.00" />
+		<property name="moreInfo" value="http://www.moreinfo.com/" />
+		<property name="finalMode" value="true" />
+		<property name="employer" ref="employer2Employer" />
+		<property name="description" value="Description sample of a Descriptor" />
+	</bean>
+
+	<bean name="job3" class="acme.entities.jobs.Job">
+		<property name="referenceNumber" value="EEEC-JJJC" />
+		<property name="title" value="Title 3" />
+		<property name="deadline" value="2023/10/10 20:51" />
+		<property name="salary" value="€ 31,000.00" />
+		<property name="moreInfo" value="http://www.moreinfo.com/" />
+		<property name="finalMode" value="true" />
+		<property name="employer" ref="employer2Employer" />
+		<property name="description" value="Description sample of a Descriptor" />
+	</bean>
+
+	<bean name="job4" class="acme.entities.jobs.Job">
+		<property name="referenceNumber" value="EEED-JJJD" />
+		<property name="title" value="Title 4" />
+		<property name="deadline" value="2024/11/06 10:34" />
+		<property name="salary" value="€ 16,000.00" />
+		<property name="moreInfo" value="http://www.moreinfo.com/" />
+		<property name="finalMode" value="false" />
+		<property name="employer" ref="employer1Employer" />
+		<property name="description" value="Description sample of a Descriptor" />
+	</bean>
+
+	<bean name="job5" class="acme.entities.jobs.Job">
+		<property name="referenceNumber" value="EEEE-JJJE" />
+		<property name="title" value="Title 5" />
+		<property name="deadline" value="2085/04/25 06:57" />
+		<property name="salary" value="€ 14,000.00" />
+		<property name="moreInfo" value="http://www.moreinfo.com/" />
+		<property name="finalMode" value="true" />
+		<property name="employer" ref="employer1Employer" />
+		<property name="description" value="Description sample of a Descriptor" />
+	</bean>
+
+	<bean name="job6" class="acme.entities.jobs.Job">
+		<property name="referenceNumber" value="EEEF-JJJF" />
+		<property name="title" value="Title 6" />
+		<property name="deadline" value="2035/04/25 06:57" />
+		<property name="salary" value="€ 14,000.00" />
+		<property name="moreInfo" value="http://www.moreinfo.com/" />
+		<property name="finalMode" value="true" />
+		<property name="employer" ref="employer4Employer" />
+		<property name="description" value="Description sample of a Descriptor" />
+	</bean>
+	
+	<bean name="job7" class="acme.entities.jobs.Job">
+		<property name="referenceNumber" value="EEEG-JJJG" />
+		<property name="title" value="Title 7" />
+		<property name="deadline" value="1999/04/25 06:57" />
+		<property name="salary" value="€ 15,000.00" />
+		<property name="moreInfo" value="http://www.moreinfo.com/" />
+		<property name="finalMode" value="true" />
+		<property name="employer" ref="employer2Employer" />
+		<property name="description" value="Description sample of a Descriptor" />
+	</bean>
+	
+	<bean name="job8" class="acme.entities.jobs.Job">
+		<property name="referenceNumber" value="EEEH-JJJH" />
+		<property name="title" value="Title 8" />
+		<property name="deadline" value="1999/04/25 06:57" />
+		<property name="salary" value="€ 11,000.00" />
+		<property name="moreInfo" value="http://www.moreinfo.com/" />
+		<property name="finalMode" value="false" />
+		<property name="employer" ref="employer1Employer" />
+		<property name="description" value="Description sample of a Descriptor" />
+	</bean>
+	
+	<bean name="job9" class="acme.entities.jobs.Job">
+		<property name="referenceNumber" value="ENAP-JJJP" />
+		<property name="title" value="Title 9" />
+		<property name="deadline" value="1999/04/25 06:57" />
+		<property name="salary" value="€ 11,000.00" />
+		<property name="moreInfo" value="http://www.moreinfo.com/" />
+		<property name="finalMode" value="false" />
+		<property name="employer" ref="employer1Employer" />
+		<property name="description" value="Description sample of a Descriptor" />
+	</bean>
+	
+	<bean name="job10" class="acme.entities.jobs.Job">
+		<property name="referenceNumber" value="EMOP-HHJP" />
+		<property name="title" value="Title 10" />
+		<property name="deadline" value="1999/04/25 06:57" />
+		<property name="salary" value="€ 11,000.00" />
+		<property name="moreInfo" value="http://www.moreinfo.com/" />
+		<property name="finalMode" value="false" />
+		<property name="employer" ref="employer1Employer" />
+		<property name="description" value="Description sample of a Descriptor" />
+	</bean>
+
+
 		<!-- Duties -->
 
 	<bean name="duty1Duty" class="acme.entities.duties.Duty">
@@ -1403,118 +1517,6 @@
 		<property name="description" value="Description of a duty17" />
 		<property name="timeAmount" value="100.00" />
 		<property name="job" ref="job8" />
-	</bean>
-	
-	<!-- Jobs -->
-
-	<bean name="job1" class="acme.entities.jobs.Job">
-		<property name="referenceNumber" value="EEEA-JJJA" />
-		<property name="title" value="Title 1" />
-		<property name="deadline" value="2030/12/11 23:59" />
-		<property name="salary" value="€ 15,000.98" />
-		<property name="moreInfo" value="http://www.moreinfo.com/" />
-		<property name="finalMode" value="false" />
-		<property name="employer" ref="employer1Employer" />
-		<property name="description" value="Description sample of a Descriptor" />
-	</bean>
-
-	<bean name="job2" class="acme.entities.jobs.Job">
-		<property name="referenceNumber" value="EEEB-JJJB" />
-		<property name="title" value="Title 2" />
-		<property name="deadline" value="2030/12/11 23:59" />
-		<property name="salary" value="€ 20,000.00" />
-		<property name="moreInfo" value="http://www.moreinfo.com/" />
-		<property name="finalMode" value="true" />
-		<property name="employer" ref="employer2Employer" />
-		<property name="description" value="Description sample of a Descriptor" />
-	</bean>
-
-	<bean name="job3" class="acme.entities.jobs.Job">
-		<property name="referenceNumber" value="EEEC-JJJC" />
-		<property name="title" value="Title 3" />
-		<property name="deadline" value="2023/10/10 20:51" />
-		<property name="salary" value="€ 31,000.00" />
-		<property name="moreInfo" value="http://www.moreinfo.com/" />
-		<property name="finalMode" value="true" />
-		<property name="employer" ref="employer2Employer" />
-		<property name="description" value="Description sample of a Descriptor" />
-	</bean>
-
-	<bean name="job4" class="acme.entities.jobs.Job">
-		<property name="referenceNumber" value="EEED-JJJD" />
-		<property name="title" value="Title 4" />
-		<property name="deadline" value="2024/11/06 10:34" />
-		<property name="salary" value="€ 16,000.00" />
-		<property name="moreInfo" value="http://www.moreinfo.com/" />
-		<property name="finalMode" value="false" />
-		<property name="employer" ref="employer1Employer" />
-		<property name="description" value="Description sample of a Descriptor" />
-	</bean>
-
-	<bean name="job5" class="acme.entities.jobs.Job">
-		<property name="referenceNumber" value="EEEE-JJJE" />
-		<property name="title" value="Title 5" />
-		<property name="deadline" value="2085/04/25 06:57" />
-		<property name="salary" value="€ 14,000.00" />
-		<property name="moreInfo" value="http://www.moreinfo.com/" />
-		<property name="finalMode" value="true" />
-		<property name="employer" ref="employer1Employer" />
-		<property name="description" value="Description sample of a Descriptor" />
-	</bean>
-
-	<bean name="job6" class="acme.entities.jobs.Job">
-		<property name="referenceNumber" value="EEEF-JJJF" />
-		<property name="title" value="Title 6" />
-		<property name="deadline" value="2035/04/25 06:57" />
-		<property name="salary" value="€ 14,000.00" />
-		<property name="moreInfo" value="http://www.moreinfo.com/" />
-		<property name="finalMode" value="true" />
-		<property name="employer" ref="employer4Employer" />
-		<property name="description" value="Description sample of a Descriptor" />
-	</bean>
-	
-	<bean name="job7" class="acme.entities.jobs.Job">
-		<property name="referenceNumber" value="EEEG-JJJG" />
-		<property name="title" value="Title 7" />
-		<property name="deadline" value="1999/04/25 06:57" />
-		<property name="salary" value="€ 15,000.00" />
-		<property name="moreInfo" value="http://www.moreinfo.com/" />
-		<property name="finalMode" value="true" />
-		<property name="employer" ref="employer2Employer" />
-		<property name="description" value="Description sample of a Descriptor" />
-	</bean>
-	
-	<bean name="job8" class="acme.entities.jobs.Job">
-		<property name="referenceNumber" value="EEEH-JJJH" />
-		<property name="title" value="Title 8" />
-		<property name="deadline" value="1999/04/25 06:57" />
-		<property name="salary" value="€ 11,000.00" />
-		<property name="moreInfo" value="http://www.moreinfo.com/" />
-		<property name="finalMode" value="false" />
-		<property name="employer" ref="employer1Employer" />
-		<property name="description" value="Description sample of a Descriptor" />
-	</bean>
-	
-	<bean name="job9" class="acme.entities.jobs.Job">
-		<property name="referenceNumber" value="ENAP-JJJP" />
-		<property name="title" value="Title 9" />
-		<property name="deadline" value="1999/04/25 06:57" />
-		<property name="salary" value="€ 11,000.00" />
-		<property name="moreInfo" value="http://www.moreinfo.com/" />
-		<property name="finalMode" value="false" />
-		<property name="employer" ref="employer1Employer" />
-		<property name="description" value="Description sample of a Descriptor" />
-	</bean>
-	
-	<bean name="job10" class="acme.entities.jobs.Job">
-		<property name="referenceNumber" value="EMOP-HHJP" />
-		<property name="title" value="Title 10" />
-		<property name="deadline" value="1999/04/25 06:57" />
-		<property name="salary" value="€ 11,000.00" />
-		<property name="moreInfo" value="http://www.moreinfo.com/" />
-		<property name="finalMode" value="false" />
-		<property name="employer" ref="employer1Employer" />
-		<property name="description" value="Description sample of a Descriptor" />
 	</bean>
 
 <!-- Audits -->

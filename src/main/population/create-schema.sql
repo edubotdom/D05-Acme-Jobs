@@ -300,6 +300,7 @@
 
     insert into `hibernate_sequence` values ( 1 );
 create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
+create index IDXdwumdwpjcwdk1mef9ua69yc2p on `application` (`reference`);
 create index IDX2q2747fhp099wkn3j2yt05fhs on `application` (`status`);
 create index IDXcrvjp8sf0i8iqrwto3rffmy0t on `application` (`job_id`);
 create index IDXg3x3iw20tabtrr8amqor0ym9d on `application` (`worker_id`);

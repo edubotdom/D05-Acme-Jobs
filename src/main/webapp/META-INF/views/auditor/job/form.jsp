@@ -24,8 +24,12 @@
 	<acme:form-textbox code="auditor.job.form.label.status" path="status" />
 	<acme:form-textbox code="auditor.job.form.label.description" path="description" />
 	
-	<acme:form-return code="auditor.job.form.button.duties" action="${duties}"/>
-	<acme:form-return code="auditor.job.form.button.auditList" action="${auditList}"/>
+	<jstl:if test="${command == 'show'}">
+		<acme:form-textbox code="auditor.job.form.label.status" path="status" />
+		<acme:form-return code="auditor.job.form.button.duties" action="${duties}" />
+		<acme:form-return code="auditor.job.form.button.createAudits" action="${jobCreateAudit}" />
+		<acme:form-return code="auditor.job.form.button.auditList" action="${auditList}" />
+	</jstl:if>
 	
 	<acme:form-return code="auditor.job.form.button.return" />
 </acme:form>

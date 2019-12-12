@@ -46,6 +46,9 @@ public class AuditorJobShowService implements AbstractShowService<Auditor, Job> 
 		String direccion2 = "../duty/list_by_job?id=" + entity.getId();
 		model.setAttribute("duties", direccion2);
 
+		String direccion3 = "../audit/create?id=" + entity.getId();
+		model.setAttribute("jobCreateAudit", direccion3);
+
 		if (entity.isFinalMode()) {
 			model.setAttribute("status", "Published");
 		} else {

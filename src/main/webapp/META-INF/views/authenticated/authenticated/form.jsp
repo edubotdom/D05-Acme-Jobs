@@ -17,5 +17,7 @@
 
 <acme:form>	
 	<acme:form-textbox code="authenticated.participant.form.label.username" path="usuario" />
+	
+	<acme:form-return code="authenticated.participant.form.button.anadirParticipante" action="${direccion}"/>
 	<acme:form-return code="authenticated.participant.form.button.return" />
 </acme:form>

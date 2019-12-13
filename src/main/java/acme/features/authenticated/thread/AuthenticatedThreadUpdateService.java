@@ -67,9 +67,15 @@ public class AuthenticatedThreadUpdateService implements AbstractUpdateService<A
 		assert request != null;
 		assert entity != null;
 
-		int id = request.getModel().getInteger("id");
+		int userid;
+		Authenticated user;
+		userid = request.getModel().getInteger("userid");
+		user = this.repository.findOneAuthenticatedByUserAccountId(userid);
+
+		int id = request.getModel().getInteger("threadid");
 		Collection<Authenticated> usersMod = this.repository.findOneThreadById(id).getUsers();
-		//entity.setUsers(usersMod.add(usuario));
+		usersMod.add(user);
+		entity.setUsers(usersMod);
 		this.repository.save(entity);
 	}
 

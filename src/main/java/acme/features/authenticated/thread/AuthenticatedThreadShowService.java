@@ -40,11 +40,10 @@ public class AuthenticatedThreadShowService implements AbstractShowService<Authe
 		assert entity != null;
 		assert model != null;
 
-		//		Collection<Message> messagesCollection = entity.getMessages();
 		String direccion = "../message/list_by_thread?id=" + entity.getId();
 		model.setAttribute("direccion", direccion);
 		request.unbind(entity, model, "title", "creationDate");
-		//		model.setAttribute("messagesCollection", messagesCollection);
+
 		String direccion2 = "../message/create?id=" + entity.getId();
 		model.setAttribute("threadCreateMessage", direccion2);
 
@@ -53,7 +52,7 @@ public class AuthenticatedThreadShowService implements AbstractShowService<Authe
 		model.setAttribute("direccionThreadUpdate", direccionThreadUpdate);
 
 		int idThread2 = entity.getId();
-		String direccionAnadirUsuario = "../authenticated/list?id=" + idThread2;
+		String direccionAnadirUsuario = "../authenticated/list?threadid=" + idThread2;
 		model.setAttribute("direccionAnadirUsuario", direccionAnadirUsuario);
 	}
 

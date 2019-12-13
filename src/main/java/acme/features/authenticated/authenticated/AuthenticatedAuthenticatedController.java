@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.participant;
+package acme.features.authenticated.authenticated;
 
 import javax.annotation.PostConstruct;
 
@@ -13,15 +13,15 @@ import acme.framework.entities.Authenticated;
 
 @Controller
 @RequestMapping("/authenticated/authenticated/")
-public class AuthenticatedParticipantController extends AbstractController<Authenticated, Authenticated> {
+public class AuthenticatedAuthenticatedController extends AbstractController<Authenticated, Authenticated> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedParticipantListService	listService;
+	private AuthenticatedAuthenticatedListService	listService;
 
 	@Autowired
-	private AuthenticatedParticipantShowService	showService;
+	private AuthenticatedAuthenticatedShowService	showService;
 
 
 	// Constructors -----------------------------------------------------------

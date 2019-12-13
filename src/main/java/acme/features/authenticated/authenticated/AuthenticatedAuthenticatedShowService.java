@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.participant;
+package acme.features.authenticated.authenticated;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,12 +10,12 @@ import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AuthenticatedParticipantShowService implements AbstractShowService<Authenticated, Authenticated> {
+public class AuthenticatedAuthenticatedShowService implements AbstractShowService<Authenticated, Authenticated> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedParticipantRepository repository;
+	private AuthenticatedAuthenticatedRepository repository;
 
 
 	@Override
@@ -30,6 +30,9 @@ public class AuthenticatedParticipantShowService implements AbstractShowService<
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+
+		String anadirParticipante = "../thread/update?userid=" + entity.getUserAccount().getId();
+		model.setAttribute("direccion", anadirParticipante);
 
 		model.setAttribute("usuario", entity.getUserAccount().getUsername());
 		request.unbind(entity, model/* , "userAccount" */);

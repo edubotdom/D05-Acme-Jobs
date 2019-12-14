@@ -16,9 +16,9 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	
+	<acme:form-hidden path="direccionParticipant"/>
 	<jstl:if test="${command=='show' }">
-	<acme:form-textbox code="authenticated.participant.form.label.username" path="username"/>
+	<acme:form-textbox code="authenticated.participant.form.label.username" path="username" readonly="true"/>
 	</jstl:if>
 
 	<jstl:if test="${command=='create' }">
@@ -30,6 +30,6 @@
 	</jstl:if>
 	
 	<acme:form-submit test="${command == 'show'}" code="authenticated.participant.form.button.delete" action="/authenticated/participant/delete"/>
-	<acme:form-submit test="${command == 'create'}" code="authenticated.participant.form.button.create" action="/authenticated/participant/create"/>
+	<acme:form-submit test="${command == 'create'}" code="authenticated.participant.form.button.create" action="${direccionParticipant}"/>
   	<acme:form-return code="authenticated.participant.form.button.return"/>
 </acme:form>

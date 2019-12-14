@@ -37,6 +37,12 @@ public class AuthenticatedParticipantCreateService implements AbstractCreateServ
 		assert entity != null;
 		assert errors != null;
 
+		Authenticated user;
+
+		int username = request.getModel().getInteger("usuarioelegido");
+		user = this.repository.findOneAutheticatedById(username);
+		entity.setUser(user);
+
 		request.bind(entity, errors);
 
 	}
@@ -48,6 +54,10 @@ public class AuthenticatedParticipantCreateService implements AbstractCreateServ
 		assert model != null;
 
 		int idThread = request.getModel().getInteger("threadid");
+
+		String direccionParticipant = "../participant/create?threadid=" + idThread;
+		model.setAttribute("direccionParticipant", direccionParticipant);
+
 		Collection<Authenticated> usuariosEnThread = this.repository.findManyAutheticatedByThread(idThread);
 		Collection<Authenticated> usuariosTotales = this.repository.findManyAutheticated();
 		Collection<Authenticated> usuarios = usuariosTotales.stream().filter(u -> !usuariosEnThread.contains(u)).collect(Collectors.toList());
@@ -80,12 +90,13 @@ public class AuthenticatedParticipantCreateService implements AbstractCreateServ
 
 	@Override
 	public void create(final Request<Participant> request, final Participant entity) {
-		Authenticated user;
-
-		int username = request.getModel().getInteger("usuarioelegido");
-		user = this.repository.findOneAutheticatedById(username);
-
-		entity.setUser(user);
+		/*
+		 * Authenticated user;
+		 * 
+		 * int username = request.getModel().getInteger("usuarioelegido");
+		 * user = this.repository.findOneAutheticatedById(username);
+		 * entity.setUser(user);
+		 */
 		this.repository.save(entity);
 
 	}

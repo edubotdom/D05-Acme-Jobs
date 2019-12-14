@@ -8,11 +8,10 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.announcement.form.label.title = Título:
-authenticated.announcement.form.label.moment = Fecha y hora:
-authenticated.announcement.form.label.moreInfo = Más información:
-authenticated.announcement.form.label.text = Texto:
-authenticated.announcement.form.button.return = Volver
+authenticated.participant.form.label.username = Usuario
+authenticated.participant.form.label.usuarioelegido = Seleccione un usuario para añadir
+authenticated.participant.form.button.delete = Eliminar usuario
+authenticated.participant.form.button.create = Añadir usuario
 
-authenticated.announcement.list.label.moment = Fecha y hora
-authenticated.announcement.list.label.title = Título
+authenticated.participant.list.label.username = Usuario
+authenticated.participant.form.button.return = Volver

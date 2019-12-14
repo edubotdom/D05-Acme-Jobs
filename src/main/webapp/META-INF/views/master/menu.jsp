@@ -129,6 +129,9 @@
 		<acme:menu-option code="master.menu.selector.employer" access="hasRole('Employer')">
 			<acme:menu-suboption code="master.menu.employer.job.list_mine" action="/employer/job/list_mine" />
 			<acme:menu-suboption code="master.menu.employer.application.list_mine" action="/employer/application/list_mine" />
+			<acme:menu-suboption code="master.menu.employer.application.list_mine_reference" action="/employer/application/list_mine_reference" />
+			<acme:menu-suboption code="master.menu.employer.application.list_mine_status" action="/employer/application/list_mine_status" />
+			<acme:menu-suboption code="master.menu.employer.application.list_mine_moment" action="/employer/application/list_mine_moment" />
 			<acme:menu-suboption code="master.menu.employer.job.create_job" action="/employer/job/create" />
 		</acme:menu-option>
 

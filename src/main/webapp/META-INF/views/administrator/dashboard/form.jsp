@@ -104,7 +104,7 @@
 		});
 	</script>
 	
-	<!-- Chart Application -->
+	<!-- Chart Application Ratios -->
 	<h2>
 		<acme:message code="administrator.dashboard.form.label.chart2"/>
 	</h2>	
@@ -152,6 +152,95 @@
 			});
 			
 		});
+	</script>
+	
+	<!-- Chart Application Time Series -->
+	<h2>
+		<acme:message code="administrator.dashboard.form.label.chart3"/>
+	</h2>	
+	
+	<div>
+		<canvas id="canvas3"></canvas>
+	</div>
+	
+	<script src="libraries/acme/js/chart.js" charset="utf-8"></script>
+	
+	<script type="text/javascript">
+	$(document).ready(function() {
+	
+		var dateListTimeSeriesPendingApplication = new Array();
+		<jstl:forEach items="${dateListTimeSeriesPendingApplication}" var="item">
+			dateListTimeSeriesPendingApplication.push("${item}");
+		</jstl:forEach>
+		
+		var countListTimeSeriesPendingApplication = new Array();
+		<jstl:forEach items="${countListTimeSeriesPendingApplication}" var="item">
+			countListTimeSeriesPendingApplication.push("${item}");
+		</jstl:forEach>		
+		
+		class Ejes{
+	        constructor(xAxe,yAxe){
+	            this.x=xAxe;
+	            this.y=yAxe;
+	        }
+	    }
+		
+		var dataPending = new Array();
+		
+	    for (var i = 0; i < dateListTimeSeriesPendingApplication.length; i++) {
+	        myAxe = new Ejes(dateListTimeSeriesPendingApplication[i],countListTimeSeriesPendingApplication[i]);
+	        dataPending.push(myAxe)
+	    }
+		
+	    var timeFormat = 'YYYY-MM-DD';
+	    
+	    var data = {
+	        type:    'line',
+	        data:    {
+	            datasets: [
+	                {
+	                    label: "Pending",
+	                    data: dataPending,
+	                    fill: false,
+	                    borderColor: 'red'
+	                }
+	            ]
+	        }
+	    };
+	        
+		var options = {
+            responsive: true,
+            scales:     {
+                xAxes: [{
+
+					type: 'time',
+					time:{
+					    unit: 'day',
+                        format: timeFormat
+					},
+					distribution: 'series'
+							
+                }],
+                yAxes: [{
+                    ticks : {
+								suggestedMin : 0,
+								suggestedMax : 5
+							}
+                }]
+            }
+	    };
+
+	    var canvas,context;
+		canvas = document.getElementById("canvas3");
+		context = canvas.getContext("2d");
+		
+		new Chart(context, {
+			type : "bar",
+			data : data,
+			options : options
+		});
+		
+	});
 	</script>
 	
   	<acme:form-return code="administrator.dashboard.form.button.return"/>

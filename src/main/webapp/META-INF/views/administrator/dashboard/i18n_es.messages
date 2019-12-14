@@ -15,7 +15,8 @@ administrator.dashboard.form.label.averageApplicationsPerEmployer = Media de apl
 administrator.dashboard.form.label.averageApplicationsPerWorker = Media de aplicaciones por trabajador
 
 administrator.dashboard.form.label.chart1 = Gráfica de Trabajos
-administrator.dashboard.form.label.chart2 = Gráfica de Aplicación
+administrator.dashboard.form.label.chart2 = Gráfica de ratios de Aplicación
+administrator.dashboard.form.label.chart3 = Gráfica de series temporales de Aplicación
 
 administrator.dashboard.form.button.return = Volver
 

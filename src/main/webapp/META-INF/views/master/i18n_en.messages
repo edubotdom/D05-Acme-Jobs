@@ -101,6 +101,9 @@ master.menu.consumer.create_offer = Create an offer
 # master.menu.employer ########################################################
 master.menu.employer.job.list_mine = List my jobs
 master.menu.employer.application.list_mine = List applications
+master.menu.employer.application.list_mine_reference = List applications grouped by reference
+master.menu.employer.application.list_mine_status = List applications grouped by status
+master.menu.employer.application.list_mine_moment = List applications grouped by moment
 master.menu.employer.job.create_job = Create jobs
 
 # master.menu.worker ##########################################################

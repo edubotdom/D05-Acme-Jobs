@@ -1674,7 +1674,7 @@
 
 	<bean name="application1" class="acme.entities.applications.Application">
 		<property name="reference" value="EEEA-JJJA:WWWA" />
-		<property name="moment" value="2019/06/10 00:00" />
+		<property name="moment" value="2019/12/10 01:00" />
 		<property name="status" value="pending" />
 		<property name="justification">
 			<null />
@@ -1688,7 +1688,7 @@
 
 	<bean name="application2" class="acme.entities.applications.Application">
 		<property name="reference" value="EEEC-JJJC:WWWB" />
-		<property name="moment" value="2019/06/11 00:00" />
+		<property name="moment" value="2019/12/11 00:00" />
 		<property name="status" value="accepted" />
 		<property name="justification">
 			<null />
@@ -1702,7 +1702,7 @@
 
 	<bean name="application3" class="acme.entities.applications.Application">
 		<property name="reference" value="EEEB-JJJB:WWWC" />
-		<property name="moment" value="2019/07/10 00:00" />
+		<property name="moment" value="2019/12/10 00:00" />
 		<property name="status" value="rejected" />
 		<property name="justification" value="Intentionally blank" />
 		<property name="statement" value="This is an example 3" />
@@ -1714,7 +1714,7 @@
 
 	<bean name="application4" class="acme.entities.applications.Application">
 		<property name="reference" value="EEED-JJJD:WWWC" />
-		<property name="moment" value="2018/06/10 00:00" />
+		<property name="moment" value="2019/12/10 03:00" />
 		<property name="status" value="pending" />
 		<property name="justification">
 			<null />
@@ -1756,7 +1756,7 @@
 
 	<bean name="application7" class="acme.entities.applications.Application">
 		<property name="reference" value="EEEB-JJJB:WWWA" />
-		<property name="moment" value="2011/07/11 01:00" />
+		<property name="moment" value="2019/12/11 01:00" />
 		<property name="status" value="accepted" />
 		<property name="justification">
 			<null />
@@ -1770,7 +1770,7 @@
 
 	<bean name="application8" class="acme.entities.applications.Application">
 		<property name="reference" value="EEEA-JJJA:WWWC" />
-		<property name="moment" value="2018/07/11 01:00" />
+		<property name="moment" value="2019/12/11 01:00" />
 		<property name="status" value="accepted" />
 		<property name="justification">
 			<null />
@@ -1829,7 +1829,6 @@
 		<property name="title" value="Sample thread 4" />
 		<property name="creationDate" value="2014/12/11 23:59" />
 	</bean>
-
 	<bean name="thread5" class="acme.entities.threads.Thread">
 		<property name="title" value="Sample thread 5" />
 		<property name="creationDate" value="2017/06/11 23:59" />
@@ -1839,7 +1838,6 @@
 		<property name="title" value="Sample thread 6" />
 		<property name="creationDate" value="2019/06/11 13:59" />
 	</bean>
-
 	<!-- Message's bean -->
 
 	<bean name="message1" class="acme.entities.messages.Message">

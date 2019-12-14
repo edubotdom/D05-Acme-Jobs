@@ -17,7 +17,8 @@ administrator.dashboard.form.label.averageApplicationsPerEmployer = Average appl
 administrator.dashboard.form.label.averageApplicationsPerWorker = Average applications per worker:
 
 administrator.dashboard.form.label.chart1 = Chart of Jobs
-administrator.dashboard.form.label.chart2 = Chart of Application
+administrator.dashboard.form.label.chart2 = Chart of Application ratios
+administrator.dashboard.form.label.chart3 = Chart of Application time series
 
 administrator.dashboard.form.button.return = Return
 

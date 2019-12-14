@@ -21,6 +21,8 @@
 	<acme:form-return code="authenticated.thread.form.button.messageList" action= "${direccion}"/>
 	
 	<acme:form-return code="authenticated.thread.form.button.message.create" action="${threadCreateMessage}" />
+	<acme:form-return code="authenticated.thread.form.button.message.listarUsuario" action="${direccionListarUsuario}" />
+	<acme:form-return code="authenticated.thread.form.button.message.anadirUsuario" action="${direccionAnadirUsuario}" />
 	
 	<acme:form-return code="authenticated.thread.form.button.return" />
 </acme:form>

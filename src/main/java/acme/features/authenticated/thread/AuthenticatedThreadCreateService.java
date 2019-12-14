@@ -12,19 +12,18 @@
 
 package acme.features.authenticated.thread;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.participants.Participant;
 import acme.entities.threads.Thread;
+import acme.features.authenticated.participant.AuthenticatedParticipantRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -33,7 +32,10 @@ public class AuthenticatedThreadCreateService implements AbstractCreateService<A
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedThreadRepository repository;
+	private AuthenticatedThreadRepository		repository;
+
+	@Autowired
+	private AuthenticatedParticipantRepository	repositoryParticipant;
 
 	// AbstractCreateService<Authenticated, Thread> ---------------------------
 
@@ -77,13 +79,6 @@ public class AuthenticatedThreadCreateService implements AbstractCreateService<A
 		Date creationDate;
 		creationDate = new Date(System.currentTimeMillis() - 1);
 
-		Principal principal = request.getPrincipal();
-		int authenticatedId = principal.getAccountId();
-		Authenticated authenticated = this.repository.findOneAuthenticatedByUserAccountId(authenticatedId);
-
-		List<Authenticated> participants = new ArrayList<Authenticated>();
-		participants.add(authenticated);
-
 		Thread result;
 		result = new Thread();
 		result.setCreationDate(creationDate);
@@ -96,7 +91,15 @@ public class AuthenticatedThreadCreateService implements AbstractCreateService<A
 		assert request != null;
 		assert entity != null;
 
+		Participant participant = new Participant();
+		participant.setThread(entity);
+		Integer principalId = request.getPrincipal().getAccountId();
+		Authenticated authenticated = this.repository.findOneAuthenticatedByUserAccountId(principalId);
+		participant.setUser(authenticated);
+
 		this.repository.save(entity);
+
+		this.repositoryParticipant.save(participant);
 	}
 
 }

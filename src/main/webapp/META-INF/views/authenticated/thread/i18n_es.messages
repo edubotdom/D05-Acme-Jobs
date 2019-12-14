@@ -18,6 +18,7 @@ authenticated.thread.form.label.messages.body = Cuerpo del mensaje:
 authenticated.thread.form.label.messages.moment = Instante de publicación del mensaje:
 
 authenticated.thread.form.button.return = Volver
+authenticated.thread.form.button.create = Crear hilo
 authenticated.thread.form.button.messageList = Listar mensajes
 authenticated.thread.form.button.message.create = Crear mensaje
 authenticated.thread.form.button.message.listarUsuario = Listar usuarios del hilo

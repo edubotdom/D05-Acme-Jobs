@@ -1976,7 +1976,7 @@
 		<property name="thread" ref="thread2" />
 	</bean>
 
-<!-- Participant -->
+	<!-- Participant -->
 
 	<bean name="participant1" class="acme.entities.participants.Participant">
 		<property name="user" ref="authenticated1Authenticated" />
@@ -1987,64 +1987,64 @@
 		<property name="user" ref="authenticated1Authenticated" />
 		<property name="thread" ref="thread2" />
 	</bean>
-	
+
 	<bean name="participant3" class="acme.entities.participants.Participant">
 		<property name="user" ref="authenticated3Authenticated" />
 		<property name="thread" ref="thread3" />
 	</bean>
-	
+
 	<bean name="participant4" class="acme.entities.participants.Participant">
 		<property name="user" ref="authenticated1Authenticated" />
 		<property name="thread" ref="thread4" />
 	</bean>
-	
+
 	<bean name="participant5" class="acme.entities.participants.Participant">
 		<property name="user" ref="authenticated2Authenticated" />
 		<property name="thread" ref="thread1" />
 	</bean>
-	
+
 	<bean name="participant6" class="acme.entities.participants.Participant">
-		<property name="user" ref="authenticated1Authenticated" />
+		<property name="user" ref="worker2Authenticated" />
 		<property name="thread" ref="thread2" />
 	</bean>
-	
+
 	<bean name="participant7" class="acme.entities.participants.Participant">
 		<property name="user" ref="authenticated1Authenticated" />
 		<property name="thread" ref="thread3" />
-	</bean>	
+	</bean>
 
 	<bean name="participant8" class="acme.entities.participants.Participant">
 		<property name="user" ref="authenticated2Authenticated" />
 		<property name="thread" ref="thread4" />
-	</bean>	
-	
+	</bean>
+
 	<bean name="participant9" class="acme.entities.participants.Participant">
 		<property name="user" ref="authenticated3Authenticated" />
 		<property name="thread" ref="thread1" />
-	</bean>	
-	
+	</bean>
+
 	<bean name="participant10" class="acme.entities.participants.Participant">
 		<property name="user" ref="authenticated2Authenticated" />
 		<property name="thread" ref="thread2" />
-	</bean>	
-	
+	</bean>
+
 	<bean name="participant11" class="acme.entities.participants.Participant">
 		<property name="user" ref="authenticated3Authenticated" />
 		<property name="thread" ref="thread3" />
-	</bean>	
-	
+	</bean>
+
 	<bean name="participant12" class="acme.entities.participants.Participant">
 		<property name="user" ref="worker1Authenticated" />
 		<property name="thread" ref="thread4" />
-	</bean>	
-	
+	</bean>
+
 	<bean name="participant13" class="acme.entities.participants.Participant">
 		<property name="user" ref="employer1Authenticated" />
 		<property name="thread" ref="thread1" />
-	</bean>		
-	
+	</bean>
+
 	<bean name="participant14" class="acme.entities.participants.Participant">
 		<property name="user" ref="auditor1Authenticated" />
 		<property name="thread" ref="thread2" />
-	</bean>	
+	</bean>
 </beans>

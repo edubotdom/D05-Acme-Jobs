@@ -39,7 +39,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		request.unbind(entity, model, "totalNumberOfAnnouncements", "totalNumberOfCompanyRecords", "totalNumberOfInvestorRecords", "minimumReward", "maximumReward", "averageReward", "standardDesviationReward", "minimumOffer", "maximumOffer",
 			"averageOffer", "standardDesviationOffer", "companySectors", "numberCompanys", "investorSectors", "numberInvestors", "averageJobsPerEmployer", "averageApplicationsPerEmployer", "averageApplicationsPerWorker", "ratioAcceptedApplications",
-			"ratioPendingApplications", "ratioRejectedApplications", "ratioPublishedJobs", "ratioDraftJobs");
+			"ratioPendingApplications", "ratioRejectedApplications", "ratioPublishedJobs", "ratioDraftJobs", "countListTimeSeriesPendingApplication", "dateListTimeSeriesPendingApplication", "numListTimeSeriesPendingApplication");
 	}
 
 	@Override
@@ -99,9 +99,26 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setRatioPublishedJobs(this.repository.ratioPublishedJobs());
 		result.setRatioDraftJobs(this.repository.ratioDraftJobs());
 
-		result.setTimeSeriesPendingApplication(this.repository.getTimeSeriesPendingApplication());
-		result.setTimeSeriesAcceptedApplication(this.repository.getTimeSeriesAcceptedApplication());
-		result.setTimeSeriesRejectedApplication(this.repository.getTimeSeriesRejectedApplication());
+		/*
+		 * result.setTimeSeriesPendingApplication(this.repository.getTimeSeriesPendingApplication());
+		 * result.setTimeSeriesAcceptedApplication(this.repository.getTimeSeriesAcceptedApplication());
+		 * result.setTimeSeriesRejectedApplication(this.repository.getTimeSeriesRejectedApplication());
+		 */
+		/*
+		 * List<Integer> countListTimeSeriesPendingApplication = new ArrayList<>();
+		 * List<Date> dateListTimeSeriesPendingApplication = new ArrayList<>();
+		 *
+		 * Map<Integer, Date> timeSeriesPendingApplication = this.repository.getTimeSeriesPendingApplication();
+		 *
+		 * for (Map.Entry<Integer, Date> pending : timeSeriesPendingApplication.entrySet()) {
+		 * countListTimeSeriesPendingApplication.add(pending.getKey());
+		 * dateListTimeSeriesPendingApplication.add(pending.getValue());
+		 * }
+		 */
+		List<Integer> countTimeSeriesPendingApplication = this.repository.getCountTimeSeriesPendingApplication();
+		result.setCountListTimeSeriesPendingApplication(countTimeSeriesPendingApplication);
+		result.setDateListTimeSeriesPendingApplication(this.repository.getDateTimeSeriesPendingApplication());
+		result.setNumListTimeSeriesPendingApplication(countTimeSeriesPendingApplication.size());
 
 		return result;
 	}

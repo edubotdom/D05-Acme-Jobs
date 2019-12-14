@@ -4,7 +4,6 @@ package acme.forms;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -59,9 +58,18 @@ public class Dashboard implements Serializable {
 	Double						ratioDraftJobs;
 
 	// Application's time series
-	Map<Integer, Date>			timeSeriesPendingApplication;
-	Map<Integer, Date>			timeSeriesAcceptedApplication;
-	Map<Integer, Date>			timeSeriesRejectedApplication;
+	//Map<Integer, Date>			timeSeriesPendingApplication;
+	List<Integer>				countListTimeSeriesPendingApplication;
+	List<Date>					dateListTimeSeriesPendingApplication;
+	Integer						numListTimeSeriesPendingApplication;
+	//Map<Integer, Date>			timeSeriesAcceptedApplication;
+	List<Integer>				countListTimeSeriesAcceptedApplication;
+	List<Date>					dateListTimeSeriesAcceptedApplication;
+	Integer						numListTimeSeriesAcceptedApplication;
+	//Map<Integer, Date>			timeSeriesRejectedApplication;
+	List<Integer>				countListTimeSeriesRejectedApplication;
+	List<Date>					dateListTimeSeriesRejectedApplication;
+	Integer						numListTimeSeriesRejectedApplication;
 
 	// Derived attributes -------------------------------------------------
 

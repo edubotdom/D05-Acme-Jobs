@@ -48,7 +48,7 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 		String JobAuthor = entity.getJob().getEmployer().getUserAccount().getUsername();
 		model.setAttribute("JobEmployer", JobAuthor);
 
-		request.unbind(entity, model, "reference", "moment", "status");
+		request.unbind(entity, model, "reference", "moment", "status", "justification");
 		request.unbind(entity, model, "statement", "skills", "qualifications");
 	}
 

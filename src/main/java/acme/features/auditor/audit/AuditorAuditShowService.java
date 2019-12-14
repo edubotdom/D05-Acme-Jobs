@@ -53,7 +53,7 @@ public class AuditorAuditShowService implements AbstractShowService<Auditor, Aud
 		result = this.repository.findOneAuditById(id);
 
 		Auditor auditor = result.getAuditor();
-		model.setAttribute("auditor", auditor.getUserAccount().getUsername());
+		model.setAttribute("associatedAuditor", auditor.getUserAccount().getUsername());
 
 		Job associatedJob = result.getJob();
 		model.setAttribute("associatedJob", associatedJob.getReferenceNumber());

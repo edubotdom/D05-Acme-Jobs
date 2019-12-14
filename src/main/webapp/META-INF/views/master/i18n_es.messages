@@ -64,7 +64,8 @@ master.menu.authenticated.challenge = Listar retos
 master.menu.authenticated.companies = Registro de empresas
 master.menu.authenticated.investor = Registros de inversores
 master.menu.authenticated.jobs = Trabajos
-master.menu.authenticated.threads = Mis hilos de mensajes
+master.menu.authenticated.threads.list_mine = Mis hilos de mensajes
+master.menu.authenticated.threads.create = Crear hilo de mensajes
 
 # master.menu.administrator ###################################################
 master.menu.administrator = Administrador
@@ -130,8 +131,8 @@ master.menu.user-account.worker = Datos de trabajador
 master.menu.user-account.become-worker = Hazte trabajador
 master.menu.user-account.become-sponsor = Hazte patrocinador
 master.menu.user-account.sponsor = Datos de patrocinador
-master.menu.user-account.become-auditor = Convertirse en un Auditor
-master.menu.user-account.auditor = Datos De Auditor
+master.menu.user-account.become-auditor = Convertirse en un auditor
+master.menu.user-account.auditor = Datos de auditor
 
 ﻿# master.footer ###############################################################
 master.footer.title.about = Nosotros

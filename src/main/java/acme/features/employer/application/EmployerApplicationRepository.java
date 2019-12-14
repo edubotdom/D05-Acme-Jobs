@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.applications.Application;
+import acme.entities.customization.Customization;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -34,5 +35,8 @@ public interface EmployerApplicationRepository extends AbstractRepository {
 
 	@Query("select a from Application a where a.job.employer.id = ?1 order by a.reference asc, a.status asc, a.moment asc")
 	Collection<Application> findManyByEmployerId(int id);
+
+	@Query("select c from Customization c")
+	Customization findCustomization();
 
 }

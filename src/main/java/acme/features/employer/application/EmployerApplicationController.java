@@ -14,7 +14,7 @@ import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-@RequestMapping("/employer/application")
+@RequestMapping("/employer/application/")
 public class EmployerApplicationController extends AbstractController<Employer, Application> {
 
 	@Autowired
@@ -32,6 +32,9 @@ public class EmployerApplicationController extends AbstractController<Employer, 
 	@Autowired
 	private EmployerApplicationListMineMomentService	listMineMomentService;
 
+	@Autowired
+	private EmployerApplicationUpdateService	updateService;
+
 
 	@PostConstruct
 	private void initialise() {
@@ -40,5 +43,6 @@ public class EmployerApplicationController extends AbstractController<Employer, 
 		super.addCustomCommand(CustomCommand.LIST_MINE_REFERENCE, BasicCommand.LIST, this.listMineReferenceService);
 		super.addCustomCommand(CustomCommand.LIST_MINE_STATUS, BasicCommand.LIST, this.listMineStatusService);
 		super.addCustomCommand(CustomCommand.LIST_MINE_MOMENT, BasicCommand.LIST, this.listMineMomentService);
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 	}
 }

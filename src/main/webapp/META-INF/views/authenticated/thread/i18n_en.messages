@@ -18,8 +18,13 @@ authenticated.thread.form.label.messages.body = Message body:
 authenticated.thread.form.label.messages.moment = Message's moment of publication:
 
 authenticated.thread.form.button.return = Return
+authenticated.thread.form.button.create = Create thread
 authenticated.thread.form.button.messageList = List messages
 authenticated.thread.form.button.message.create = Create message
+authenticated.thread.form.button.message.listarUsuario = List thread users
+authenticated.thread.form.button.message.anadirUsuario = Add user to this thread
 
 authenticated.thread.list.label.title = Title
 authenticated.thread.list.label.creationDate = Creation date
+
+authenticated.thread.spamWords = Do not write spam words

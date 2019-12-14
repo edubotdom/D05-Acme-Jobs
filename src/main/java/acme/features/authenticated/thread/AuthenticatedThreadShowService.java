@@ -1,6 +1,8 @@
 
 package acme.features.authenticated.thread;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,11 +27,11 @@ public class AuthenticatedThreadShowService implements AbstractShowService<Authe
 
 		Boolean result;
 		int threadId;
-		Thread thread;
+		List<Authenticated> usuariosThread;
 
 		threadId = request.getModel().getInteger("id");
-		thread = this.repository.findOneThreadById(threadId);
-		result = thread.getUsers().stream().map(u -> u.getUserAccount().getId()).anyMatch(i -> request.getPrincipal().getAccountId() == i);
+		usuariosThread = this.repository.findManyAuthenticatedByThreadId(threadId);
+		result = usuariosThread.stream().map(u -> u.getUserAccount().getId()).anyMatch(i -> request.getPrincipal().getAccountId() == i);
 
 		return result;
 	}
@@ -40,13 +42,19 @@ public class AuthenticatedThreadShowService implements AbstractShowService<Authe
 		assert entity != null;
 		assert model != null;
 
-		//		Collection<Message> messagesCollection = entity.getMessages();
 		String direccion = "../message/list_by_thread?id=" + entity.getId();
 		model.setAttribute("direccion", direccion);
 		request.unbind(entity, model, "title", "creationDate");
-		//		model.setAttribute("messagesCollection", messagesCollection);
+
 		String direccion2 = "../message/create?id=" + entity.getId();
 		model.setAttribute("threadCreateMessage", direccion2);
+
+		int idThread = entity.getId();
+		String direccionAnadirUsuario = "../participant/create?threadid=" + idThread;
+		model.setAttribute("direccionAnadirUsuario", direccionAnadirUsuario);
+
+		String direccionListarUsuario = "../participant/list?threadid=" + idThread;
+		model.setAttribute("direccionListarUsuario", direccionListarUsuario);
 	}
 
 	@Override

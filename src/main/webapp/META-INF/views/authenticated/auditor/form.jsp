@@ -18,11 +18,14 @@
 <link rel="stylesheet" href="libraries/acme/css/challenge.css" />
 
 <acme:form>
-
+	
 	<acme:form-textbox code="authenticated.auditor.form.label.firm" path="firm" />
 	<acme:form-textarea code="authenticated.auditor.form.label.statement" path="statement" />
-	<acme:form-textarea code="authenticated.auditor.form.label.body" path="body" />
 
+	<jstl:if test="${command != 'update'}">
+	<acme:form-textarea code="authenticated.auditor.form.label.body" path="body" />
+	</jstl:if>
+	
 	<acme:form-submit test="${command == 'create'}" code="authenticated.auditor.form.button.create" action="/authenticated/auditor/create"/>
 	<acme:form-submit test="${command == 'update'}" code="authenticated.auditor.form.button.update" action="/authenticated/auditor/update"/>
 	

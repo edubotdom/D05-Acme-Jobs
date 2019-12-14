@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
 
-<!--
-- tiles.xml
+<%--
+- list.jsp
 -
 - Copyright (c) 2019 Rafael Corchuelo.
 -
@@ -10,15 +9,15 @@
 - this software. It has been tested carefully, but it is not guaranteed for any particular
 - purposes.  The copyright owner does not offer any warranties or representations, nor do
 - they accept any liabilities with respect to them.
--->
+--%>
 
-<!DOCTYPE tiles-definitions PUBLIC 
-	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
-	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<%@page language="java"%>
 
-<tiles-definitions>	
-	<definition name="auditor/descriptor/form" extends="master">
-		<put-attribute name="body" type="template" value="../auditor/descriptor/form.jsp" />
-	</definition>
+<%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-</tiles-definitions>
+<acme:list>
+	<acme:list-column code="authenticated.participant.list.label.username" path="username" />
+</acme:list>
+
+

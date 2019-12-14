@@ -16,9 +16,14 @@
 	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
 	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
-<tiles-definitions>	
-	<definition name="employer/descriptor/form" extends="master">
-		<put-attribute name="body" type="template" value="../employer/descriptor/form.jsp" />
+<tiles-definitions>
+
+	<definition name="authenticated/participant/list" extends="master">
+		<put-attribute name="body" type="template" value="../authenticated/participant/list.jsp" />
+	</definition>
+	
+	<definition name="authenticated/participant/form" extends="master">
+		<put-attribute name="body" type="template" value="../authenticated/participant/form.jsp" />
 	</definition>
 
 </tiles-definitions>

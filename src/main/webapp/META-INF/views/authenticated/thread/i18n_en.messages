@@ -26,3 +26,5 @@ authenticated.thread.form.button.message.anadirUsuario = Add user to this thread
 
 authenticated.thread.list.label.title = Title
 authenticated.thread.list.label.creationDate = Creation date
+
+authenticated.thread.spamWords = Do not write spam words

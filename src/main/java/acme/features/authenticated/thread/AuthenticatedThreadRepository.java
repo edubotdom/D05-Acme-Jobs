@@ -18,6 +18,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.customization.Customization;
 import acme.entities.participants.Participant;
 import acme.entities.threads.Thread;
 import acme.framework.entities.Authenticated;
@@ -41,4 +42,7 @@ public interface AuthenticatedThreadRepository extends AbstractRepository {
 
 	@Query("select a from Authenticated a where a.userAccount.id = ?1")
 	Authenticated findOneAuthenticatedByUserAccountId(int id);
+
+	@Query("select c from Customization c")
+	Customization findCustomization();
 }

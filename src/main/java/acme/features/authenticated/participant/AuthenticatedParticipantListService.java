@@ -25,6 +25,15 @@ public class AuthenticatedParticipantListService implements AbstractListService<
 	public boolean authorise(final Request<Participant> request) {
 		assert request != null;
 
+		//		Collection<Participant> result;
+		//		int idThread;
+		//		idThread = request.getModel().getInteger("threadid");
+		//		result = this.repository.findManyUsersByThread(idThread);
+		//		List<Integer> idsParticipants = result.stream().map(x -> x.getUser().getUserAccount().getId()).collect(Collectors.toList());
+		//
+		//		int principalId = request.getPrincipal().getAccountId();
+		//
+		//		return idsParticipants.contains(principalId);
 		return true;
 	}
 

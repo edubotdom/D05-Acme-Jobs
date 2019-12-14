@@ -13,10 +13,14 @@
 package acme.features.authenticated.thread;
 
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.customization.Customization;
 import acme.entities.participants.Participant;
 import acme.entities.threads.Thread;
 import acme.features.authenticated.participant.AuthenticatedParticipantRepository;
@@ -52,6 +56,21 @@ public class AuthenticatedThreadCreateService implements AbstractCreateService<A
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		String title = entity.getTitle();
+		String[] titleArray = title.split(" ");
+
+		Customization customisation = this.repository.findCustomization();
+
+		String spamWords = customisation.getSpam();
+		String[] spamArray = spamWords.split(",");
+		Double threshold = customisation.getThreshold();
+
+		List<String> spamList = IntStream.range(0, spamArray.length).boxed().map(x -> spamArray[x].trim()).collect(Collectors.toList());
+
+		Integer numSpamTitle = (int) IntStream.range(0, titleArray.length).boxed().map(x -> titleArray[x].trim()).filter(i -> spamList.contains(i)).count();
+		boolean isFreeOfSpamTitle = 100 * numSpamTitle / titleArray.length < threshold;
+		errors.state(request, isFreeOfSpamTitle, "title", "authenticated.thread.spamWords");
 	}
 
 	@Override

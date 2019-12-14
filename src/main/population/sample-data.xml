@@ -1830,6 +1830,16 @@
 		<property name="creationDate" value="2014/12/11 23:59" />
 	</bean>
 
+	<bean name="thread5" class="acme.entities.threads.Thread">
+		<property name="title" value="Sample thread 5" />
+		<property name="creationDate" value="2017/06/11 23:59" />
+	</bean>
+
+	<bean name="thread6" class="acme.entities.threads.Thread">
+		<property name="title" value="Sample thread 6" />
+		<property name="creationDate" value="2019/06/11 13:59" />
+	</bean>
+
 	<!-- Message's bean -->
 
 	<bean name="message1" class="acme.entities.messages.Message">
@@ -1976,6 +1986,28 @@
 		<property name="thread" ref="thread2" />
 	</bean>
 
+	<bean name="message15" class="acme.entities.messages.Message">
+		<property name="title" value="Title for a message 15" />
+		<property name="moment" value="2019/12/01 18:05" />
+		<property name="tags">
+			<null />
+		</property>
+		<property name="body" value="Message15" />
+		<property name="user" ref="sponsor2Authenticated" />
+		<property name="thread" ref="thread6" />
+	</bean>
+	
+	<bean name="message16" class="acme.entities.messages.Message">
+		<property name="title" value="Title for a message 16" />
+		<property name="moment" value="2019/06/01 16:05" />
+		<property name="tags">
+			<null />
+		</property>
+		<property name="body" value="Message16" />
+		<property name="user" ref="sponsor1Authenticated" />
+		<property name="thread" ref="thread6" />
+	</bean>
+
 	<!-- Participant -->
 
 	<bean name="participant1" class="acme.entities.participants.Participant">
@@ -2029,7 +2061,7 @@
 	</bean>
 
 	<bean name="participant11" class="acme.entities.participants.Participant">
-		<property name="user" ref="authenticated3Authenticated" />
+		<property name="user" ref="authenticated2Authenticated" />
 		<property name="thread" ref="thread3" />
 	</bean>
 
@@ -2046,5 +2078,15 @@
 	<bean name="participant14" class="acme.entities.participants.Participant">
 		<property name="user" ref="auditor1Authenticated" />
 		<property name="thread" ref="thread2" />
+	</bean>
+
+	<bean name="participant15" class="acme.entities.participants.Participant">
+		<property name="user" ref="sponsor2Authenticated" />
+		<property name="thread" ref="thread6" />
+	</bean>
+	
+	<bean name="participant16" class="acme.entities.participants.Participant">
+		<property name="user" ref="sponsor1Authenticated" />
+		<property name="thread" ref="thread6" />
 	</bean>
 </beans>

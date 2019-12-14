@@ -25,13 +25,15 @@ s not guaranteed for any particular
 		<acme:form-textbox code="employer.job.form.label.moreInfo" path="moreInfo" />
 
 		<acme:form-textbox code="employer.job.form.label.description" path="description" />
-<jstl:if test="${command == 'show'}">
+<jstl:if test="${command == 'show' || command == 'update'}">
 		<acme:form-textbox code="employer.job.form.label.status" path="status" />
-		<acme:form-return code="employer.job.form.button.duties" action="${duties}" />
-		<acme:form-return code="employer.job.form.button.createDuties" action="${jobCreateDuty}" />
-		<acme:form-return code="employer.job.form.button.auditList" action="${auditList}" />
 </jstl:if>
 
+<jstl:if test="${command != 'update' && command != 'create'}">
+	<acme:form-return code="employer.job.form.button.duties" action="${duties}" />
+	<acme:form-return code="employer.job.form.button.createDuties" action="${jobCreateDuty}" />
+	<acme:form-return code="employer.job.form.button.auditList" action="${auditList}" />
+</jstl:if>
 
 
 	<acme:form-submit test="${command == 'create'}" code="employer.job.form.button.create" action="/employer/job/create" />

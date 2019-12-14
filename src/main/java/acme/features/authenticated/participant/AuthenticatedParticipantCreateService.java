@@ -90,13 +90,7 @@ public class AuthenticatedParticipantCreateService implements AbstractCreateServ
 
 	@Override
 	public void create(final Request<Participant> request, final Participant entity) {
-		/*
-		 * Authenticated user;
-		 * 
-		 * int username = request.getModel().getInteger("usuarioelegido");
-		 * user = this.repository.findOneAutheticatedById(username);
-		 * entity.setUser(user);
-		 */
+
 		this.repository.save(entity);
 
 	}

@@ -26,3 +26,5 @@ authenticated.thread.form.button.message.anadirUsuario = Añadir usuarios al hil
 
 authenticated.thread.list.label.title = Título
 authenticated.thread.list.label.creationDate = Creation date
+
+authenticated.thread.spamWords = No puede introducir palabras inapropiadas

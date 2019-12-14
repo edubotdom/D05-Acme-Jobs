@@ -58,7 +58,10 @@ public class Dashboard implements Serializable {
 	Double						ratioPublishedJobs;
 	Double						ratioDraftJobs;
 
+	// Application's time series
 	Map<Integer, Date>			timeSeriesPendingApplication;
+	Map<Integer, Date>			timeSeriesAcceptedApplication;
+	Map<Integer, Date>			timeSeriesRejectedApplication;
 
 	// Derived attributes -------------------------------------------------
 

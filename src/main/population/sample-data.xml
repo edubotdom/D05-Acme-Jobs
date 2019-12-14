@@ -427,8 +427,8 @@
 	<bean name="employer6Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="employer6UserAccount" />
 	</bean>
-	
-		<bean name="employer7UserAccount" class="acme.framework.entities.UserAccount">
+
+	<bean name="employer7UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="employer7" />
 		<property name="password" value="employer7" />
 		<property name="enabled" value="true" />
@@ -456,9 +456,9 @@
 	<bean name="employer7Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="employer7UserAccount" />
 	</bean>
-	
+
 	<!-- SPONSOR'S BEANS -->
-	
+
 	<bean name="sponsor1UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="sponsor1" />
 		<property name="password" value="sponsor1" />
@@ -487,7 +487,7 @@
 	<bean name="sponsor1Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="sponsor1UserAccount" />
 	</bean>
-	
+
 	<bean name="sponsor2UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="sponsor2" />
 		<property name="password" value="sponsor2" />
@@ -509,14 +509,16 @@
 
 	<bean name="sponsor2Sponsor" class="acme.entities.roles.Sponsor">
 		<property name="organization" value="Acme organization 2" />
-		<property name="creditCard"><null/></property>
+		<property name="creditCard">
+			<null />
+		</property>
 		<property name="userAccount" ref="sponsor2UserAccount" />
 	</bean>
 
 	<bean name="sponsor2Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="sponsor2UserAccount" />
 	</bean>
-	
+
 	<bean name="sponsor3UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="sponsor3" />
 		<property name="password" value="sponsor3" />
@@ -545,7 +547,7 @@
 	<bean name="sponsor3Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="sponsor3UserAccount" />
 	</bean>
-	
+
 	<bean name="sponsor4UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="sponsor4" />
 		<property name="password" value="sponsor4" />
@@ -1231,8 +1233,8 @@
 		<property name="body" value="aceptame porfa" />
 		<property name="userAccount" ref="auditor3UserAccount" />
 	</bean>
-	
-		<bean name="auditor4UserAccount" class="acme.framework.entities.UserAccount">
+
+	<bean name="auditor4UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="auditor4" />
 		<property name="password" value="auditor4" />
 		<property name="enabled" value="true" />
@@ -1257,7 +1259,7 @@
 		<property name="body" value="aceptame porfa" />
 		<property name="userAccount" ref="auditor4UserAccount" />
 	</bean>
-	
+
 	<bean name="auditor5UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="auditor5" />
 		<property name="password" value="auditor5" />
@@ -1284,7 +1286,7 @@
 		<property name="userAccount" ref="auditor5UserAccount" />
 	</bean>
 
-	
+
 	<!-- Jobs -->
 
 	<bean name="job1" class="acme.entities.jobs.Job">
@@ -1352,7 +1354,7 @@
 		<property name="employer" ref="employer4Employer" />
 		<property name="description" value="Description sample of a Descriptor" />
 	</bean>
-	
+
 	<bean name="job7" class="acme.entities.jobs.Job">
 		<property name="referenceNumber" value="EEEG-JJJG" />
 		<property name="title" value="Title 7" />
@@ -1363,7 +1365,7 @@
 		<property name="employer" ref="employer2Employer" />
 		<property name="description" value="Description sample of a Descriptor" />
 	</bean>
-	
+
 	<bean name="job8" class="acme.entities.jobs.Job">
 		<property name="referenceNumber" value="EEEH-JJJH" />
 		<property name="title" value="Title 8" />
@@ -1374,7 +1376,7 @@
 		<property name="employer" ref="employer1Employer" />
 		<property name="description" value="Description sample of a Descriptor" />
 	</bean>
-	
+
 	<bean name="job9" class="acme.entities.jobs.Job">
 		<property name="referenceNumber" value="ENAP-JJJP" />
 		<property name="title" value="Title 9" />
@@ -1385,7 +1387,7 @@
 		<property name="employer" ref="employer1Employer" />
 		<property name="description" value="Description sample of a Descriptor" />
 	</bean>
-	
+
 	<bean name="job10" class="acme.entities.jobs.Job">
 		<property name="referenceNumber" value="EMOP-HHJP" />
 		<property name="title" value="Title 10" />
@@ -1398,13 +1400,13 @@
 	</bean>
 
 
-		<!-- Duties -->
+	<!-- Duties -->
 
 	<bean name="duty1Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample" />
 		<property name="description" value="Description of a duty" />
 		<property name="timeAmount" value="60.75" />
-		<property name="job" ref="job1" /> 
+		<property name="job" ref="job1" />
 	</bean>
 
 	<bean name="duty2Duty" class="acme.entities.duties.Duty">
@@ -1483,7 +1485,7 @@
 		<property name="timeAmount" value="78.23" />
 		<property name="job" ref="job6" />
 	</bean>
-	
+
 	<bean name="duty13Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample13" />
 		<property name="description" value="Description of a duty13" />
@@ -1511,7 +1513,7 @@
 		<property name="timeAmount" value="78.43" />
 		<property name="job" ref="job7" />
 	</bean>
-	
+
 	<bean name="duty17Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample17" />
 		<property name="description" value="Description of a duty17" />
@@ -1519,7 +1521,7 @@
 		<property name="job" ref="job8" />
 	</bean>
 
-<!-- Audits -->
+	<!-- Audits -->
 
 	<bean name="audit1" class="acme.entities.audits.Audit">
 		<property name="title" value="Title for an audit 1" />
@@ -1674,7 +1676,7 @@
 
 	<bean name="application1" class="acme.entities.applications.Application">
 		<property name="reference" value="EEEA-JJJA:WWWA" />
-		<property name="moment" value="2019/06/10 00:00" />
+		<property name="moment" value="2019/12/10 01:00" />
 		<property name="status" value="pending" />
 		<property name="statement" value="This is an example 1" />
 		<property name="skills" value="You need to have Skills Example 1" />
@@ -1685,7 +1687,7 @@
 
 	<bean name="application2" class="acme.entities.applications.Application">
 		<property name="reference" value="EEEC-JJJC:WWWB" />
-		<property name="moment" value="2019/06/11 00:00" />
+		<property name="moment" value="2019/12/11 00:00" />
 		<property name="status" value="accepted" />
 		<property name="statement" value="This is an example 2" />
 		<property name="skills" value="You need to have Skills Example 2" />
@@ -1696,7 +1698,7 @@
 
 	<bean name="application3" class="acme.entities.applications.Application">
 		<property name="reference" value="EEEB-JJJB:WWWC" />
-		<property name="moment" value="2019/07/10 00:00" />
+		<property name="moment" value="2019/12/10 00:00" />
 		<property name="status" value="rejected" />
 		<property name="statement" value="This is an example 3" />
 		<property name="skills" value="You need to have Skills Example 3" />
@@ -1707,7 +1709,7 @@
 
 	<bean name="application4" class="acme.entities.applications.Application">
 		<property name="reference" value="EEED-JJJD:WWWC" />
-		<property name="moment" value="2018/06/10 00:00" />
+		<property name="moment" value="2019/12/10 03:00" />
 		<property name="status" value="pending" />
 		<property name="statement" value="This is an example 4" />
 		<property name="skills" value="You need to have Skills Example 4" />
@@ -1738,9 +1740,9 @@
 		<property name="job" ref="job4" />
 	</bean>
 
-		<bean name="application7" class="acme.entities.applications.Application">
+	<bean name="application7" class="acme.entities.applications.Application">
 		<property name="reference" value="EEEB-JJJB:WWWA" />
-		<property name="moment" value="2011/07/11 01:00" />
+		<property name="moment" value="2019/12/11 01:00" />
 		<property name="status" value="accepted" />
 		<property name="statement" value="This is an example 7" />
 		<property name="skills" value="You need to have Skills Example 7" />
@@ -1748,10 +1750,10 @@
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job2" />
 	</bean>
-	
+
 	<bean name="application8" class="acme.entities.applications.Application">
 		<property name="reference" value="EEEA-JJJA:WWWC" />
-		<property name="moment" value="2018/07/11 01:00" />
+		<property name="moment" value="2019/12/11 01:00" />
 		<property name="status" value="accepted" />
 		<property name="statement" value="This is an example 8" />
 		<property name="skills" value="You need to have Skills Example 8" />
@@ -1781,13 +1783,13 @@
 		<property name="worker" ref="worker2Worker" />
 		<property name="job" ref="job8" />
 	</bean>
-	
-		<!-- Thread's bean -->
+
+	<!-- Thread's bean -->
 
 	<bean name="thread1" class="acme.entities.threads.Thread">
 		<property name="title" value="Sample thread 1" />
 		<property name="creationDate" value="2010/12/01 23:59" />
-		 <property name="users">
+		<property name="users">
 			<list>
 				<ref bean="authenticated1Authenticated" />
 				<ref bean="worker1Authenticated" />
@@ -1807,7 +1809,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean name="thread3" class="acme.entities.threads.Thread">
 		<property name="title" value="Sample thread 3" />
 		<property name="creationDate" value="2017/09/02 05:25" />
@@ -1831,7 +1833,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<!-- Message's bean -->
 
 	<bean name="message1" class="acme.entities.messages.Message">
@@ -1873,7 +1875,7 @@
 		<property name="user" ref="authenticated1Authenticated" />
 		<property name="thread" ref="thread4" />
 	</bean>
-	
+
 	<bean name="message5" class="acme.entities.messages.Message">
 		<property name="title" value="Title for a message 5" />
 		<property name="moment" value="2018/12/18 01:50" />
@@ -1944,7 +1946,7 @@
 		<property name="user" ref="authenticated3Authenticated" />
 		<property name="thread" ref="thread3" />
 	</bean>
-	
+
 	<bean name="message12" class="acme.entities.messages.Message">
 		<property name="title" value="Title for a message 12" />
 		<property name="moment" value="2009/07/13 19:07" />
@@ -1966,7 +1968,7 @@
 		<property name="user" ref="employer1Authenticated" />
 		<property name="thread" ref="thread1" />
 	</bean>
-	
+
 	<bean name="message14" class="acme.entities.messages.Message">
 		<property name="title" value="Title for a message 14" />
 		<property name="moment" value="2015/12/10 18:05" />
@@ -1979,5 +1981,5 @@
 	</bean>
 
 
-	
+
 </beans>

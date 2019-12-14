@@ -23,6 +23,15 @@ public interface EmployerApplicationRepository extends AbstractRepository {
 	 * Collection<Job> findManyJobByEmployerId(int d);
 	 */
 
+	@Query("select a from Application a where a.job.employer.id = ?1 order by a.reference asc")
+	Collection<Application> findManyReferenceByEmployerId(int id);
+
+	@Query("select a from Application a where a.job.employer.id = ?1 order by a.status asc")
+	Collection<Application> findManyStatusByEmployerId(int id);
+
+	@Query("select a from Application a where a.job.employer.id = ?1 order by a.moment asc")
+	Collection<Application> findManyMomentByEmployerId(int id);
+
 	@Query("select a from Application a where a.job.employer.id = ?1 order by a.reference asc, a.status asc, a.moment asc")
 	Collection<Application> findManyByEmployerId(int id);
 

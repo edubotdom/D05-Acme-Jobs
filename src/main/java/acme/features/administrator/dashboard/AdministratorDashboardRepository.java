@@ -95,7 +95,15 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select 1.0 * count(a) / (select count(b) from Job b) from Job a where a.finalMode = 0")
 	Double ratioDraftJobs();
 
-	@Query("select count(a),a.moment as day from Application a where a.status = 'pending' group by day(a.moment) having a.moment <= current_date() - 28")
+	@Query("select count(a),a.moment from Application a where a.status = 'pending' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
 	Map<Integer, Date> getTimeSeriesPendingApplication();
+
+	@Query("select count(a),a.moment from Application a where a.status = 'accepted' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
+	Map<Integer, Date> getTimeSeriesAcceptedApplication();
+
+	//select count(a) from Application a where date(a.moment) >= current_date() - 28;
+
+	@Query("select count(a),a.moment from Application a where a.status = 'rejected' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
+	Map<Integer, Date> getTimeSeriesRejectedApplication();
 
 }

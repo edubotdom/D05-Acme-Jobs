@@ -34,11 +34,13 @@
 		action="/employer/duty/delete" />
 </jstl:if>
 
-	<acme:form-hidden path="direccionDuty"/>
-	<%--<acme:form-textarea code="employer.duty.form.label.title" path="title" />
+<jstl:if test="${command == 'create' }">
+	<acme:form-textarea code="employer.duty.form.label.title" path="title" />
 	<acme:form-textarea code="employer.duty.form.label.description" path="description" />
-	<acme:form-textbox code="employer.duty.form.label.timeAmount" path="timeAmount" />--%>
+	<acme:form-textbox code="employer.duty.form.label.timeAmount" path="timeAmount" />
+</jstl:if>
 
+	<acme:form-hidden path="direccionDuty"/>
 	<acme:form-submit test="${command=='create'}" code="employer.duty.form.button.create" action="${direccionDuty}" />
 	<acme:form-return code="employer.duty.form.button.return" />
 </acme:form>

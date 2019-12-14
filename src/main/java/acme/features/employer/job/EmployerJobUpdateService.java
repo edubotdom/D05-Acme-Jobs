@@ -73,46 +73,45 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		//Comprueba que los duties sumen un 100% y que el descriptor no esté vacío si se quiere publicar el job
 		Collection<Duty> d = this.repository.findDutyByJob(entity.getId());
 		Double suma = d.stream().mapToDouble(x -> x.getTimeAmount()).sum();
-		Boolean sumUp = true;
+		Boolean sumUp;
 		String description = request.getModel().getAttribute("description").toString();
 		if (request.getModel().getAttribute("status").equals("Published")) {
 			sumUp = suma == 100;
+			//Error de la suma de los duties
+			errors.state(request, sumUp, "status", "employer.job.dutiesNotSumUp");
+			//Error del descriptor
+			errors.state(request, !description.isEmpty(), "description", "employer.job.descriptorIsEmpty");
+			//Comprueba el spam
+			String referenceNumber = entity.getReferenceNumber();
+			String[] referenceNumberArray = referenceNumber.split(" ");
+			String title = entity.getTitle();
+			String[] titleArray = title.split(" ");
+			String descriptionSpam = entity.getDescription();
+			String[] descriptionArray = descriptionSpam.split(" ");
+
+			Customization customisation = this.repository.findCustomization();
+
+			String spamWords = customisation.getSpam();
+			String[] spamArray = spamWords.split(",");
+			Double threshold = customisation.getThreshold();
+
+			List<String> spamList = IntStream.range(0, spamArray.length).boxed().map(x -> spamArray[x].trim()).collect(Collectors.toList());
+
+			Integer numSpamReferenceNumber = (int) IntStream.range(0, referenceNumberArray.length).boxed().map(x -> referenceNumberArray[x].trim()).filter(i -> spamList.contains(i)).count();
+			Integer numSpamTitle = (int) IntStream.range(0, titleArray.length).boxed().map(x -> titleArray[x].trim()).filter(i -> spamList.contains(i)).count();
+			Integer numSpamDescription = (int) IntStream.range(0, descriptionArray.length).boxed().map(x -> descriptionArray[x].trim()).filter(i -> spamList.contains(i)).count();
+
+			boolean isFreeOfSpamReferenceNumber = 100 * numSpamReferenceNumber / referenceNumberArray.length < threshold;
+			boolean isFreeOfSpamTitle = 100 * numSpamTitle / titleArray.length < threshold;
+			boolean isFreeOfSpamDescription = 100 * numSpamDescription / descriptionArray.length < threshold;
+			errors.state(request, isFreeOfSpamReferenceNumber, "referenceNumber", "employer.job.spamWords");
+			errors.state(request, isFreeOfSpamTitle, "title", "employer.job.spamWords");
+			errors.state(request, isFreeOfSpamDescription, "description", "employer.job.spamWords");
 		}
-		//Error de la suma de los duties
-		errors.state(request, sumUp, "status", "employer.job.dutiesNotSumUp");
-		//Error del descriptor
-		errors.state(request, !description.isEmpty(), "description", "employer.job.descriptorIsEmpty");
 
 		//Comprueba que status es "Published" o "Draft"
 		Boolean statusCorrect = request.getModel().getAttribute("status").equals("Published") || request.getModel().getAttribute("status").equals("Draft");
 		errors.state(request, statusCorrect, "status", "employer.job.statusNotCorrect");
-
-		//Comprueba el spam
-		String referenceNumber = entity.getReferenceNumber();
-		String[] referenceNumberArray = referenceNumber.split(" ");
-		String title = entity.getTitle();
-		String[] titleArray = title.split(" ");
-		String descriptionSpam = entity.getDescription();
-		String[] descriptionArray = descriptionSpam.split(" ");
-
-		Customization customisation = this.repository.findCustomization();
-
-		String spamWords = customisation.getSpam();
-		String[] spamArray = spamWords.split(",");
-		Double threshold = customisation.getThreshold();
-
-		List<String> spamList = IntStream.range(0, spamArray.length).boxed().map(x -> spamArray[x].trim()).collect(Collectors.toList());
-
-		Integer numSpamReferenceNumber = (int) IntStream.range(0, referenceNumberArray.length).boxed().map(x -> referenceNumberArray[x].trim()).filter(i -> spamList.contains(i)).count();
-		Integer numSpamTitle = (int) IntStream.range(0, titleArray.length).boxed().map(x -> titleArray[x].trim()).filter(i -> spamList.contains(i)).count();
-		Integer numSpamDescription = (int) IntStream.range(0, descriptionArray.length).boxed().map(x -> descriptionArray[x].trim()).filter(i -> spamList.contains(i)).count();
-
-		boolean isFreeOfSpamReferenceNumber = 100 * numSpamReferenceNumber / referenceNumberArray.length < threshold;
-		boolean isFreeOfSpamTitle = 100 * numSpamTitle / titleArray.length < threshold;
-		boolean isFreeOfSpamDescription = 100 * numSpamDescription / descriptionArray.length < threshold;
-		errors.state(request, isFreeOfSpamReferenceNumber, "referenceNumber", "employer.job.spamWords");
-		errors.state(request, isFreeOfSpamTitle, "title", "employer.job.spamWords");
-		errors.state(request, isFreeOfSpamDescription, "description", "employer.job.spamWords");
 
 	}
 

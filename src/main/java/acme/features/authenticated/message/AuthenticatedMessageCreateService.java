@@ -128,8 +128,6 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		int idthread = request.getModel().getInteger("id");
 		Thread thread = this.repository.findThreadById(idthread);
 
-		thread.getUsers().size();
-
 		Message result;
 		result = new Message();
 		result.setMoment(moment);

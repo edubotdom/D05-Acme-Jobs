@@ -1,5 +1,5 @@
 /*
- * ConsumerAcmeRequestRepository.java
+ * AuthenticatedUserAccountRepository.java
  *
  * Copyright (c) 2019 Rafael Corchuelo.
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.thread;
+package acme.features.authenticated.participant;
 
 import java.util.Collection;
 import java.util.List;
@@ -24,21 +24,27 @@ import acme.framework.entities.Authenticated;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedThreadRepository extends AbstractRepository {
+public interface AuthenticatedParticipantRepository extends AbstractRepository {
 
 	@Query("select t from Thread t where t.id = ?1")
 	Thread findOneThreadById(int id);
 
-	@Query("select p.user from Participant p where p.thread.id = ?1")
-	List<Authenticated> findManyAuthenticatedByThreadId(int id);
-
-	/*
-	 * @Query("select t from Thread t where t.deadline >= current_date()")
-	 * Collection<Thread> findManyAll();
-	 */
-	@Query("select p from Participant p where p.user.id = ?1")
-	Collection<Participant> findManyByUserId(int id);
+	@Query("select a from Authenticated a where a.userAccount.username = ?1")
+	Authenticated findOneAutheticatedByUsername(String s);
 
 	@Query("select a from Authenticated a where a.userAccount.id = ?1")
-	Authenticated findOneAuthenticatedByUserAccountId(int id);
+	Authenticated findOneAutheticatedById(int id);
+
+	@Query("select p.user from Participant p where p.thread.id = ?1")
+	List<Authenticated> findManyAutheticatedByThread(int id);
+
+	@Query("select a from Authenticated a")
+	List<Authenticated> findManyAutheticated();
+
+	@Query("select p from Participant p where p.id = ?1")
+	Participant findOneById(int id);
+
+	@Query("select p from Participant p where p.thread.id = ?1")
+	Collection<Participant> findManyUsersByThread(int idThread);
+
 }

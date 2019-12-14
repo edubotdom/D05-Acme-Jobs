@@ -67,6 +67,14 @@
        drop 
        foreign key FK_2l8gpcwh19e7jj513or4r9dvb;
 
+    alter table `participant` 
+       drop 
+       foreign key `FK8mocuiguc2q27excsu2w2q9ai`;
+
+    alter table `participant` 
+       drop 
+       foreign key `FK67h73ib586xy9hvw4vyy75fvv`;
+
     alter table `provider` 
        drop 
        foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
@@ -74,14 +82,6 @@
     alter table `sponsor` 
        drop 
        foreign key FK_20xk0ev32hlg96kqynl6laie2;
-
-    alter table `thread_authenticated` 
-       drop 
-       foreign key `FKkuamwlt147dsxim98bfhh4dsr`;
-
-    alter table `thread_authenticated` 
-       drop 
-       foreign key `FKjsja3s5mr66x5nxm9dd8kut3r`;
 
     alter table `worker` 
        drop 
@@ -127,6 +127,8 @@
 
     drop table if exists `offer`;
 
+    drop table if exists `participant`;
+
     drop table if exists `provider`;
 
     drop table if exists `shout`;
@@ -136,8 +138,6 @@
     drop table if exists `sponsor`;
 
     drop table if exists `thread`;
-
-    drop table if exists `thread_authenticated`;
 
     drop table if exists `user_account`;
 

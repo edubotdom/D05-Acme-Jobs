@@ -1813,49 +1813,21 @@
 	<bean name="thread1" class="acme.entities.threads.Thread">
 		<property name="title" value="Sample thread 1" />
 		<property name="creationDate" value="2010/12/01 23:59" />
-		<property name="users">
-			<list>
-				<ref bean="authenticated1Authenticated" />
-				<ref bean="worker1Authenticated" />
-				<ref bean="employer1Authenticated" />
-			</list>
-		</property>
 	</bean>
 
 	<bean name="thread2" class="acme.entities.threads.Thread">
 		<property name="title" value="Sample thread 2" />
 		<property name="creationDate" value="2015/08/02 21:12" />
-		<property name="users">
-			<list>
-				<ref bean="authenticated2Authenticated" />
-				<ref bean="employer2Authenticated" />
-				<ref bean="worker2Authenticated" />
-			</list>
-		</property>
 	</bean>
 
 	<bean name="thread3" class="acme.entities.threads.Thread">
 		<property name="title" value="Sample thread 3" />
 		<property name="creationDate" value="2017/09/02 05:25" />
-		<property name="users">
-			<list>
-				<ref bean="authenticated3Authenticated" />
-				<ref bean="employer3Authenticated" />
-				<ref bean="worker3Authenticated" />
-			</list>
-		</property>
 	</bean>
 
 	<bean name="thread4" class="acme.entities.threads.Thread">
 		<property name="title" value="Sample thread 4" />
 		<property name="creationDate" value="2014/12/11 23:59" />
-		<property name="users">
-			<list>
-				<ref bean="authenticated1Authenticated" />
-				<ref bean="employer4Authenticated" />
-				<ref bean="worker4Authenticated" />
-			</list>
-		</property>
 	</bean>
 
 	<!-- Message's bean -->
@@ -2004,6 +1976,75 @@
 		<property name="thread" ref="thread2" />
 	</bean>
 
+<!-- Participant -->
 
+	<bean name="participant1" class="acme.entities.participants.Participant">
+		<property name="user" ref="authenticated1Authenticated" />
+		<property name="thread" ref="thread1" />
+	</bean>
 
+	<bean name="participant2" class="acme.entities.participants.Participant">
+		<property name="user" ref="authenticated1Authenticated" />
+		<property name="thread" ref="thread2" />
+	</bean>
+	
+	<bean name="participant3" class="acme.entities.participants.Participant">
+		<property name="user" ref="authenticated3Authenticated" />
+		<property name="thread" ref="thread3" />
+	</bean>
+	
+	<bean name="participant4" class="acme.entities.participants.Participant">
+		<property name="user" ref="authenticated1Authenticated" />
+		<property name="thread" ref="thread4" />
+	</bean>
+	
+	<bean name="participant5" class="acme.entities.participants.Participant">
+		<property name="user" ref="authenticated2Authenticated" />
+		<property name="thread" ref="thread1" />
+	</bean>
+	
+	<bean name="participant6" class="acme.entities.participants.Participant">
+		<property name="user" ref="authenticated1Authenticated" />
+		<property name="thread" ref="thread2" />
+	</bean>
+	
+	<bean name="participant7" class="acme.entities.participants.Participant">
+		<property name="user" ref="authenticated1Authenticated" />
+		<property name="thread" ref="thread3" />
+	</bean>	
+
+	<bean name="participant8" class="acme.entities.participants.Participant">
+		<property name="user" ref="authenticated2Authenticated" />
+		<property name="thread" ref="thread4" />
+	</bean>	
+	
+	<bean name="participant9" class="acme.entities.participants.Participant">
+		<property name="user" ref="authenticated3Authenticated" />
+		<property name="thread" ref="thread1" />
+	</bean>	
+	
+	<bean name="participant10" class="acme.entities.participants.Participant">
+		<property name="user" ref="authenticated2Authenticated" />
+		<property name="thread" ref="thread2" />
+	</bean>	
+	
+	<bean name="participant11" class="acme.entities.participants.Participant">
+		<property name="user" ref="authenticated3Authenticated" />
+		<property name="thread" ref="thread3" />
+	</bean>	
+	
+	<bean name="participant12" class="acme.entities.participants.Participant">
+		<property name="user" ref="worker1Authenticated" />
+		<property name="thread" ref="thread4" />
+	</bean>	
+	
+	<bean name="participant13" class="acme.entities.participants.Participant">
+		<property name="user" ref="employer1Authenticated" />
+		<property name="thread" ref="thread1" />
+	</bean>		
+	
+	<bean name="participant14" class="acme.entities.participants.Participant">
+		<property name="user" ref="auditor1Authenticated" />
+		<property name="thread" ref="thread2" />
+	</bean>	
 </beans>

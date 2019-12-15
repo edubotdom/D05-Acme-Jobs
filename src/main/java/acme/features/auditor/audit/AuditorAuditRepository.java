@@ -43,6 +43,8 @@ public interface AuditorAuditRepository extends AbstractRepository {
 	@Query("select j from Job j where j.id= ?1")
 	Job findOneJobById(int jobId);
 
-	@Query("select a from Audit a where a.job.id = ?1 and (a.auditor.id = ?1 or a.finalMode = true)")
-	Collection<Audit> findManyAuditsReferedToJob2(int jobId, int userAccountId);
+	@Query("select a from Audit a where a.job.id = ?1 and (a.auditor.userAccount.id = ?2 or a.finalMode = true)")
+	Collection<Audit> findManyAuditsReferedToJob2(int jobId, int auditorUserAccountId);
+	//select a from Audit a where a.job.id = 141 and (a.auditor.userAccount.id = 130 or a.finalMode = true);
+
 }

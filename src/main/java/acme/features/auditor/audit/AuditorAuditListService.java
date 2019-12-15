@@ -53,9 +53,9 @@ public class AuditorAuditListService implements AbstractListService<Auditor, Aud
 		Principal principal;
 
 		principal = request.getPrincipal();
-		int auditorId = principal.getAccountId();
-		int id = request.getModel().getInteger("id");
-		result = this.repository.findManyAuditsReferedToJob2(id, auditorId);
+		int auditorUserAccountId = principal.getAccountId(); //auditor1 user account id
+		int jobId = request.getModel().getInteger("id"); //job1
+		result = this.repository.findManyAuditsReferedToJob2(jobId, auditorUserAccountId);
 
 		return result;
 	}

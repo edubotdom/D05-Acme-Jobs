@@ -21,4 +21,7 @@
 	<acme:list-column code="auditor.duty.list.label.timeAmount" path="timeAmount" width="10%" />
 </acme:list>
 
+<acme:form>
+  	<acme:form-return code="auditor.duty.form.button.return"/>
+</acme:form>
 

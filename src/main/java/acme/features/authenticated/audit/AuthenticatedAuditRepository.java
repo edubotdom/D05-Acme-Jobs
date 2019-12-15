@@ -35,4 +35,7 @@ public interface AuthenticatedAuditRepository extends AbstractRepository {
 	@Query("select a from Audit a where a.job.id = ?1 and a.finalMode = true")
 	Collection<Audit> findManyAuditsReferedToJob(int jobId);
 
+	@Query("select a from Audit a where a.job.id = ?1 and a.finalMode = true")
+	Collection<Audit> findManyAuditsReferedToJob2(int jobId);
+
 }

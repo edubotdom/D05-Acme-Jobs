@@ -22,6 +22,5 @@ auditor.audit.form.label.associatedJob = Trabajo auditado
 auditor.audit.form.button.create = Crear
 auditor.audit.form.button.update = Actualizar
 auditor.audit.form.button.return = Volver
-auditor.audit.list.button.return = Volver
 
 auditor.job.audit.statusNotCorrect = El Estado de la audición puede ser solo "Published" o "Draft"

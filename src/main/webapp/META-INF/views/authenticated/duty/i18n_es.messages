@@ -15,5 +15,5 @@ authenticated.duty.form.label.timeAmount = Cantidad de tiempo:
 authenticated.duty.list.label.title = Título
 authenticated.duty.list.label.timeAmount = Cantidad de tiempo
 
-authenticated.duty.form.button.return = Volver
+authenticated.job.form.button.return = Volver
 

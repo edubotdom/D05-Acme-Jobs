@@ -15,14 +15,9 @@ worker.job.form.label.deadline = Deadline:
 worker.job.form.label.description = Description:
 worker.job.form.label.salary = Salary:
 worker.job.form.label.moreInfo = More information:
-worker.job.form.label.descriptor = Descriptor:
-worker.job.form.label.descriptionDescriptor = Description:
-worker.job.form.label.duties = Duties:
-worker.job.form.label.dutyTitle = Duty's title:
-worker.job.form.label.dutyDescription = Duty's description:
-worker.job.form.label.dutyTimeAmount = Percentage of the amount of time that this duty is going to take every week:
+worker.job.form.label.description = Description:
 worker.job.form.button.auditList = Audit list
-worker.job.form.button.descriptorShow = Show descriptor
+worker.job.form.button.duties = Duty list
 
 worker.job.form.button.return = Return
 

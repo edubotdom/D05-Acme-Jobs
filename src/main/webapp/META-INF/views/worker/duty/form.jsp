@@ -20,5 +20,5 @@
 	<acme:form-textarea code="worker.duty.form.label.description" path="description" />
 	<acme:form-moment code="worker.duty.form.label.timeAmount" path="timeAmount" />
 
-	<acme:form-return code="worker.duty.form.button.return" />
+	<acme:form-return code="worker.job.form.button.return" />
 </acme:form>

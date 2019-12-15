@@ -15,5 +15,4 @@ worker.duty.form.label.timeAmount = Time amount:
 worker.duty.list.label.title = Title
 worker.duty.list.label.timeAmount = Time amount
 
-worker.duty.form.button.return = Return
-
+worker.job.form.button.return = Return

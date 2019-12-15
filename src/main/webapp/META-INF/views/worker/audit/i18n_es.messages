@@ -8,7 +8,15 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-worker.descriptor.form.label.description = Descripción:
+worker.audit.list.label.title = Título
+worker.audit.list.label.moment = Fecha
 
-worker.descriptor.form.button.duties = Labores
-worker.descriptor.form.button.return = Return
+worker.audit.form.label.title = Título
+worker.audit.form.label.status = Estado
+worker.audit.form.label.moment = Fecha
+worker.audit.form.label.body = Cuerpo
+worker.audit.form.label.job = Trabajo
+worker.audit.form.label.auditor = Auditor
+worker.audit.form.label.associatedJob = Trabajo auditado
+
+worker.job.form.button.return = Volver

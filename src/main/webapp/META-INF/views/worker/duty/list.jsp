@@ -20,5 +20,8 @@
 	<acme:list-column code="worker.duty.list.label.title" path="title" width="80%" />
 	<acme:list-column code="worker.duty.list.label.timeAmount" path="timeAmount" width="10%" />
 </acme:list>
+<acme:form>
+<acme:form-return code="worker.job.form.button.return" />
+</acme:form>
 
 

@@ -79,9 +79,7 @@ public class AuthenticatedSponsorCreateService implements AbstractCreateService<
 		assert entity != null;
 		assert errors != null;
 
-		String orgEx = entity.getOrganization().replace(" ", "");
-		boolean withOutSpaces = orgEx.length() != 0;
-		errors.state(request, withOutSpaces, "organization", "authenticated.sponsor.organization");
+		//errors.state(request, withOutSpaces, "organization", "authenticated.sponsor.organization");
 
 		String organization = entity.getOrganization();
 		String[] organizationArray = organization.split(" ");
@@ -96,9 +94,10 @@ public class AuthenticatedSponsorCreateService implements AbstractCreateService<
 
 		Integer numSpamOrganization = (int) IntStream.range(0, organizationArray.length).boxed().map(x -> organizationArray[x].trim()).filter(i -> spamList.contains(i)).count();
 
-		boolean isFreeOfSpamOrganization = 100 * numSpamOrganization / organizationArray.length < threshold;
-
-		errors.state(request, isFreeOfSpamOrganization, "organization", "authenticated.sponsor.spamWords");
+		if (organizationArray.length != 0) {
+			boolean isFreeOfSpamOrganization = 100 * numSpamOrganization / organizationArray.length < threshold;
+			errors.state(request, isFreeOfSpamOrganization, "organization", "authenticated.sponsor.spamWords");
+		}
 
 	}
 

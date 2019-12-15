@@ -92,9 +92,10 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		List<String> spamList = IntStream.range(0, spamArray.length).boxed().map(x -> spamArray[x].trim()).collect(Collectors.toList());
 
 		Integer numSpamSlogan = (int) IntStream.range(0, sloganArray.length).boxed().map(x -> sloganArray[x].trim()).filter(i -> spamList.contains(i)).count();
-		boolean isFreeOfSpamSlogan = 100 * numSpamSlogan / sloganArray.length < threshold;
-		errors.state(request, isFreeOfSpamSlogan, "slogan", "sponsor.CommercialBanner.spamWords");
-
+		if (sloganArray.length != 0) {
+			boolean isFreeOfSpamSlogan = 100 * numSpamSlogan / sloganArray.length < threshold;
+			errors.state(request, isFreeOfSpamSlogan, "slogan", "sponsor.CommercialBanner.spamWords");
+		}
 	}
 
 	@Override

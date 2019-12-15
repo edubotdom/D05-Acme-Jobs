@@ -18,7 +18,7 @@ employer.duty.list.button.return = Return
 
 employer.duty.form.button.update = Update
 employer.duty.form.button.delete = Delete
-employer.duty.form.button.return = Return
+employer.job.form.button.return = Return
 employer.duty.form.button.create = Create duty
 
 employer.duty.cannotDeleteAll = Cannot delete all duties of the descriptor

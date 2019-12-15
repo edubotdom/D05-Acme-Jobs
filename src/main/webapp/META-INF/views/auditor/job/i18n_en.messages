@@ -17,7 +17,7 @@ auditor.job.form.label.salary = Salary:
 auditor.job.form.label.moreInfo = More information:
 auditor.job.form.label.description = Description:
 
-auditor.job.form.button.createAudits = Crear adiciones
+auditor.job.form.button.createAudits = Create audits
 auditor.job.form.button.duties = Duties
 auditor.job.form.button.auditList = Audit list
 

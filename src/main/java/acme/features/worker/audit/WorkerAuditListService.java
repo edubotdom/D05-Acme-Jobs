@@ -1,5 +1,5 @@
 
-package acme.features.employer.audit;
+package acme.features.worker.audit;
 
 import java.util.Collection;
 
@@ -7,18 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.audits.Audit;
-import acme.entities.roles.Employer;
+import acme.entities.roles.Worker;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class EmployerAuditListService implements AbstractListService<Employer, Audit> {
+public class WorkerAuditListService implements AbstractListService<Worker, Audit> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	EmployerAuditRepository repository;
+	WorkerAuditRepository repository;
 
 
 	@Override

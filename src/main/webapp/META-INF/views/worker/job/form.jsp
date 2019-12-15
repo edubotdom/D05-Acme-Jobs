@@ -21,12 +21,12 @@
 	<acme:form-moment code="worker.job.form.label.deadline" path="deadline" />
 	<acme:form-double code="worker.job.form.label.salary" path="salary" />
 	<acme:form-textbox code="worker.job.form.label.moreInfo" path="moreInfo" />
+	<acme:form-textbox code="worker.job.form.label.description" path="description" />
 	<acme:form-textbox code="worker.job.form.label.status" path="status" />
 
 
 	<acme:form-return code="worker.job.form.button.auditList" action="${auditList}" />
-	<acme:form-return code="worker.job.form.button.descriptorShow" action="${descriptorShow}" />
-
+	<acme:form-return code="worker.job.form.button.duties" action="${duties}" />
 	<acme:form-return code="worker.job.form.button.application.create" action="${jobCreateApplication}" />
 
 	<acme:form-return code="worker.job.form.button.return" />

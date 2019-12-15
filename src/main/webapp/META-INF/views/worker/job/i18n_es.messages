@@ -22,7 +22,7 @@ worker.job.form.label.dutyTitle = Título de la labor:
 worker.job.form.label.dutyDescription = Descripción de la labor:
 worker.job.form.label.dutyTimeAmount = Porcentaje de tiempo invertido en la labor por semana:
 worker.job.form.button.auditList = Lista de audiciones
-worker.job.form.button.descriptorShow = Mostrar descripción
+worker.job.form.button.duties = Lista de labores
 
 worker.job.form.button.return = Volver
 

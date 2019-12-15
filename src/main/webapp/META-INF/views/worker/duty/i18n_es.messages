@@ -16,4 +16,4 @@ worker.duty.list.label.title = Título
 worker.duty.list.label.timeAmount = Cantidad de tiempo
 
 worker.duty.form.button.return = Volver
-
+worker.job.form.button.return = Volver

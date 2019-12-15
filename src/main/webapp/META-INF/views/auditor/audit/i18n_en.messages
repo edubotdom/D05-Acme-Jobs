@@ -19,9 +19,10 @@ auditor.audit.form.label.job = Job
 auditor.audit.form.label.auditor = Auditor
 auditor.audit.form.label.associatedJob = Associated Job
 
+auditor.audit.form.label.status.checkbox = Published
+
 auditor.audit.form.button.update = Update
 auditor.audit.form.button.create = Create
 auditor.audit.form.button.return = Return
-auditor.audit.list.button.return = Return
 
 auditor.job.audit.statusNotCorrect = Status must be "Published" or "Draft"

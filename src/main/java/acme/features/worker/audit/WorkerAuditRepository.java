@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.employer.audit;
+package acme.features.worker.audit;
 
 import java.util.Collection;
 
@@ -21,7 +21,7 @@ import acme.entities.audits.Audit;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface EmployerAuditRepository extends AbstractRepository {
+public interface WorkerAuditRepository extends AbstractRepository {
 
 	@Query("select a from Audit a where a.id = ?1")
 	Audit findOneAuditById(int id);
@@ -37,5 +37,4 @@ public interface EmployerAuditRepository extends AbstractRepository {
 
 	@Query("select a from Audit a where a.job.id = ?1 and a.finalMode = true")
 	Collection<Audit> findManyAuditsReferedToJob2(int jobId);
-
 }

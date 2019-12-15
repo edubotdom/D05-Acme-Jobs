@@ -34,7 +34,7 @@
 
 <jstl:if test="${command == 'create' }">
 	<acme:form-textbox code="auditor.audit.form.label.title" path="title"/>
-	<acme:form-checkbox code="auditor.audit.form.label.status" path="finalMode" />
+	<acme:form-checkbox code="auditor.audit.form.label.status.checkbox" path="finalMode" />
 	<acme:form-textarea code="auditor.audit.form.label.body" path="body"/>
 </jstl:if>
 	<acme:form-hidden path="direccionAudit"/>

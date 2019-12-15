@@ -42,5 +42,5 @@
 
 	<acme:form-hidden path="direccionDuty"/>
 	<acme:form-submit test="${command=='create'}" code="employer.duty.form.button.create" action="${direccionDuty}" />
-	<acme:form-return code="employer.duty.form.button.return" />
+	<acme:form-return code="employer.job.form.button.return" />
 </acme:form>

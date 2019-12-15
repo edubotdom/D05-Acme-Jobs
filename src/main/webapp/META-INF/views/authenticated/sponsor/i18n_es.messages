@@ -14,6 +14,9 @@ authenticated.provider.form.button.update = Acualizar datos de patrocinador
 authenticated.sponsor.form.label.organization = Organización:
 authenticated.sponsor.form.label.credit_card = Tarjeta de Crédito:
 
+authenticated.sponsor.spamWords = No escriba palabras inapropiadas
+authenticated.sponsor.organization = ¡¡¡Escribe algo!!!
+
 authenticated.sponsor.form.button.create = Registrar
 authenticated.sponsor.form.button.update = Actualizar
 authenticated.sponsor.form.button.return = Volver

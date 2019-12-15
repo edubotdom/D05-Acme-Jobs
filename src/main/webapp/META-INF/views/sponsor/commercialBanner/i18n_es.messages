@@ -17,5 +17,7 @@ sponsor.commercialBanner.form.button.create = Crear
 sponsor.commercialBanner.form.button.update = Actualizar
 sponsor.commercialBanner.form.button.delete = Eliminar
 
+sponsor.CommercialBanner.spamWords = No escriba palabras inapropiadas!!!
+
 sponsor.commercialBanner.list.label.slogan = Eslogan:
 sponsor.commercialBanner.list.label.url = Dirección:

@@ -17,5 +17,7 @@ sponsor.nonCommercialBanner.form.button.create = Crear
 sponsor.nonCommercialBanner.form.button.update = Actualizar
 sponsor.nonCommercialBanner.form.button.delete = Eliminar
 
+sponsor.NonCommercialBanner.spamWords = No escriba palabras inapropiadas!!!
+
 sponsor.nonCommercialBanner.list.label.slogan = Eslogan:
 sponsor.nonCommercialBanner.list.label.url = Dirección:

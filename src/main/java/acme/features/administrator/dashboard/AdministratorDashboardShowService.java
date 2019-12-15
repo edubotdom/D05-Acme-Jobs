@@ -39,7 +39,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		request.unbind(entity, model, "totalNumberOfAnnouncements", "totalNumberOfCompanyRecords", "totalNumberOfInvestorRecords", "minimumReward", "maximumReward", "averageReward", "standardDesviationReward", "minimumOffer", "maximumOffer",
 			"averageOffer", "standardDesviationOffer", "companySectors", "numberCompanys", "investorSectors", "numberInvestors", "averageJobsPerEmployer", "averageApplicationsPerEmployer", "averageApplicationsPerWorker", "ratioAcceptedApplications",
-			"ratioPendingApplications", "ratioRejectedApplications", "ratioPublishedJobs", "ratioDraftJobs", "countListTimeSeriesPendingApplication", "dateListTimeSeriesPendingApplication", "numListTimeSeriesPendingApplication");
+			"ratioPendingApplications", "ratioRejectedApplications", "ratioPublishedJobs", "ratioDraftJobs", "countListTimeSeriesPendingApplication", "dateListTimeSeriesPendingApplication", "countListTimeSeriesAcceptedApplication",
+			"dateListTimeSeriesAcceptedApplication", "countListTimeSeriesRejectedApplication", "dateListTimeSeriesRejectedApplication");
 	}
 
 	@Override
@@ -115,10 +116,18 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		 * dateListTimeSeriesPendingApplication.add(pending.getValue());
 		 * }
 		 */
-		List<Integer> countTimeSeriesPendingApplication = this.repository.getCountTimeSeriesPendingApplication();
-		result.setCountListTimeSeriesPendingApplication(countTimeSeriesPendingApplication);
+
+		// PENDING
+		result.setCountListTimeSeriesPendingApplication(this.repository.getCountTimeSeriesPendingApplication());
 		result.setDateListTimeSeriesPendingApplication(this.repository.getDateTimeSeriesPendingApplication());
-		result.setNumListTimeSeriesPendingApplication(countTimeSeriesPendingApplication.size());
+
+		// ACCEPTED
+		result.setCountListTimeSeriesAcceptedApplication(this.repository.getCountTimeSeriesAcceptedApplication());
+		result.setDateListTimeSeriesAcceptedApplication(this.repository.getDateTimeSeriesAcceptedApplication());
+
+		// REJECTED
+		result.setCountListTimeSeriesRejectedApplication(this.repository.getCountTimeSeriesRejectedApplication());
+		result.setDateListTimeSeriesRejectedApplication(this.repository.getDateTimeSeriesRejectedApplication());
 
 		return result;
 	}

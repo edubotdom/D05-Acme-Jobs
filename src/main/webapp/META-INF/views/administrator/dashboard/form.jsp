@@ -155,19 +155,33 @@
 	</script>
 	
 	<!-- Chart Application Time Series -->
+	<head>
+	    <title>Line Chart</title>
+	    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+	    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
+	    <style>
+	        canvas {
+	            -moz-user-select: none;
+	            -webkit-user-select: none;
+	            -ms-user-select: none;
+	        }
+	    </style>
+	</head>
+	
 	<h2>
 		<acme:message code="administrator.dashboard.form.label.chart3"/>
 	</h2>	
 	
-	<div>
-		<canvas id="canvas3"></canvas>
+	
+	<!-- Chart 3 -->
+	<div style="width:75%;">
+    <canvas id="canvas3"></canvas>
 	</div>
 	
-	<script src="libraries/acme/js/chart.js" charset="utf-8"></script>
-	
-	<script type="text/javascript">
-	$(document).ready(function() {
-	
+	<script>
+
+		<!-- Pending -->
 		var dateListTimeSeriesPendingApplication = new Array();
 		<jstl:forEach items="${dateListTimeSeriesPendingApplication}" var="item">
 			dateListTimeSeriesPendingApplication.push("${item}");
@@ -191,10 +205,48 @@
 	        myAxe = new Ejes(dateListTimeSeriesPendingApplication[i],countListTimeSeriesPendingApplication[i]);
 	        dataPending.push(myAxe)
 	    }
-		
-	    var timeFormat = 'YYYY-MM-DD';
 	    
-	    var data = {
+	    <!-- Accepted -->
+	    var dateListTimeSeriesAcceptedApplication = new Array();
+		<jstl:forEach items="${dateListTimeSeriesAcceptedApplication}" var="item">
+			dateListTimeSeriesAcceptedApplication.push("${item}");
+		</jstl:forEach>
+		
+		var countListTimeSeriesAcceptedApplication = new Array();
+		<jstl:forEach items="${countListTimeSeriesAcceptedApplication}" var="item">
+			countListTimeSeriesAcceptedApplication.push("${item}");
+		</jstl:forEach>		
+		
+		var dataAccepted = new Array();
+		
+	    for (var i = 0; i < dateListTimeSeriesAcceptedApplication.length; i++) {
+	        myAxe = new Ejes(dateListTimeSeriesAcceptedApplication[i],countListTimeSeriesAcceptedApplication[i]);
+	        dataAccepted.push(myAxe)
+	    }
+	    
+	    <!-- Rejected -->
+	    var dateListTimeSeriesRejectedApplication = new Array();
+		<jstl:forEach items="${dateListTimeSeriesRejectedApplication}" var="item">
+			dateListTimeSeriesRejectedApplication.push("${item}");
+		</jstl:forEach>
+		
+		var countListTimeSeriesRejectedApplication = new Array();
+		<jstl:forEach items="${countListTimeSeriesRejectedApplication}" var="item">
+			countListTimeSeriesRejectedApplication.push("${item}");
+		</jstl:forEach>		
+		
+		var dataRejected = new Array();
+		
+	    for (var i = 0; i < dateListTimeSeriesRejectedApplication.length; i++) {
+	        myAxe = new Ejes(dateListTimeSeriesRejectedApplication[i],countListTimeSeriesRejectedApplication[i]);
+	        dataRejected.push(myAxe)
+	    }
+		
+	    
+	    <!-- CHART -->
+	    var timeFormat = 'YYYY-MM-DD';
+	
+	    var config = {
 	        type:    'line',
 	        data:    {
 	            datasets: [
@@ -203,44 +255,49 @@
 	                    data: dataPending,
 	                    fill: false,
 	                    borderColor: 'red'
+	                },
+	                {
+	                    label: "Accepted",
+	                    data: dataAccepted,
+	                    fill:  false,
+	                    borderColor: 'blue'
+	                },
+	                {
+	                    label: "Rejected",
+	                    data:  dataRejected,
+	                    fill:  false,
+	                    borderColor: 'orange'
 	                }
 	            ]
+	        },
+	        options: {
+	            responsive: true,
+	            scales:     {
+	                xAxes: [{
+	
+						type: 'time',
+						time:{
+						    unit: 'day',
+	                        format: timeFormat
+						},
+						distribution: 'series'
+							
+	                }],
+	                yAxes: [{
+	                    ticks : {
+									suggestedMin : 0,
+									suggestedMax : 5
+								}
+	                }]
+	            }
 	        }
 	    };
-	        
-		var options = {
-            responsive: true,
-            scales:     {
-                xAxes: [{
-
-					type: 'time',
-					time:{
-					    unit: 'day',
-                        format: timeFormat
-					},
-					distribution: 'series'
-							
-                }],
-                yAxes: [{
-                    ticks : {
-								suggestedMin : 0,
-								suggestedMax : 5
-							}
-                }]
-            }
+	
+	    window.onload = function () {
+	        var ctx       = document.getElementById("canvas3").getContext("2d");
+	        window.myLine = new Chart(ctx, config);
 	    };
 
-	    var canvas,context;
-		canvas = document.getElementById("canvas3");
-		context = canvas.getContext("2d");
-		
-		new Chart(context, {
-			type : "bar",
-			data : data,
-			options : options
-		});
-		
-	});
 	</script>
 	
   	<acme:form-return code="administrator.dashboard.form.button.return"/>

@@ -14,6 +14,9 @@ authenticated.provider.form.button.update = Update sponsor data
 authenticated.sponsor.form.label.organization = Organization:
 authenticated.sponsor.form.label.credit_card = Credit Card:
 
+authenticated.sponsor.spamWords = Do not write Spam Words
+authenticated.sponsor.organization = Write something!!!!
+
 authenticated.sponsor.form.button.create = Register
 authenticated.sponsor.form.button.update = Update
 authenticated.sponsor.form.button.return = Return

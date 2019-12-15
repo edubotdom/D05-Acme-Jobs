@@ -1,9 +1,14 @@
 
 package acme.features.authenticated.sponsor;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.customization.Customization;
 import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
@@ -73,6 +78,27 @@ public class AuthenticatedSponsorCreateService implements AbstractCreateService<
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		String orgEx = entity.getOrganization().replace(" ", "");
+		boolean withOutSpaces = orgEx.length() != 0;
+		errors.state(request, withOutSpaces, "organization", "authenticated.sponsor.organization");
+
+		String organization = entity.getOrganization();
+		String[] organizationArray = organization.split(" ");
+
+		Customization customisation = this.repository.findCustomization();
+
+		String spamWords = customisation.getSpam();
+		String[] spamArray = spamWords.split(",");
+		Double threshold = customisation.getThreshold();
+
+		List<String> spamList = IntStream.range(0, spamArray.length).boxed().map(x -> spamArray[x].trim()).collect(Collectors.toList());
+
+		Integer numSpamOrganization = (int) IntStream.range(0, organizationArray.length).boxed().map(x -> organizationArray[x].trim()).filter(i -> spamList.contains(i)).count();
+
+		boolean isFreeOfSpamOrganization = 100 * numSpamOrganization / organizationArray.length < threshold;
+
+		errors.state(request, isFreeOfSpamOrganization, "organization", "authenticated.sponsor.spamWords");
 
 	}
 

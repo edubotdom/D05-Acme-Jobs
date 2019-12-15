@@ -2,7 +2,6 @@
 package acme.forms;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 import lombok.Getter;
@@ -12,11 +11,11 @@ import lombok.Setter;
 @Setter
 public class Dashboard implements Serializable {
 
-	// Serialization identifier -------------------------------------------
+	// Serialization identifier ---------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
 
-	//Attributes ----------------------------------------------------------
+	//Attributes ------------------------------------------------------------
 
 	Integer						totalNumberOfAnnouncements;
 	Integer						totalNumberOfCompanyRecords;
@@ -39,39 +38,39 @@ public class Dashboard implements Serializable {
 	List<String>				investorSectors;
 	List<Long>					numberInvestors; //nº investors per sector
 
-	// List Attributes ----------------------------------------------------------
+	// List Attributes -----------------------------------------------------------
 	Double						averageJobsPerEmployer;
 	Double						averageApplicationsPerEmployer;
 	Double						averageApplicationsPerWorker;
 
-	// Chart Attributes ---------------------------------------------------------
+	// Chart Attributes ----------------------------------------------------------
 
 	//List<String>				status;
 
-	// Ratio of applications grouped by status
+	// Ratio of applications grouped by status -----------------------------------
 	Double						ratioAcceptedApplications;
 	Double						ratioPendingApplications;
 	Double						ratioRejectedApplications;
 
-	// Ratio of jobs grouped by status
+	// Ratio of jobs grouped by status--------------------------------------------
 	Double						ratioPublishedJobs;
 	Double						ratioDraftJobs;
 
-	// Application's time series
+	// Application's time series--------------------------------------------------
+
 	//Map<Integer, Date>			timeSeriesPendingApplication;
 	List<Integer>				countListTimeSeriesPendingApplication;
-	List<Date>					dateListTimeSeriesPendingApplication;
-	Integer						numListTimeSeriesPendingApplication;
+	List<String>				dateListTimeSeriesPendingApplication;
+
 	//Map<Integer, Date>			timeSeriesAcceptedApplication;
 	List<Integer>				countListTimeSeriesAcceptedApplication;
-	List<Date>					dateListTimeSeriesAcceptedApplication;
-	Integer						numListTimeSeriesAcceptedApplication;
+	List<String>				dateListTimeSeriesAcceptedApplication;
+
 	//Map<Integer, Date>			timeSeriesRejectedApplication;
 	List<Integer>				countListTimeSeriesRejectedApplication;
-	List<Date>					dateListTimeSeriesRejectedApplication;
-	Integer						numListTimeSeriesRejectedApplication;
+	List<String>				dateListTimeSeriesRejectedApplication;
 
-	// Derived attributes -------------------------------------------------
+	// Derived attributes ------------------------------------------------------
 
-	// Relationships ------------------------------------------------------
+	// Relationships -----------------------------------------------------------
 }

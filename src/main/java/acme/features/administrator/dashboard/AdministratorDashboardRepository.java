@@ -13,7 +13,6 @@
 package acme.features.administrator.dashboard;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
@@ -102,7 +101,7 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	List<Integer> getCountTimeSeriesPendingApplication();
 
 	@Query("select date(a.moment) from Application a where a.status = 'pending' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
-	List<Date> getDateTimeSeriesPendingApplication();
+	List<String> getDateTimeSeriesPendingApplication();
 
 	//@Query("select count(a),date(a.moment) from Application a where a.status = 'accepted' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
 	//Map<Integer, Date> getTimeSeriesAcceptedApplication();
@@ -111,7 +110,7 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	List<Integer> getCountTimeSeriesAcceptedApplication();
 
 	@Query("select date(a.moment) from Application a where a.status = 'accepted' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
-	List<Date> getDateTimeSeriesAcceptedApplication();
+	List<String> getDateTimeSeriesAcceptedApplication();
 
 	//@Query("select count(a),date(a.moment) from Application a where a.status = 'rejected' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
 	//Map<Integer, Date> getTimeSeriesRejectedApplication();
@@ -120,6 +119,6 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	List<Integer> getCountTimeSeriesRejectedApplication();
 
 	@Query("select date(a.moment) from Application a where a.status = 'rejected' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
-	List<Date> getDateTimeSeriesRejectedApplication();
+	List<String> getDateTimeSeriesRejectedApplication();
 
 }

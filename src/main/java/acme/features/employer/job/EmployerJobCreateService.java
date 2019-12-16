@@ -72,8 +72,9 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 
 		GregorianCalendar calendar = new GregorianCalendar();
 		Date minimumDeadline = calendar.getTime();
-		errors.state(request, entity.getDeadline().after(minimumDeadline), "deadline", "employer.job.tryingToCreatePastJob");
-
+		if (entity.getDeadline() != null) {
+			errors.state(request, entity.getDeadline().after(minimumDeadline), "deadline", "employer.job.tryingToCreatePastJob");
+		}
 		//Comprueba el spam
 		/**
 		 * String referenceNumber = entity.getReferenceNumber();
@@ -82,19 +83,19 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		 * String[] titleArray = title.split(" ");
 		 * String description = entity.getDescription();
 		 * String[] descriptionArray = description.split(" ");
-		 * 
+		 *
 		 * Customization customisation = this.repository.findCustomization();
-		 * 
+		 *
 		 * String spamWords = customisation.getSpam();
 		 * String[] spamArray = spamWords.split(",");
 		 * Double threshold = customisation.getThreshold();
-		 * 
+		 *
 		 * List<String> spamList = IntStream.range(0, spamArray.length).boxed().map(x -> spamArray[x].trim()).collect(Collectors.toList());
-		 * 
+		 *
 		 * Integer numSpamReferenceNumber = (int) IntStream.range(0, referenceNumberArray.length).boxed().map(x -> referenceNumberArray[x].trim()).filter(i -> spamList.contains(i)).count();
 		 * Integer numSpamTitle = (int) IntStream.range(0, titleArray.length).boxed().map(x -> titleArray[x].trim()).filter(i -> spamList.contains(i)).count();
 		 * Integer numSpamDescription = (int) IntStream.range(0, descriptionArray.length).boxed().map(x -> descriptionArray[x].trim()).filter(i -> spamList.contains(i)).count();
-		 * 
+		 *
 		 * boolean isFreeOfSpamReferenceNumber = 100 * numSpamReferenceNumber / referenceNumberArray.length < threshold;
 		 * boolean isFreeOfSpamTitle = 100 * numSpamTitle / titleArray.length < threshold;
 		 * boolean isFreeOfSpamDescription = 100 * numSpamDescription / descriptionArray.length < threshold;

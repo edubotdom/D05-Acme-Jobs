@@ -163,16 +163,21 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>364</x>
-      <y>441</y>
+      <x>196</x>
+      <y>217</y>
       <w>154</w>
-      <h>56</h>
+      <h>112</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Enum&gt;&gt;
 CustomCommand
 --
 + LIST_MINE
 + LIST_NOT_MINE
++ LIST_BY_THREAD
++ LIST_BY_JOB
++ LIST_MINE_REFERENCE
++ LIST_MINE_STATUS
++ LIST_MINE_MOMENT
 
 bg=orange</panel_attributes>
     <additional_attributes/>

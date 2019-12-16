@@ -97,28 +97,28 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	//@Query("select count(a),date(a.moment) from Application a where a.status = 'pending' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
 	//Map<Integer, Date> getTimeSeriesPendingApplication();
 
-	@Query("select count(a) from Application a where a.status = 'pending' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
+	@Query("select count(a) from Application a where a.status = 'pending' and date(a.moment) >= current_date() - 28 group by day(a.moment) order by date(a.moment) asc")
 	List<Integer> getCountTimeSeriesPendingApplication();
 
-	@Query("select date(a.moment) from Application a where a.status = 'pending' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
+	@Query("select date(a.moment) from Application a where a.status = 'pending' and date(a.moment) >= current_date() - 28 group by day(a.moment) order by date(a.moment) asc")
 	List<String> getDateTimeSeriesPendingApplication();
 
 	//@Query("select count(a),date(a.moment) from Application a where a.status = 'accepted' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
 	//Map<Integer, Date> getTimeSeriesAcceptedApplication();
 
-	@Query("select count(a) from Application a where a.status = 'accepted' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
+	@Query("select count(a) from Application a where a.status = 'accepted' and date(a.moment) >= current_date() - 28 group by day(a.moment) order by date(a.moment) asc")
 	List<Integer> getCountTimeSeriesAcceptedApplication();
 
-	@Query("select date(a.moment) from Application a where a.status = 'accepted' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
+	@Query("select date(a.moment) from Application a where a.status = 'accepted' and date(a.moment) >= current_date() - 28 group by day(a.moment) order by date(a.moment) asc")
 	List<String> getDateTimeSeriesAcceptedApplication();
 
 	//@Query("select count(a),date(a.moment) from Application a where a.status = 'rejected' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
 	//Map<Integer, Date> getTimeSeriesRejectedApplication();
 
-	@Query("select count(a) from Application a where a.status = 'rejected' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
+	@Query("select count(a) from Application a where a.status = 'rejected' and date(a.moment) >= current_date() - 28 group by day(a.moment) order by date(a.moment) asc")
 	List<Integer> getCountTimeSeriesRejectedApplication();
 
-	@Query("select date(a.moment) from Application a where a.status = 'rejected' and date(a.moment) >= current_date() - 28 group by day(a.moment)")
+	@Query("select date(a.moment) from Application a where a.status = 'rejected' and date(a.moment) >= current_date() - 28 group by day(a.moment) order by date(a.moment) asc")
 	List<String> getDateTimeSeriesRejectedApplication();
 
 }

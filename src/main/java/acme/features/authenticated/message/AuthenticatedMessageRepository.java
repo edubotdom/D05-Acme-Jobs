@@ -13,6 +13,7 @@
 package acme.features.authenticated.message;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -29,12 +30,6 @@ public interface AuthenticatedMessageRepository extends AbstractRepository {
 	@Query("select m from Message m where m.id = ?1")
 	Message findOneMessageById(int id);
 
-	/*
-	 * @Query("select t from Thread t where t.deadline >= current_date()")
-	 * Collection<Thread> findManyAll();
-	 * select m from Message m join t.messages ms from Thread t where t.id = ?1 group by m
-	 *
-	 */
 	@Query("select m from Message m where m.thread.id = ?1 ")
 	Collection<Message> findManyByThreadId(int id);
 
@@ -46,4 +41,7 @@ public interface AuthenticatedMessageRepository extends AbstractRepository {
 
 	@Query("select c from Customization c")
 	Customization findCustomization();
+
+	@Query("select p.user from Participant p where p.thread.id = ?1")
+	List<Authenticated> findManyAuthenticatedByThreadId(int id);
 }

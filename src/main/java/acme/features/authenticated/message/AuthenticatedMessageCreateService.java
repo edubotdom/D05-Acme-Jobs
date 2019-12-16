@@ -45,8 +45,15 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 	@Override
 	public boolean authorise(final Request<Message> request) {
 		assert request != null;
+		Boolean result;
+		int threadId;
+		List<Authenticated> usuariosThread;
 
-		return true;
+		threadId = request.getModel().getInteger("id");
+		usuariosThread = this.repository.findManyAuthenticatedByThreadId(threadId);
+		result = usuariosThread.stream().map(u -> u.getUserAccount().getId()).anyMatch(i -> request.getPrincipal().getAccountId() == i);
+
+		return result;
 	}
 
 	@Override

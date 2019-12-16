@@ -80,6 +80,21 @@ public class SponsorCommercialBannerUpdateService implements AbstractUpdateServi
 		assert entity != null;
 		assert errors != null;
 
+		Sponsor sponsor;
+		Principal principal;
+		int userAccountId;
+		String creditCard;
+
+		// primero vamos a encontrar el Sponsor y vamos  agregarlo a dicho CommercialBanner
+		principal = request.getPrincipal();
+		userAccountId = principal.getAccountId();
+		sponsor = this.repository.findOneSponsorByUserAccountId(userAccountId);
+
+		// ahora vamos a extraer su tarjeta de crédito e insertarla en la nueva propiedad
+		creditCard = sponsor.getCreditCard();
+		// el error se indica en el atributo de la creditCard, diciendo que debe de añadir una tarjeta de crédito a su perfil
+		errors.state(request, creditCard != null, "creditCard", "sponsor.CommercialBanner.creditCardNotRegistered");
+
 		String slogan = entity.getSlogan();
 		String[] sloganArray = slogan.split(" ");
 

@@ -253,6 +253,35 @@
 		<property name="userAccount" ref="worker6UserAccount" />
 	</bean>
 
+	<bean name="worker7UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="worker7" />
+		<property name="password" value="worker7" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Worker" />
+				<property name="surname" value="Seven" />
+				<property name="email" value="worker7@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="worker7Worker" />
+				<ref bean="worker7Authenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="worker7Worker" class="acme.entities.roles.Worker">
+		<property name="qualifications" value="Example 7 Qualifications Records" />
+		<property name="skills" value="Example 7 Skills Records" />
+		<property name="userAccount" ref="worker7UserAccount" />
+	</bean>
+
+	<bean name="worker7Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="worker7UserAccount" />
+	</bean>
+
 	<!-- Employers -->
 
 	<bean name="employer1UserAccount" class="acme.framework.entities.UserAccount">
@@ -1808,6 +1837,174 @@
 		<property name="job" ref="job8" />
 	</bean>
 
+	<bean name="application11" class="acme.entities.applications.Application">
+		<property name="reference" value="EEEA-JJJA:WWWD" />
+		<property name="moment" value="2019/12/01 01:00" />
+		<property name="status" value="rejected" />
+		<property name="justification">
+			<null />
+		</property>
+		<property name="statement" value="This is an example 11" />
+		<property name="skills" value="You need to have Skills Example 11" />
+		<property name="qualifications" value="You need to have Qualifications Example 11" />
+		<property name="worker" ref="worker4Worker" />
+		<property name="job" ref="job1" />
+	</bean>
+
+	<bean name="application12" class="acme.entities.applications.Application">
+		<property name="reference" value="EEEB-JJJC:WWWB" />
+		<property name="moment" value="2019/12/05 01:00" />
+		<property name="status" value="rejected" />
+		<property name="justification">
+			<null />
+		</property>
+		<property name="statement" value="This is an example 12" />
+		<property name="skills" value="You need to have Skills Example 12" />
+		<property name="qualifications" value="You need to have Qualifications Example 12" />
+		<property name="worker" ref="worker4Worker" />
+		<property name="job" ref="job3" />
+	</bean>
+	
+	<bean name="application13" class="acme.entities.applications.Application">
+		<property name="reference" value="EEEA-JJJA:WWWB" />
+		<property name="moment" value="2019/12/11 01:00" />
+		<property name="status" value="pending" />
+		<property name="justification">
+			<null />
+		</property>
+		<property name="statement" value="This is an example 13" />
+		<property name="skills" value="You need to have Skills Example 13" />
+		<property name="qualifications" value="You need to have Qualifications Example 13" />
+		<property name="worker" ref="worker2Worker" />
+		<property name="job" ref="job1" />
+	</bean>
+	
+	<bean name="application14" class="acme.entities.applications.Application">
+		<property name="reference" value="EEEB-JJJB:WWWB" />
+		<property name="moment" value="2019/11/25 01:00" />
+		<property name="status" value="pending" />
+		<property name="justification">
+			<null />
+		</property>
+		<property name="statement" value="This is an example 14" />
+		<property name="skills" value="You need to have Skills Example 14" />
+		<property name="qualifications" value="You need to have Qualifications Example 14" />
+		<property name="worker" ref="worker2Worker" />
+		<property name="job" ref="job2" />
+	</bean>
+	
+	<bean name="application15" class="acme.entities.applications.Application">
+		<property name="reference" value="EEEA-JJJE:WWWE" />
+		<property name="moment" value="2019/11/28 01:00" />
+		<property name="status" value="accepted" />
+		<property name="justification">
+			<null />
+		</property>
+		<property name="statement" value="This is an example 15" />
+		<property name="skills" value="You need to have Skills Example 15" />
+		<property name="qualifications" value="You need to have Qualifications Example 15" />
+		<property name="worker" ref="worker5Worker" />
+		<property name="job" ref="job5" />
+	</bean>
+	
+	<bean name="application16" class="acme.entities.applications.Application">
+		<property name="reference" value="EEEA-JJJE:WWWF" />
+		<property name="moment" value="2019/12/04 01:00" />
+		<property name="status" value="rejected" />
+		<property name="justification">
+			<null />
+		</property>
+		<property name="statement" value="This is an example 16" />
+		<property name="skills" value="You need to have Skills Example 16" />
+		<property name="qualifications" value="You need to have Qualifications Example 16" />
+		<property name="worker" ref="worker6Worker" />
+		<property name="job" ref="job5" />
+	</bean>
+	
+	<bean name="application17" class="acme.entities.applications.Application">
+		<property name="reference" value="EEED-JJJF:WWWF" />
+		<property name="moment" value="2019/11/27 01:00" />
+		<property name="status" value="accepted" />
+		<property name="justification">
+			<null />
+		</property>
+		<property name="statement" value="This is an example 17" />
+		<property name="skills" value="You need to have Skills Example 17" />
+		<property name="qualifications" value="You need to have Qualifications Example 17" />
+		<property name="worker" ref="worker6Worker" />
+		<property name="job" ref="job6" />
+	</bean>
+	
+	<bean name="application18" class="acme.entities.applications.Application">
+		<property name="reference" value="EEEB-JJJG:WWWE" />
+		<property name="moment" value="2019/11/29 01:00" />
+		<property name="status" value="pending" />
+		<property name="justification">
+			<null />
+		</property>
+		<property name="statement" value="This is an example 18" />
+		<property name="skills" value="You need to have Skills Example 18" />
+		<property name="qualifications" value="You need to have Qualifications Example 18" />
+		<property name="worker" ref="worker5Worker" />
+		<property name="job" ref="job7" />
+	</bean>
+	
+	<bean name="application19" class="acme.entities.applications.Application">
+		<property name="reference" value="EEEB-JJJG:WWWG" />
+		<property name="moment" value="2019/12/07 01:00" />
+		<property name="status" value="accepted" />
+		<property name="justification">
+			<null />
+		</property>
+		<property name="statement" value="This is an example 19" />
+		<property name="skills" value="You need to have Skills Example 19" />
+		<property name="qualifications" value="You need to have Qualifications Example 19" />
+		<property name="worker" ref="worker7Worker" />
+		<property name="job" ref="job7" />
+	</bean>
+	
+	<bean name="application20" class="acme.entities.applications.Application">
+		<property name="reference" value="EEEA-JJJI:WWWG" />
+		<property name="moment" value="2019/12/11 01:00" />
+		<property name="status" value="pending" />
+		<property name="justification">
+			<null />
+		</property>
+		<property name="statement" value="This is an example 20" />
+		<property name="skills" value="You need to have Skills Example 20" />
+		<property name="qualifications" value="You need to have Qualifications Example 20" />
+		<property name="worker" ref="worker7Worker" />
+		<property name="job" ref="job9" />
+	</bean>
+	
+	<bean name="application21" class="acme.entities.applications.Application">
+		<property name="reference" value="EEEA-JJJH:WWWG" />
+		<property name="moment" value="2019/12/14 01:00" />
+		<property name="status" value="accepted" />
+		<property name="justification">
+			<null />
+		</property>
+		<property name="statement" value="This is an example 21" />
+		<property name="skills" value="You need to have Skills Example 21" />
+		<property name="qualifications" value="You need to have Qualifications Example 21" />
+		<property name="worker" ref="worker7Worker" />
+		<property name="job" ref="job8" />
+	</bean>
+	
+	<bean name="application22" class="acme.entities.applications.Application">
+		<property name="reference" value="EEEA-JJJJ:WWWC" />
+		<property name="moment" value="2019/11/29 01:00" />
+		<property name="status" value="pending" />
+		<property name="justification">
+			<null />
+		</property>
+		<property name="statement" value="This is an example 22" />
+		<property name="skills" value="You need to have Skills Example 22" />
+		<property name="qualifications" value="You need to have Qualifications Example 22" />
+		<property name="worker" ref="worker3Worker" />
+		<property name="job" ref="job10" />
+	</bean>
+
 	<!-- Thread's bean -->
 
 	<bean name="thread1" class="acme.entities.threads.Thread">
@@ -1994,7 +2191,7 @@
 		<property name="user" ref="sponsor2Authenticated" />
 		<property name="thread" ref="thread6" />
 	</bean>
-	
+
 	<bean name="message16" class="acme.entities.messages.Message">
 		<property name="title" value="Title for a message 16" />
 		<property name="moment" value="2019/06/01 16:05" />
@@ -2082,7 +2279,7 @@
 		<property name="user" ref="sponsor2Authenticated" />
 		<property name="thread" ref="thread6" />
 	</bean>
-	
+
 	<bean name="participant16" class="acme.entities.participants.Participant">
 		<property name="user" ref="sponsor1Authenticated" />
 		<property name="thread" ref="thread6" />

@@ -18,6 +18,7 @@ sponsor.commercialBanner.form.button.update = Actualizar
 sponsor.commercialBanner.form.button.delete = Eliminar
 
 sponsor.CommercialBanner.spamWords = No escriba palabras inapropiadas!!!
+sponsor.CommercialBanner.creditCardNotRegistered = Necesitas registrar la tarjeta de crédito en tu perfil de Patrocinador
 
 sponsor.commercialBanner.list.label.slogan = Eslogan:
 sponsor.commercialBanner.list.label.url = Dirección:

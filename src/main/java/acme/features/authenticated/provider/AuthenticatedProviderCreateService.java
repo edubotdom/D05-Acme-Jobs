@@ -42,7 +42,16 @@ public class AuthenticatedProviderCreateService implements AbstractCreateService
 	public boolean authorise(final Request<Provider> request) {
 		assert request != null;
 
-		return true;
+		Provider result;
+		Principal principal;
+		int userAccountId;
+
+		principal = request.getPrincipal();
+		userAccountId = principal.getAccountId();
+
+		result = this.repository.findOneProviderByUserAccountId(userAccountId);
+
+		return result == null;
 	}
 
 	@Override

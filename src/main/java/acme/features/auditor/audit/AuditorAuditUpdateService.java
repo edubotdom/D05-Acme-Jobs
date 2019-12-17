@@ -1,6 +1,8 @@
 
 package acme.features.auditor.audit;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -76,6 +78,7 @@ public class AuditorAuditUpdateService implements AbstractUpdateService<Auditor,
 	public void update(final Request<Audit> request, final Audit entity) {
 		assert request != null;
 		assert entity != null;
+
 		boolean finalMode;
 		String status = request.getModel().getAttribute("status").toString();
 		if (status.equals("Published")) {
@@ -84,6 +87,12 @@ public class AuditorAuditUpdateService implements AbstractUpdateService<Auditor,
 			finalMode = false;
 		}
 		entity.setFinalMode(finalMode);
+
+		// se actualiza el estado cuando
+		Date newMoment;
+		newMoment = new Date(System.currentTimeMillis() - 1);
+		entity.setMoment(newMoment);
+
 		this.repository.save(entity);
 	}
 

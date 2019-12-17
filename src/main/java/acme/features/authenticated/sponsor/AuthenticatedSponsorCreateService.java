@@ -26,7 +26,17 @@ public class AuthenticatedSponsorCreateService implements AbstractCreateService<
 	@Override
 	public boolean authorise(final Request<Sponsor> request) {
 		assert request != null;
-		return true;
+
+		Sponsor result;
+		Principal principal;
+		int userAccountId;
+
+		principal = request.getPrincipal();
+		userAccountId = principal.getAccountId();
+
+		result = this.repository.findOneSponsorByUserAccountId(userAccountId);
+
+		return result == null;
 	}
 
 	@Override
@@ -78,17 +88,17 @@ public class AuthenticatedSponsorCreateService implements AbstractCreateService<
 		/*
 		 * String organization = entity.getOrganization();
 		 * String[] organizationArray = organization.split(" ");
-		 * 
+		 *
 		 * Customization customisation = this.repository.findCustomization();
-		 * 
+		 *
 		 * String spamWords = customisation.getSpam();
 		 * String[] spamArray = spamWords.split(",");
 		 * Double threshold = customisation.getThreshold();
-		 * 
+		 *
 		 * List<String> spamList = IntStream.range(0, spamArray.length).boxed().map(x -> spamArray[x].trim()).collect(Collectors.toList());
-		 * 
+		 *
 		 * Integer numSpamOrganization = (int) IntStream.range(0, organizationArray.length).boxed().map(x -> organizationArray[x].trim()).filter(i -> spamList.contains(i)).count();
-		 * 
+		 *
 		 * if (organizationArray.length != 0) {
 		 * boolean isFreeOfSpamOrganization = 100 * numSpamOrganization / organizationArray.length < threshold;
 		 * errors.state(request, isFreeOfSpamOrganization, "organization", "authenticated.sponsor.spamWords");

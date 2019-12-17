@@ -60,6 +60,22 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 			model.setAttribute("status", "Draft");
 		}
 
+		boolean result;
+		boolean iAmPrincipal;
+		int jobId;
+		Job job;
+		Employer employer;
+		Principal principal;
+
+		jobId = request.getModel().getInteger("id");
+		job = this.repository.findOneJobById(jobId);
+		employer = job.getEmployer();
+		principal = request.getPrincipal();
+		iAmPrincipal = employer.getUserAccount().getId() == principal.getAccountId();
+		result = !job.isFinalMode() && iAmPrincipal;
+		model.setAttribute("result", result);
+		model.setAttribute("iAmPrincipal", iAmPrincipal);
+
 		request.unbind(entity, model, "referenceNumber", "title", "deadline");
 		request.unbind(entity, model, "salary", "moreInfo", "description");
 	}

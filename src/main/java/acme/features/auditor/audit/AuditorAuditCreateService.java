@@ -54,7 +54,13 @@ public class AuditorAuditCreateService implements AbstractCreateService<Auditor,
 		String direccionAudit = "../audit/create?id=" + request.getModel().getInteger("id");
 		model.setAttribute("direccionAudit", direccionAudit);
 
-		request.unbind(entity, model, "title", "body", "finalMode");
+		if (entity.isFinalMode()) {
+			model.setAttribute("status", "Published");
+		} else {
+			model.setAttribute("status", "Draft");
+		}
+
+		request.unbind(entity, model, "title", "body");
 	}
 
 	@Override

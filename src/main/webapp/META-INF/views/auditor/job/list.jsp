@@ -19,7 +19,8 @@
 <acme:list>
 	<acme:list-column code="auditor.job.list.label.referenceNumber" path="referenceNumber" width="10%"/>
 	<acme:list-column code="auditor.job.list.label.deadline" path="deadline" width="10%"/>
-	<acme:list-column code="auditor.job.list.label.title" path="title" width="80%"/>	
+	<acme:list-column code="auditor.job.list.label.title" path="title" width="60%"/>
+	<acme:list-column code="auditor.job.form.label.status" path="status" width="20%" />	
 </acme:list>
 
 

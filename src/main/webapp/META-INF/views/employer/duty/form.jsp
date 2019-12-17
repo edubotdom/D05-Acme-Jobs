@@ -41,6 +41,5 @@
 	</jstl:if>
 
 
-
 	<acme:form-return code="employer.job.form.button.return" />
 </acme:form>

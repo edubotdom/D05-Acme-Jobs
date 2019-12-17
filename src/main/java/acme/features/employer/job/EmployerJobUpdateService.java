@@ -60,6 +60,12 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		
+		if (entity.isFinalMode()) {
+			model.setAttribute("status", "Published");
+		} else {
+			model.setAttribute("status", "Draft");
+		}
 
 		request.unbind(entity, model, "reference", "title", "deadline", "salary", "moreInfo", "status", "descriptor");
 	}

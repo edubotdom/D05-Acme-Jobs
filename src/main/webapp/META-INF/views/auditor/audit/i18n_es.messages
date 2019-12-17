@@ -12,7 +12,9 @@ auditor.audit.list.label.title = Título
 auditor.audit.list.label.moment = Fecha
 
 auditor.audit.form.label.title = Título
-auditor.audit.form.label.status = Estado
+auditor.audit.form.label.status = Status
+auditor.audit.form.label.status1 = Publicado
+auditor.audit.form.label.status0 = Borrador
 auditor.audit.form.label.moment = Fecha
 auditor.audit.form.label.body = Cuerpo
 auditor.audit.form.label.job = Trabajo

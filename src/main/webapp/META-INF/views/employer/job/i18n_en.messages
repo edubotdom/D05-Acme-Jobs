@@ -10,6 +10,8 @@
 
 employer.job.form.label.referenceNumber = Reference:
 employer.job.form.label.status = Status:
+employer.job.form.label.status1 = Published
+employer.job.form.label.status0 = Draft
 employer.job.form.label.title = Title:
 employer.job.form.label.deadline = Deadline:
 employer.job.form.label.description = Description:

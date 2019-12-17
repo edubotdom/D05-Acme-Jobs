@@ -19,7 +19,7 @@
 <jstl:if test="${command != 'create' }">
 	<acme:form-textbox code="employer.duty.form.label.title" path="title" />
 	<acme:form-textarea code="employer.duty.form.label.description" path="description" />
-	<acme:form-moment code="employer.duty.form.label.timeAmount" path="timeAmount" />
+	<acme:form-moment code="employer.duty.form.label.timeAmount" path="timeAmount" placeholder="50.0"/>
 
 	<acme:form-submit test="${command== 'show'}" code="employer.duty.form.button.update"
 		action="/employer/duty/update" />
@@ -37,7 +37,7 @@
 <jstl:if test="${command == 'create' }">
 	<acme:form-textarea code="employer.duty.form.label.title" path="title" />
 	<acme:form-textarea code="employer.duty.form.label.description" path="description" />
-	<acme:form-textbox code="employer.duty.form.label.timeAmount" path="timeAmount" />
+	<acme:form-textbox code="employer.duty.form.label.timeAmount" path="timeAmount" placeholder="50.0"/>
 </jstl:if>
 
 	<acme:form-hidden path="direccionDuty"/>

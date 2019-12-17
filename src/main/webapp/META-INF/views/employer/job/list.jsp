@@ -20,6 +20,7 @@
 	<acme:list-column code="employer.job.list.label.referenceNumber" path="referenceNumber" width="10%"/>
 	<acme:list-column code="employer.job.list.label.deadline" path="deadline" width="10%"/>
 	<acme:list-column code="employer.job.list.label.title" path="title" width="80%"/>	
+	<acme:list-column code="employer.job.form.label.status" path="status" width="20%" />
 </acme:list>
 
 

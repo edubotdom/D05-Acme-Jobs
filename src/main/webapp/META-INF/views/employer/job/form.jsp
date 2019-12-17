@@ -26,7 +26,10 @@ s not guaranteed for any particular
 
 		<acme:form-textbox code="employer.job.form.label.description" path="description" />
 <jstl:if test="${command == 'show' || command == 'update'}">
-		<acme:form-textbox code="employer.job.form.label.status" path="status" />
+		<acme:form-select code="employer.job.form.label.status" path="status">
+	<acme:form-option code="employer.job.form.label.status1" value="Published"/>
+	<acme:form-option code="employer.job.form.label.status0" value="Draft"/>
+	</acme:form-select>
 </jstl:if>
 
 <jstl:if test="${command != 'update' && command != 'create'}">

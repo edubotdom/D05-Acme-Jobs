@@ -34,6 +34,12 @@ public class WorkerAuditListService implements AbstractListService<Worker, Audit
 		assert entity != null;
 		assert model != null;
 
+		if (entity.isFinalMode()) {
+			model.setAttribute("status", "Published");
+		} else {
+			model.setAttribute("status", "Draft");
+		}
+
 		request.unbind(entity, model, "title", "moment");
 	}
 

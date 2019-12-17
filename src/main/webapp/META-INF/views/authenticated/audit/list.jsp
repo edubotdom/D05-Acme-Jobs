@@ -19,6 +19,7 @@
 <acme:list>
 	<acme:list-column code="authenticated.audit.list.label.title" path="title" width="20%"/>
 	<acme:list-column code="authenticated.audit.list.label.moment" path="moment" width="20%"/>
+	<acme:list-column code="auditor.audit.form.label.status" path="status" width="20%"/>
 </acme:list>
 <acme:form>
   	<acme:form-return code="authenticated.job.form.button.return" />

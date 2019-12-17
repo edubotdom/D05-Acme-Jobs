@@ -85,9 +85,22 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		Integer numSpamTitle = (int) IntStream.range(0, titleArray.length).boxed().map(x -> titleArray[x].trim()).filter(i -> spamList.contains(i)).count();
 		Integer numSpamTags = (int) IntStream.range(0, tagsArray.length).boxed().map(x -> tagsArray[x].trim()).filter(i -> spamList.contains(i)).count();
 		Integer numSpamBody = (int) IntStream.range(0, bodyArray.length).boxed().map(x -> bodyArray[x].trim()).filter(i -> spamList.contains(i)).count();
-		boolean isFreeOfSpamTitle = 100 * numSpamTitle / titleArray.length < threshold;
-		boolean isFreeOfSpamTags = 100 * numSpamTags / tagsArray.length < threshold;
-		boolean isFreeOfSpamBody = 100 * numSpamBody / bodyArray.length < threshold;
+		boolean isFreeOfSpamTitle = true;
+		boolean isFreeOfSpamTags = true;
+		boolean isFreeOfSpamBody = true;
+
+		if (numSpamTitle != 0) {
+			isFreeOfSpamTitle = 100 * numSpamTitle / titleArray.length < threshold;
+		}
+		if (numSpamTags != 0) {
+			isFreeOfSpamTags = 100 * numSpamTags / tagsArray.length < threshold;
+			;
+		}
+		if (numSpamBody != 0) {
+			isFreeOfSpamBody = 100 * numSpamBody / bodyArray.length < threshold;
+			;
+		}
+
 		errors.state(request, isFreeOfSpamTitle, "title", "authenticated.message.spamWords");
 		errors.state(request, isFreeOfSpamTags, "tags", "authenticated.message.spamWords");
 		errors.state(request, isFreeOfSpamBody, "body", "authenticated.message.spamWords");

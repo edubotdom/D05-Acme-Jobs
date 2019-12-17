@@ -10,6 +10,8 @@
 
 administrator.auditor.form.label.body = Cuerpo
 administrator.auditor.form.label.status = Estado de la petición
+administrator.auditor.form.label.status0 = Pendiente
+administrator.auditor.form.label.status1 = Aceptado
 administrator.auditor.form.label.statement = Declaración
 administrator.auditor.form.label.firm = Firma
 

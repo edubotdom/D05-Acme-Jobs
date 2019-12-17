@@ -25,5 +25,10 @@ employer.application.form.label.qualifications = Qualifications
 employer.application.form.button.update = Update
 employer.application.form.button.return = Return
 
+employer.application.form.label.status.accepted = Accepted
+employer.application.form.label.status.rejected = Rejected
+employer.application.form.label.status.pending = Pending
+
+
 employer.application.spamWords = Do not write spam words
 employer.application.justificationIfRejected = If rejected, you must provide a justification

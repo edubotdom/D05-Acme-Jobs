@@ -41,7 +41,16 @@ public class AuthenticatedEmployerUpdateService implements AbstractUpdateService
 	public boolean authorise(final Request<Employer> request) {
 		assert request != null;
 
-		return true;
+		Employer result;
+		Principal principal;
+		int userAccountId;
+
+		principal = request.getPrincipal();
+		userAccountId = principal.getAccountId();
+
+		result = this.repository.findOneEmployerByUserAccountId(userAccountId);
+
+		return result != null;
 	}
 
 	@Override

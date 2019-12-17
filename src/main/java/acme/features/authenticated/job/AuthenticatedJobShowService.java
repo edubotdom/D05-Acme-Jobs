@@ -1,6 +1,8 @@
 
 package acme.features.authenticated.job;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +37,10 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 		job = this.repository.findOneJobById(jobId);
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-		result = job.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		boolean deadlineFuture;
+		Date deadline = job.getDeadline();
+		deadlineFuture = deadline.getTime() > System.currentTimeMillis();
+		result = (job.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId()) && deadlineFuture;
 
 		return result;
 	}

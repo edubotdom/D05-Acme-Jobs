@@ -10,10 +10,12 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.customization.Customization;
 import acme.entities.duties.Duty;
+import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
@@ -27,7 +29,20 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int dutyId;
+		Duty duty;
+		Job job;
+		Employer employer;
+		Principal principal;
+
+		dutyId = request.getModel().getInteger("id");
+		duty = this.repository.findOneById(dutyId);
+		job = duty.getJob();
+		employer = job.getEmployer();
+		principal = request.getPrincipal();
+		result = job.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		return result;
 	}
 
 	@Override

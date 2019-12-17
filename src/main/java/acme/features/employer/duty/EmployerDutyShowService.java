@@ -25,7 +25,21 @@ public class EmployerDutyShowService implements AbstractShowService<Employer, Du
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int dutyId;
+		Duty duty;
+		Job job;
+		Employer employer;
+		Principal principal;
+
+		dutyId = request.getModel().getInteger("id");
+		duty = this.repository.findOneById(dutyId);
+		job = duty.getJob();
+		employer = job.getEmployer();
+		principal = request.getPrincipal();
+		result = job.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+
+		return result;
 	}
 
 	@Override

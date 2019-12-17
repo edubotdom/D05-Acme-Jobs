@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.duties.Duty;
+import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -31,6 +33,24 @@ public class EmployerDutyShowService implements AbstractShowService<Employer, Du
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+
+		boolean notFinalMode;
+		boolean iAmPrincipal;
+		int dutyId;
+		Duty duty;
+		Job job;
+		Employer employer;
+		Principal principal;
+
+		dutyId = request.getModel().getInteger("id");
+		duty = this.repository.findOneById(dutyId);
+		job = duty.getJob();
+		employer = job.getEmployer();
+		principal = request.getPrincipal();
+		iAmPrincipal = employer.getUserAccount().getId() == principal.getAccountId();
+		notFinalMode = /* job.isFinalMode() || */!job.isFinalMode() && iAmPrincipal;
+		model.setAttribute("notFinalMode", notFinalMode);
+		model.setAttribute("iAmPrincipal", iAmPrincipal);
 
 		request.unbind(entity, model, "title", "description", "timeAmount");
 	}

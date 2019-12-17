@@ -68,13 +68,15 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 
 		int idJob = request.getModel().getInteger("id");
 		Job job = this.repository.findJobById(idJob);
-
+		String qualifications = worker.getQualifications();
+		String skills = worker.getSkills();
 		result = new Application();
 		result.setMoment(moment);
 		result.setStatus(status);
 		result.setWorker(worker);
 		result.setJob(job);
-
+		result.setSkills(skills);
+		result.setQualifications(qualifications);
 		return result;
 	}
 

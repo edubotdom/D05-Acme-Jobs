@@ -13,6 +13,8 @@ auditor.audit.list.label.moment = Moment
 
 auditor.audit.form.label.title = Title
 auditor.audit.form.label.status = Status
+auditor.audit.form.label.status0 = Draft
+auditor.audit.form.label.status1 = Published
 auditor.audit.form.label.moment = Moment
 auditor.audit.form.label.body = Body
 auditor.audit.form.label.job = Job

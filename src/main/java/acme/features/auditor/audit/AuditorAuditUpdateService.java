@@ -51,7 +51,13 @@ public class AuditorAuditUpdateService implements AbstractUpdateService<Auditor,
 		String direccionAudit = "../audit/update?id=" + request.getModel().getInteger("id");
 		model.setAttribute("direccionAudit", direccionAudit);
 
-		request.unbind(entity, model, "title", "body", "status", "job", "auditor");
+		if (entity.isFinalMode()) {
+			model.setAttribute("status", "Published");
+		} else {
+			model.setAttribute("status", "Draft");
+		}
+
+		request.unbind(entity, model, "title", "body", "job", "auditor");
 	}
 
 	@Override

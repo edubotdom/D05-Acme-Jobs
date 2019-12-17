@@ -18,7 +18,11 @@
 <acme:form>
 <jstl:if test="${command != 'create' }">
 	<acme:form-textbox code="auditor.audit.form.label.title" path="title"/>
-	<acme:form-textbox code="auditor.audit.form.label.status" path="status" />
+	<!--<acme:form-textbox code="auditor.audit.form.label.status" path="status" />-->
+	<acme:form-select code="auditor.audit.form.label.status" path="status">
+	<acme:form-option code="auditor.audit.form.label.status1" value="Published"/>
+	<acme:form-option code="auditor.audit.form.label.status0" value="Draft"/>
+	</acme:form-select>
 	<acme:form-moment code="auditor.audit.form.label.moment" path="moment" readonly="true" />
 	<acme:form-textarea code="auditor.audit.form.label.body" path="body"/>
 	<acme:form-textbox code="auditor.audit.form.label.auditor" path="associatedAuditor" readonly="true"/>
@@ -34,7 +38,10 @@
 
 <jstl:if test="${command == 'create' }">
 	<acme:form-textbox code="auditor.audit.form.label.title" path="title"/>
-	<acme:form-checkbox code="auditor.audit.form.label.status.checkbox" path="finalMode" />
+	<acme:form-select code="auditor.audit.form.label.status" path="status">
+	<acme:form-option code="auditor.audit.form.label.status1" value="Published"/>
+	<acme:form-option code="auditor.audit.form.label.status0" value="Draft"/>
+	</acme:form-select>
 	<acme:form-textarea code="auditor.audit.form.label.body" path="body"/>
 </jstl:if>
 	<acme:form-hidden path="direccionAudit"/>

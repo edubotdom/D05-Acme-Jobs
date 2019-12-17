@@ -1,6 +1,7 @@
 
 package acme.features.employer.application;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -93,6 +94,11 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 	public void update(final Request<Application> request, final Application entity) {
 		assert request != null;
 		assert entity != null;
+
+		// se actualiza el estado cuando
+		Date newMoment;
+		newMoment = new Date(System.currentTimeMillis() - 1);
+		entity.setMoment(newMoment);
 
 		this.repository.save(entity);
 	}

@@ -20,8 +20,8 @@
 	<acme:form-textbox code="auditor.audit.form.label.title" path="title"/>
 	<!--<acme:form-textbox code="auditor.audit.form.label.status" path="status" />-->
 	<acme:form-select code="auditor.audit.form.label.status" path="status">
-	<acme:form-option code="auditor.audit.form.label.status1" value="Published"/>
-	<acme:form-option code="auditor.audit.form.label.status0" value="Draft"/>
+		<acme:form-option code="auditor.audit.form.label.status1" value="Published"/>
+		<acme:form-option code="auditor.audit.form.label.status0" value="Draft"/>
 	</acme:form-select>
 	<acme:form-moment code="auditor.audit.form.label.moment" path="moment" readonly="true" />
 	<acme:form-textarea code="auditor.audit.form.label.body" path="body"/>

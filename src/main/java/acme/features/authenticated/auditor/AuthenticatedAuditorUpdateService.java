@@ -41,7 +41,16 @@ public class AuthenticatedAuditorUpdateService implements AbstractUpdateService<
 	public boolean authorise(final Request<Auditor> request) {
 		assert request != null;
 
-		return true;
+		Auditor result;
+		Principal principal;
+		int userAccountId;
+
+		principal = request.getPrincipal();
+		userAccountId = principal.getAccountId();
+
+		result = this.repository.findOneAuditorByUserAccountId(userAccountId);
+
+		return result != null;
 	}
 
 	@Override

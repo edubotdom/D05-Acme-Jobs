@@ -1,9 +1,12 @@
 
 package acme.features.employer.job;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.applications.Application;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
@@ -67,7 +70,7 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		Employer employer;
 		Principal principal;
 
-		jobId = request.getModel().getInteger("id");
+		jobId = entity.getId();
 		job = this.repository.findOneJobById(jobId);
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
@@ -75,6 +78,9 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		result = !job.isFinalMode() && iAmPrincipal;
 		model.setAttribute("result", result);
 		model.setAttribute("iAmPrincipal", iAmPrincipal);
+
+		Collection<Application> a = this.repository.findApplicationsByJob(entity.getId());
+		model.setAttribute("jobapplied", a.size() == 0);
 
 		request.unbind(entity, model, "referenceNumber", "title", "deadline");
 		request.unbind(entity, model, "salary", "moreInfo", "description");

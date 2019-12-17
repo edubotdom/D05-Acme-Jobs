@@ -25,5 +25,9 @@ employer.application.form.label.qualifications = Cualificaciones
 employer.application.form.button.update = Actualizar
 employer.application.form.button.return = Regresar
 
+employer.application.form.label.status.accepted = Actualizar
+employer.application.form.label.status.rejected = Rechazar
+employer.application.form.label.status.pending = Pendiente
+
 employer.application.spamWords = No puede introducir palabras inapropiadas
 employer.application.justificationIfRejected = Si es rechazado, debe proveer una justificación

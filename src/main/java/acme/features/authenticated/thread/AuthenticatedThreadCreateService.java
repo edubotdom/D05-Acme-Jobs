@@ -57,6 +57,8 @@ public class AuthenticatedThreadCreateService implements AbstractCreateService<A
 		assert entity != null;
 		assert errors != null;
 
+		boolean isFreeOfSpamTitle;
+
 		String title = entity.getTitle();
 		String[] titleArray = title.split(" ");
 
@@ -69,7 +71,12 @@ public class AuthenticatedThreadCreateService implements AbstractCreateService<A
 		List<String> spamList = IntStream.range(0, spamArray.length).boxed().map(x -> spamArray[x].trim()).collect(Collectors.toList());
 
 		Integer numSpamTitle = (int) IntStream.range(0, titleArray.length).boxed().map(x -> titleArray[x].trim()).filter(i -> spamList.contains(i)).count();
-		boolean isFreeOfSpamTitle = 100 * numSpamTitle / titleArray.length < threshold;
+
+		if (numSpamTitle != 0) {
+			isFreeOfSpamTitle = 100 * numSpamTitle / titleArray.length < threshold;
+		} else {
+			isFreeOfSpamTitle = true;
+		}
 		errors.state(request, isFreeOfSpamTitle, "title", "authenticated.thread.spamWords");
 	}
 

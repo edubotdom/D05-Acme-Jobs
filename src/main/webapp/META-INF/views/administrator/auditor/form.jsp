@@ -21,7 +21,18 @@
 	
 	<acme:form-textbox code="administrator.auditor.form.label.firm" path="firm" readonly="true"/>
 	<acme:form-textarea code="administrator.auditor.form.label.statement" path="statement" readonly="true" />
-	<acme:form-textbox code="administrator.auditor.form.label.status" path="status" />
+	<jstl:if test="${status=='Accepted'}">
+	<acme:form-select code="administrator.auditor.form.label.status" path="status">
+		<acme:form-option code="administrator.auditor.form.label.status1" value="Accepted" selected="true"/>
+		<acme:form-option code="administrator.auditor.form.label.status0" value="Pending"/>
+	</acme:form-select>
+	</jstl:if>
+	<jstl:if test="${status=='Pending'}">
+	<acme:form-select code="administrator.auditor.form.label.status" path="status">
+		<acme:form-option code="administrator.auditor.form.label.status1" value="Accepted"/>
+		<acme:form-option code="administrator.auditor.form.label.status0" value="Pending" selected="true"/>
+	</acme:form-select>
+	</jstl:if>
 	<acme:form-textarea code="administrator.auditor.form.label.body" path="body" readonly="true" />
 	
 	<acme:form-submit test="${command== 'show'}" code="administrator.auditor.form.button.update"

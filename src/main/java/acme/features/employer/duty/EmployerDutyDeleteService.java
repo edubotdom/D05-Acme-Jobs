@@ -36,7 +36,7 @@ public class EmployerDutyDeleteService implements AbstractDeleteService<Employer
 		job = duty.getJob();
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-		result = job.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		result = /* job.isFinalMode() || */!job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
 		return result;
 	}
 

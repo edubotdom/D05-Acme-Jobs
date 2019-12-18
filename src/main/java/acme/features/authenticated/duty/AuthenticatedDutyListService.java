@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.duties.Duty;
+import acme.entities.jobs.Job;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -25,7 +26,16 @@ public class AuthenticatedDutyListService implements AbstractListService<Authent
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		Integer idJob;
+		Job job;
+
+		idJob = request.getModel().getInteger("id");
+		job = this.repository.findOneJobById(idJob);
+
+		result = job.isFinalMode();
+
+		return result;
 	}
 
 	@Override

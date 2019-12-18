@@ -35,10 +35,10 @@
 	<acme:form-textbox code="auditor.audit.form.label.auditor" path="associatedAuditor" readonly="true"/>
 	<acme:form-textbox code="auditor.audit.form.label.associatedJob" path="associatedJob" readonly="true"/>
 	
-	<acme:form-submit test="${command== 'show'}" code="auditor.audit.form.button.update"
+	<acme:form-submit test="${command== 'show' && !isPublished}" code="auditor.audit.form.button.update"
 		action="/auditor/audit/update" />
 		
-	<acme:form-submit test="${command== 'update'}" code="auditor.audit.form.button.update"
+	<acme:form-submit test="${command== 'update' && !isPublished}" code="auditor.audit.form.button.update"
 		action="/auditor/audit/update" />
 		
 </jstl:if>
@@ -52,6 +52,7 @@
 	<acme:form-textarea code="auditor.audit.form.label.body" path="body"/>
 </jstl:if>
 	<acme:form-hidden path="direccionAudit"/>
+	<acme:form-hidden path="isPublished"/>
 	<acme:form-submit test="${command=='create'}" code="auditor.audit.form.button.create" action="${direccionAudit}" />
   	<acme:form-return code="auditor.audit.form.button.return"/>
   	

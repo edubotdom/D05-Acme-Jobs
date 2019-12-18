@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.duties.Duty;
+import acme.entities.jobs.Job;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -29,11 +30,14 @@ public class AuditorDutyListService implements AbstractListService<Auditor, Duty
 
 		int auditorId = principal.getAccountId();
 
+		int jobId = request.getModel().getInteger("id");
+		Job job = this.repository.findOneJobById(jobId);
+
 		Auditor auditor = this.repository.findOneAuditorByUserAccountId(auditorId);
 
 		boolean autorize = auditor.isRequest();
 
-		return autorize;
+		return autorize && job.isFinalMode();
 	}
 
 	@Override

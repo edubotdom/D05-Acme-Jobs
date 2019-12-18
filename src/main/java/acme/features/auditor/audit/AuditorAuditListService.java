@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.audits.Audit;
+import acme.entities.jobs.Job;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -29,11 +30,13 @@ public class AuditorAuditListService implements AbstractListService<Auditor, Aud
 		Principal principal = request.getPrincipal();
 		int auditorId = principal.getAccountId();
 
+		int jobId = request.getModel().getInteger("id");
+		Job job = this.repository.findOneJobById(jobId);
 		Auditor auditor = this.repository.findOneAuditorByUserAccountId(auditorId);
 
 		boolean autorize = auditor.isRequest();
 
-		return autorize;
+		return autorize && job.isFinalMode();
 	}
 
 	@Override
@@ -59,8 +62,8 @@ public class AuditorAuditListService implements AbstractListService<Auditor, Aud
 		Principal principal;
 
 		principal = request.getPrincipal();
-		int auditorUserAccountId = principal.getAccountId(); //auditor1 user account id
-		int jobId = request.getModel().getInteger("id"); //job1
+		int auditorUserAccountId = principal.getAccountId();
+		int jobId = request.getModel().getInteger("id");
 		result = this.repository.findManyAuditsReferedToJob2(jobId, auditorUserAccountId);
 
 		return result;

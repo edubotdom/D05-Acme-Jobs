@@ -29,9 +29,12 @@ public class AuditorDutyShowService implements AbstractShowService<Auditor, Duty
 
 		Auditor auditor = this.repository.findOneAuditorByUserAccountId(auditorId);
 
+		int idDuty = request.getModel().getInteger("id");
+		Duty duty = this.repository.findOneById(idDuty);
+
 		boolean autorize = auditor.isRequest();
 
-		return autorize;
+		return autorize && duty.getJob().isFinalMode();
 	}
 
 	@Override

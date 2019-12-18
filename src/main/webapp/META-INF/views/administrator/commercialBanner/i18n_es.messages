@@ -19,3 +19,5 @@ administrator.commercialBanner.form.button.create = Crear
 
 administrator.commercialBanner.list.label.slogan = Eslogan:
 administrator.commercialBanner.list.label.url = Dirección:
+
+administrator.CommercialBanner.spamWords = No escribas palabras malsonantes!!!

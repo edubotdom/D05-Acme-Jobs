@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.commercialBanners.CommercialBanner;
+import acme.entities.customization.Customization;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -17,4 +18,7 @@ public interface AdministratorCommercialBannerRepository extends AbstractReposit
 
 	@Query("select c from CommercialBanner c")
 	Collection<CommercialBanner> findMany();
+
+	@Query("select c from Customization c")
+	Customization findCustomization();
 }

@@ -1439,42 +1439,42 @@
 	<bean name="duty2Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample2" />
 		<property name="description" value="Description of a duty2" />
-		<property name="timeAmount" value="20.75" />
+		<property name="timeAmount" value="40.00" />
 		<property name="job" ref="job2" />
 	</bean>
 
 	<bean name="duty3Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample3" />
 		<property name="description" value="Description of a duty3" />
-		<property name="timeAmount" value="9.75" />
+		<property name="timeAmount" value="40.00" />
 		<property name="job" ref="job2" />
 	</bean>
 
 	<bean name="duty4Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample4" />
 		<property name="description" value="Description of a duty4" />
-		<property name="timeAmount" value="5.25" />
+		<property name="timeAmount" value="10.00" />
 		<property name="job" ref="job2" />
 	</bean>
 
 	<bean name="duty5Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample5" />
 		<property name="description" value="Description of a duty5" />
-		<property name="timeAmount" value="10.23" />
+		<property name="timeAmount" value="10.00" />
 		<property name="job" ref="job2" />
 	</bean>
 
 	<bean name="duty6Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample6" />
 		<property name="description" value="Description of a duty6" />
-		<property name="timeAmount" value="10.1" />
+		<property name="timeAmount" value="30.00" />
 		<property name="job" ref="job3" />
 	</bean>
 
 	<bean name="duty7Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample5" />
 		<property name="description" value="Description of a duty7" />
-		<property name="timeAmount" value="70.27" />
+		<property name="timeAmount" value="70.00" />
 		<property name="job" ref="job3" />
 	</bean>
 
@@ -1488,56 +1488,56 @@
 	<bean name="duty9Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample9" />
 		<property name="description" value="Description of a duty9" />
-		<property name="timeAmount" value="20.44" />
+		<property name="timeAmount" value="20.00" />
 		<property name="job" ref="job5" />
 	</bean>
 
 	<bean name="duty10Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample10" />
 		<property name="description" value="Description of a duty10" />
-		<property name="timeAmount" value="10.23" />
+		<property name="timeAmount" value="10.00" />
 		<property name="job" ref="job5" />
 	</bean>
 
 	<bean name="duty11Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample11" />
 		<property name="description" value="Description of a duty11" />
-		<property name="timeAmount" value="81.23" />
+		<property name="timeAmount" value="70.00" />
 		<property name="job" ref="job5" />
 	</bean>
 
 	<bean name="duty12Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample12" />
 		<property name="description" value="Description of a duty12" />
-		<property name="timeAmount" value="78.23" />
+		<property name="timeAmount" value="60.00" />
 		<property name="job" ref="job6" />
 	</bean>
 
 	<bean name="duty13Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample13" />
 		<property name="description" value="Description of a duty13" />
-		<property name="timeAmount" value="11.68" />
+		<property name="timeAmount" value="20.00" />
 		<property name="job" ref="job6" />
 	</bean>
 
 	<bean name="duty14Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample14" />
 		<property name="description" value="Description of a duty14" />
-		<property name="timeAmount" value="21.23" />
+		<property name="timeAmount" value="20.00" />
 		<property name="job" ref="job6" />
 	</bean>
 
 	<bean name="duty15Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample15" />
 		<property name="description" value="Description of a duty15" />
-		<property name="timeAmount" value="78.43" />
+		<property name="timeAmount" value="50.00" />
 		<property name="job" ref="job7" />
 	</bean>
 
 	<bean name="duty16Duty" class="acme.entities.duties.Duty">
 		<property name="title" value="Duty title sample16" />
 		<property name="description" value="Description of a duty16" />
-		<property name="timeAmount" value="78.43" />
+		<property name="timeAmount" value="50.00" />
 		<property name="job" ref="job7" />
 	</bean>
 

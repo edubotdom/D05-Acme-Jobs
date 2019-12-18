@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.customization.Customization;
 import acme.entities.nonCommercialBanners.NonCommercialBanner;
 import acme.framework.repositories.AbstractRepository;
 
@@ -17,4 +18,7 @@ public interface AdministratorNonCommercialBannerRepository extends AbstractRepo
 
 	@Query("select nc from NonCommercialBanner nc")
 	Collection<NonCommercialBanner> findMany();
+
+	@Query("select c from Customization c")
+	Customization findCustomization();
 }

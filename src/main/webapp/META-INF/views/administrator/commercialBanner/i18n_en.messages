@@ -20,3 +20,5 @@ administrator.commercialBanner.form.button.create = Create
 
 administrator.commercialBanner.list.label.slogan = Slogan:
 administrator.commercialBanner.list.label.url = URL:
+
+administrator.CommercialBanner.spamWords = Do not write spam words!!!

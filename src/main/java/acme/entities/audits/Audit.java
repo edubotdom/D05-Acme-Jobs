@@ -24,7 +24,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "job_id"), @Index(columnList = "finalMode")
+	@Index(columnList = "finalMode")
 })
 public class Audit extends DomainEntity {
 

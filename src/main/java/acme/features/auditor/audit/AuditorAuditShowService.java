@@ -28,11 +28,16 @@ public class AuditorAuditShowService implements AbstractShowService<Auditor, Aud
 		Principal principal = request.getPrincipal();
 		int auditorId = principal.getAccountId();
 
+		int idAudit = request.getModel().getInteger("id");
+		Audit audit = this.repository.findOneAuditById(idAudit);
+
 		Auditor auditor = this.repository.findOneAuditorByUserAccountId(auditorId);
+
+		boolean draftPrincipal = !audit.isFinalMode() && !audit.getAuditor().equals(auditor);
 
 		boolean autorize = auditor.isRequest();
 
-		return autorize;
+		return autorize && audit.getJob().isFinalMode() && !draftPrincipal;
 	}
 
 	@Override
@@ -51,6 +56,9 @@ public class AuditorAuditShowService implements AbstractShowService<Auditor, Aud
 		int id;
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneAuditById(id);
+
+		boolean isPublished = result.isFinalMode();
+		model.setAttribute("isPublished", isPublished);
 
 		Auditor auditor = result.getAuditor();
 		model.setAttribute("associatedAuditor", auditor.getUserAccount().getUsername());

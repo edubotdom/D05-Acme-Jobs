@@ -27,11 +27,14 @@ public class AuditorJobShowService implements AbstractShowService<Auditor, Job> 
 		Principal principal = request.getPrincipal();
 		int auditorId = principal.getAccountId();
 
+		int jobId = request.getModel().getInteger("id");
+		Job job = this.repository.findOneJobById(jobId);
+
 		Auditor auditor = this.repository.findOneAuditorByUserAccountId(auditorId);
 
 		boolean autorize = auditor.isRequest();
 
-		return autorize;
+		return autorize && job.isFinalMode();
 	}
 
 	@Override
